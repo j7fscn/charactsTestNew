@@ -8,6 +8,7 @@ import travel from '@/views/characts/travel'
 import faceScore from '@/views/characts/faceScore'
 import watch from '@/views/characts/watch'
 import shoes from '@/views/characts/shoes'
+import skillStockings from '@/views/characts/skillStockings'
 import sleep from '@/views/characts/sleep'
 
 
@@ -59,6 +60,11 @@ export default new Router({
       path: '/shoes',
       name: 'shoes',
       component: shoes
+    },
+    {
+      path: '/skillStockings',
+      name: 'skillStockings',
+      component: skillStockings
     },
     {
       path: '/sleep',
