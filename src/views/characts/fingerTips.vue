@@ -1,0 +1,81 @@
+<template>
+<div class="fingerTips">
+     <div class="progress">
+        <div class="bar">
+            <div class="complete" style="width:2%"></div>
+        </div>
+        <span class="vl">2/20</span>
+    </div>
+    <p class="tit">伸出您的左右，看看您的手指甲有多长</p>
+    <div class="bottom">
+        <div class="cont" @click="goNext">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+    </div>
+</div>
+   
+</template>
+<style>
+.fingerTips .bottom {
+    position: fixed;
+    bottom: .08rem;
+    width: 100%;
+}
+.fingerTips .progress {
+    margin: .26rem .2rem 0 .2rem;
+    overflow: hidden;
+    text-align: right;
+}
+.fingerTips .tit {
+    font-size: .17rem;
+    margin: .15rem 0 .2rem .2rem;
+    padding: 0;
+    color: #222;
+    text-align: left;
+}
+.fingerTips .progress .bar {
+    float: left;
+    margin-right: .55rem;
+    display: inline-block;
+    height: .02rem;
+    width: 85%;
+    background: #eeeeee;
+    border-radius: .04rem;
+    margin-top: .04rem;
+}
+.fingerTips  .progress .bar .complete {
+    height: .02rem;
+    background: #43bb57;
+    border-radius: .04rem;
+}
+.fingerTips .progress .vl {
+    float: right;
+    color: #999;
+    font-size: .12rem;
+    margin-top: -.08rem;
+}
+.fingerTips .bottom .cont {
+    background: #43bb57;
+     margin: 0 .2rem .15rem .2rem;
+    color: #fff;
+    font-size: .17rem;
+    border-radius: .04rem;
+    line-height: .44rem;
+    height: .44rem;
+}
+
+</style>
+<script>
+export default {
+  data(){
+      return {
+          
+      }
+  },
+  methods:{
+      goNext(){
+            this.$router.push({ path:'./finger'});
+      }
+  }
+}
+</script>
+
+

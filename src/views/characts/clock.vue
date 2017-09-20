@@ -1,0 +1,41 @@
+<template>
+    <div>
+        <singleOneLine :mes="message"></singleOneLine>
+    </div>
+</template>
+<script>
+import singleOneLine from '../../components/singleOneLine'
+export default {
+    components: { singleOneLine },
+    data() {
+        return {
+            message: {
+                tit: '您左手呈现什么样的姿势呢',
+                dataList: [
+                    {
+                        key: 0,
+                        name: '连续多个闹钟',
+                        src: '3-1.png',
+                        choiced: false
+                    },
+                    {
+                        key: 1,
+                        name: '一个闹钟',
+                        src: '3-2.png',
+                        choiced: false
+                    },
+                   
+                ],
+                page: 1,
+                imgPackage: 'characts',
+                pageName:'clock',
+                nextPage:'./toothpaste'
+            }
+
+        }
+    },
+  
+}
+</script>
+
+

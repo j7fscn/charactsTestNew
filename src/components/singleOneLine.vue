@@ -2,7 +2,7 @@
     <div :class="mes.dataList.length>=4?'double sing':'one sing'">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+mes.page+'%'"></div>
+                <div class="complete" :style="'width:'+mes.page/50*100+'%'"></div>
             </div>
             <span class="vl">{{mes.page}}/20</span>
 
@@ -219,7 +219,7 @@ export default {
         },
         setValue(){
             localStorage.setItem(this.mes.pageName,this.checkedValue);
-             this.$router.push({ path: this.mes.nexPage});
+             this.$router.push({ path: this.mes.nextPage});
 
         }
     }
