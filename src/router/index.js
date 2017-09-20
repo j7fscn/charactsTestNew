@@ -4,6 +4,10 @@ import sex from '@/views/characts/sex'
 import fingerTips from '@/views/characts/fingerTips'
 import finger from '@/views/characts/finger'
 import clock from '@/views/characts/clock'
+import travel from '@/views/characts/travel'
+import faceScore from '@/views/characts/faceScore'
+import watch from '@/views/characts/watch'
+import shoes from '@/views/characts/shoes'
 import sleep from '@/views/characts/sleep'
 
 
@@ -35,6 +39,26 @@ export default new Router({
       path: '/finger',
       name: 'finger',
       component: finger
+    },
+    {
+      path: '/travel',
+      name: 'travel',
+      component: travel
+    },
+    {
+      path: '/faceScore',
+      name: 'faceScore',
+      component: faceScore
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      component: watch
+    },
+    {
+      path: '/shoes',
+      name: 'shoes',
+      component: shoes
     },
     {
       path: '/sleep',
