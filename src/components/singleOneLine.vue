@@ -26,7 +26,9 @@
             </li>
         </ul>
         <div class="bottom">
-            <div :class="checkedValue !=-1?'cont checked':'cont'">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            <div v-if="checkedValue==-1" class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            <div v-else class="cont checked" @click="setValue">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+         
         </div>
     </div>
 </template>
@@ -132,7 +134,7 @@
 /*progress*/
 
 .progress {
-    margin: .26rem .2rem 0 0rem;
+    margin: .26rem .2rem 0 .2rem;
     overflow: hidden;
     text-align: right;
 }
@@ -143,13 +145,15 @@
 }
 
 .progress .bar {
-    width: 80%;
+    float:left;
+    margin-right:.55rem;
     display: inline-block;
     height: .02rem;
+    width:85%;
     background: #eeeeee;
     border-radius: .04rem;
-    float: left;
-    margin-left: .2rem;
+
+    margin-top:.04rem;
 }
 
 .progress .bar .complete {
@@ -159,10 +163,10 @@
 }
 
 .progress .vl {
-    display: inline-block;
-    vertical-align: top;
+      float:right;
     color: #999;
     font-size: .12rem;
+    margin-top:-.08rem;
 }
 
 .sing .bottom {
@@ -211,6 +215,11 @@ export default {
                 }
 
             })
+
+        },
+        setValue(){
+            localStorage.setItem(this.mes.pageName,this.checkedValue);
+             this.$router.push({ path: this.mes.nexPage});
 
         }
     }

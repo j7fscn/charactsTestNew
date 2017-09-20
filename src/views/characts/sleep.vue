@@ -11,7 +11,8 @@ export default {
         return {
             message: {
                 tit: '您的睡觉姿势是',
-               dataList: [
+
+                dataList: [
                     {
                         key: 0,
                         name: '侧睡',
@@ -50,7 +51,9 @@ export default {
                     }
                 ],
                 page: 5,
-                imgPackage: 'characts'
+                imgPackage: 'characts',
+                pageName:'sleep',
+                nextPage:'#'
             }
 
         }
