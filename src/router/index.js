@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import start from '@/views/characts/start'
 import sex from '@/views/characts/sex'
 import fingerTips from '@/views/characts/fingerTips'
 import finger from '@/views/characts/finger'
@@ -17,9 +18,9 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'sex',
-      component: sex
+      path: '/start:userid',
+      name: 'start',
+      component: start
     },
     {
       path: '/sex',
