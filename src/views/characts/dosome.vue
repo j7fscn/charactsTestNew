@@ -11,6 +11,7 @@ export default {
         return {
             message: {
                 tit: '你做过哪些（多选）',
+                sex: localStorage.getItem('sex'),
                 dataList: [
                     {
                         key: 0,
@@ -58,11 +59,23 @@ export default {
                 page: 5,
                 imgPackage: 'characts',
                 pageName:'dosome',
-                nextPage:'./choiceColor',
+                nextPage:'',
             }
 
         }
     },
+    created(){
+        this.setData()
+    },
+    methods:{
+        setData(){
+             var sex = localStorage.getItem('sex')
+             if(sex==0){
+                 this.message.nextPage = './sport'
+             }
+             this.message.nextPage = './sportW'
+        }
+    }
   
 }
 </script>

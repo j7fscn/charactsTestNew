@@ -20,9 +20,11 @@ import knowMan from '@/views/characts/knowMan'
 import mustHave from '@/views/characts/mustHave'
 import trydo from '@/views/characts/try'
 import dosome from '@/views/characts/dosome'
+import sport from '@/views/characts/sport'
+import sportW from '@/views/characts/sportW'
 import choiceColor from '@/views/characts/choiceColor'
 import choiceDraw from '@/views/characts/choiceDraw'
-import choicePic from '@/views/characts/choiceDraw'
+import choicePic from '@/views/characts/choicePic'
 import result from '@/views/characts/result'
 
 import datePick from '@/views/characts/datePick'
@@ -131,6 +133,16 @@ export default new Router({
       path: '/dosome',
       name: 'dosome',
       component: dosome
+    },
+    {
+      path: '/sport',
+      name: 'sport',
+      component: sport
+    },
+    {
+      path: '/sportW',
+      name: 'sportW',
+      component: sportW
     },
     {
       path: '/choiceColor',

@@ -22,26 +22,26 @@ export default {
                     {
                         key: 1,
                         name: '',
-                        src: '13-2.png',
+                        src: '13-1.png',
                         choiced: false,
                         score:3
                     },
                     {
                         key: 2,
                         name: '',
-                        src: '13-3.png',
+                        src: '13-1.png',
                         choiced: false,
                         score:4
                     },
                     {
                         key: 3,
                         name: '',
-                        src: '13-4-1png',
+                        src: '13-1.png',
                         choiced: false,
                         score:4
                     }
                 ],
-                page: 20,
+                page: 11,
                 imgPackage: 'characts',
                 pageName:'choicePic',
                 nextPage:'./result',

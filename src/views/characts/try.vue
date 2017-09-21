@@ -1,16 +1,50 @@
 <template>
-    <div>
-        <mult-select :mes="message"></mult-select>
+    <div class="mulSelect">
+        <div class="progress">
+            <div class="bar">
+                <div class="complete" :style="'width:'+message.page/50*100+'%'"></div>
+            </div>
+            <span class="vl">{{message.page}}/20</span>
+
+        </div>
+        <p class="tit">{{message.tit}}</p>
+        <ul>
+            <li v-for="(item,index) in message.dataList" @click="choice($event,index)">
+                <div class="cont">
+                    <div class="imgWrap">
+                        <img :src="'./static/images/'+message.imgPackage+'/'+item.src">
+                        <div class="mask" v-if="item.choiced">
+                            <div class="shadow"></div>
+                            <div class="checked">
+                                <img src="static/images/checked.png">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="memo">{{item.name}}</p>
+
+                </div>
+            </li>
+        </ul>
+        <div class="bottom">
+             <div v-if="score>0 || checkedValue ==1 "  class="cont checked" @click="goNextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            <div v-else class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+           
+         
+        </div>
     </div>
 </template>
+
 <script>
-import multSelect from '../../components/multSelect'
+
 export default {
-    components: { multSelect },
+    props: ['mes'],
     data() {
         return {
+            score:0,
+            checkedValue:-1,
             message: {
                 tit: '你想尝试什么（多选）',
+                
                 dataList: [
                     {
                         key: 0,
@@ -55,16 +89,214 @@ export default {
                         score:0
                     }
                 ],
-                page: 5,
+                page: 10,
                 imgPackage: 'characts',
                 pageName:'try',
-                nextPage:'./doSome',
+                nextPage:'./dosome'
             }
-
         }
     },
-  
+    methods: {
+        choice(e, index) {
+            if (this.message.dataList[index].choiced) {
+                if(index != 5){
+                     this.message.dataList[5].choiced = false   
+                     this.checkedValue=-1
+                }
+                this.message.dataList[index].choiced = false
+                this.score-=this.message.dataList[index].score
+                // return
+            }
+            else{
+                if(index != 5){
+                    this.message.dataList[5].choiced = false
+                    this.checkedValue=-1
+                }
+                this.message.dataList[index].choiced = true
+                this.score+=this.message.dataList[index].score
+            }
+            if(this.message.dataList[index].choiced && index == 5 ){
+                   this.message.dataList.forEach(function(msg, index){
+                        msg.choiced = false
+                    })
+                this.message.dataList[index].choiced = true
+                this.score = 0  
+                this.checkedValue=1
+            }else{
+                this.checkedValue=-1
+            }
+        },
+        goNextPage(){
+            localStorage.setItem(this.message.pageName,this.score)
+            this.$router.push({ path: this.message.nextPage})
+        }
+    }
+
 }
 </script>
+
+<style scoped>
+/*common*/
+
+.mulSelect ul {
+    margin: 0 .2rem;
+}
+
+.mulSelect ul,
+.mulSelect li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mulSelect  li {
+    float: left;
+    width: 50%;
+}
+.mulSelect .imgWrap {
+    position: relative;
+}
+
+.mulSelect .imgWrap img {
+    width: 100%;
+    border: #eee 1px solid;
+    box-sizing: border-box;
+    display: block;
+    border-radius: .04rem;
+}
+
+.mulSelect .tit {
+    font-size: .17rem;
+    margin: .15rem 0 .2rem .2rem;
+    padding:0;
+    color: #222;
+    text-align: left;
+}
+
+
+
+/*common*/
+
+
+/*mask*/
+
+.mulSelect .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 22;
+    top: 0;
+    border-radius: .04rem;
+}
+
+.mulSelect .mask .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .14;
+}
+
+.mulSelect .mask .checked {
+    position: absolute;
+    right: 0.15rem;
+    bottom: .1rem;
+    width: .2rem;
+    z-index: 99;
+    opacity: 1;
+}
+
+.mulSelect .mask .checked img {
+    width: 100%;
+    border: none;
+}
+
+
+
+/*mask*/
+
+
+/*double*/
+
+.sing.double li {
+    float: left;
+    width: 50%;
+}
+
+.mulSelect ul {
+    margin: 0 .1rem;
+}
+
+.mulSelect ul li .cont {
+    margin: 0 .1rem;
+}
+
+
+
+
+/*double*/
+
+
+/*progress*/
+
+.progress {
+    margin: .26rem .2rem 0 .2rem;
+    overflow: hidden;
+    text-align: right;
+}
+
+.mulSelect .memo {
+    margin: .06rem 0 .15rem 0;
+    color: #666;
+}
+
+.progress .bar {
+    float:left;
+    margin-right:.55rem;
+    display: inline-block;
+    height: .02rem;
+    width:85%;
+    background: #eeeeee;
+    border-radius: .04rem;
+
+    margin-top:.04rem;
+}
+
+.progress .bar .complete {
+    height: .02rem;
+    background: #43bb57;
+    border-radius: .04rem;
+}
+
+.progress .vl {
+      float:right;
+    color: #999;
+    font-size: .12rem;
+    margin-top:-.08rem;
+}
+
+.mulSelect .bottom {
+    position: fixed;
+    bottom: .08rem;
+    width: 100%;
+}
+
+.bottom .cont {
+    margin: 0 .2rem .15rem .2rem;
+    color: #fff;
+    font-size: .17rem;
+    border-radius: .04rem;
+    line-height: .44rem;
+    height: .44rem;
+    background: #9c9c9c;
+}
+
+.bottom .cont.checked {
+    background: #43bb57;
+}
+</style>
+
+
+
 
 
