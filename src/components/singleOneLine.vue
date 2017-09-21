@@ -230,6 +230,7 @@ export default {
         },
         getUserData () {
             this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=123').then(json => {
+        
   
             }).catch(err => {
             })
@@ -249,9 +250,6 @@ export default {
                 str+=o+'='+json[o]+'&'
             }
            str.substring(0,str.length-1)+"&"+this.currentKey+'='+this.checkedValue;
-
-            
-
         }
     }
 
