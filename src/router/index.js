@@ -12,6 +12,8 @@ import shoes from '@/views/characts/shoes'
 import skillStockings from '@/views/characts/skillStockings'
 import sleep from '@/views/characts/sleep'
 
+import datePick from '@/views/characts/datePick'
+
 
 Vue.use(Router)
 

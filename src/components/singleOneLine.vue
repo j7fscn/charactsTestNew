@@ -28,7 +28,7 @@
         <div class="bottom">
             <div v-if="checkedValue==-1" class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             <div v-else class="cont checked" @click="setValue">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-         
+
         </div>
     </div>
 </template>
@@ -62,10 +62,11 @@
 .sing .tit {
     font-size: .17rem;
     margin: .15rem 0 .2rem .2rem;
-    padding:0;
+    padding: 0;
     color: #222;
     text-align: left;
 }
+
 
 
 
@@ -107,6 +108,7 @@
 
 
 
+
 /*mask*/
 
 
@@ -128,6 +130,7 @@
 
 
 
+
 /*double*/
 
 
@@ -145,15 +148,15 @@
 }
 
 .progress .bar {
-    float:left;
-    margin-right:.55rem;
+    float: left;
+    margin-right: .55rem;
     display: inline-block;
     height: .02rem;
-    width:85%;
+    width: 85%;
     background: #eeeeee;
     border-radius: .04rem;
 
-    margin-top:.04rem;
+    margin-top: .04rem;
 }
 
 .progress .bar .complete {
@@ -163,10 +166,10 @@
 }
 
 .progress .vl {
-      float:right;
+    float: right;
     color: #999;
     font-size: .12rem;
-    margin-top:-.08rem;
+    margin-top: -.08rem;
 }
 
 .sing .bottom {
@@ -195,12 +198,18 @@ export default {
     props: ['mes'],
     data() {
         return {
+            dataJson:{},
+            currentKey:'',
             checkedValue: -1,
         }
     },
+    mounted(){
+        this.getUserData();
+        this.currentKey=this.mes.pageName;
+       
+    },
     methods: {
         choice(e, index) {
-
             if (this.mes.dataList[index].choiced) {
                 this.mes.dataList[index].choiced = false;
                 this.checkedValue = -1;
@@ -213,13 +222,35 @@ export default {
                 if (i != index) {
                     k.choiced = false;
                 }
-
             })
-
         },
-        setValue(){
-            localStorage.setItem(this.mes.pageName,this.checkedValue);
-             this.$router.push({ path: this.mes.nextPage});
+        setValue() {
+            this.getUserData();
+            this.$router.push({ path: this.mes.nextPage });
+        },
+        getUserData () {
+            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=123').then(json => {
+  
+            }).catch(err => {
+            })
+        },
+        setUserData () {
+
+               var url='http://192.168.2.240:8999/personalityTest/getPersonalityTestResult'+this.setJsonToString();
+                this.$jsonp(url).then(json => {
+
+                }).catch(err => {
+                console.log(err)
+                })
+        },
+        setJsonToString(){
+            var str='?';
+            for(var o in json){
+                str+=o+'='+json[o]+'&'
+            }
+           str.substring(0,str.length-1)+"&"+this.currentKey+'='+this.checkedValue;
+
+            
 
         }
     }
