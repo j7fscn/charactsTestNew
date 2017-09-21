@@ -151,6 +151,11 @@ export default new Router({
       path: '/result',
       name: 'result',
       component: result
+    },
+    {
+      path: '/datePick',
+      name: 'datePick',
+      component: datePick
     }
        
   ]
