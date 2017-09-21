@@ -4,7 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './common/css/base.css'
-
+import VueJsonp from 'vue-jsonp'
+Vue.use(VueJsonp)
+import { DatetimePicker } from 'mint-ui';
+Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -27,6 +27,8 @@ import choiceDraw from '@/views/characts/choiceDraw'
 import choicePic from '@/views/characts/choicePic'
 import result from '@/views/characts/result'
 
+import datePick from '@/views/characts/datePick'
+
 
 Vue.use(Router)
 
@@ -161,6 +163,11 @@ export default new Router({
       path: '/result',
       name: 'result',
       component: result
+    },
+    {
+      path: '/datePick',
+      name: 'datePick',
+      component: datePick
     }
        
   ]
