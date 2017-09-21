@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             message: {
-                tit: '您左手呈现什么样的姿势呢',
+                tit: '你的手机闹钟是哪种形式',
                 dataList: [
                     {
                         key: 0,

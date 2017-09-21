@@ -15,13 +15,13 @@ export default {
                     {
                         key: 0,
                         name: '智能手表',
-                        src: '9-1.png',
+                        src: '9-1-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
                         name: '机械、石英表',
-                        src: '9-2.png',
+                        src: '9-2-1.png',
                         choiced: false
                     },
                    
@@ -29,7 +29,7 @@ export default {
                 page: 1,
                 imgPackage: 'characts',
                 pageName:'watch',
-                nextPage:'./toothpaste'
+                nextPage:'./hairstyle'
             }
 
         }

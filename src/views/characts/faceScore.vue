@@ -16,13 +16,13 @@ export default {
                     {
                         key: 0,
                         name: '',
-                        src: '7-1.png',
+                        src: '8-1-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
                         name: '',
-                        src: '7-2.png',
+                        src: '8-2-1.png',
                         choiced: false
                     },
 

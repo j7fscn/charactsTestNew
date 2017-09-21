@@ -15,21 +15,21 @@ export default {
                     {
                         key: 0,
                         name: '清爽干练',
-                        src: '9-1.png',
+                        src: '10-1-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
                         name: '花样帅气',
-                        src: '9-2.png',
+                        src: '10-2-1.png',
                         choiced: false
                     },
                    
                 ],
                 page: 1,
                 imgPackage: 'characts',
-                pageName:'shoes',
-                nextPage:'./toothpaste'
+                pageName:'hairStyle',
+                nextPage:'./sleep'
             }
 
         }

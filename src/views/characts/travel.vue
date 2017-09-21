@@ -15,13 +15,13 @@ export default {
                     {
                         key: 0,
                         name: '自然风光旅行',
-                        src: '6-1.png',
+                        src: '7-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
                         name: '城市旅行',
-                        src: '6-2.png',
+                        src: '7-2.png',
                         choiced: false
                     },
                    

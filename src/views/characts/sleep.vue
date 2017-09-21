@@ -15,45 +15,45 @@ export default {
                 dataList: [
                     {
                         key: 0,
-                        name: '侧睡',
-                        src: '11_1.png',
+                        name: '侧着睡',
+                        src: '11-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
-                        name: '蜷缩',
-                        src: '11_1.png',
+                        name: '蜷缩着睡',
+                        src: '11-1.png',
                         choiced: false
                     },
                     {
                         key: 2,
-                        name: '趴着',
-                        src: '11_3.png',
+                        name: '趴着睡',
+                        src: '11-3.png',
                         choiced: false
                     },
                     {
                         key: 3,
-                        name: '侧睡',
-                        src: '11_4.png',
+                        name: '仰着睡',
+                        src: '11-4.png',
                         choiced: false
                     },
                     {
                         key: 4,
-                        name: '侧睡',
-                        src: '11_5.png',
+                        name: '端正仰着睡',
+                        src: '11-5.png',
                         choiced: false
                     },
                     {
                         key: 5,
-                        name: '侧睡',
-                        src: '11_6.png',
+                        name: '侧趴着睡',
+                        src: '11-6.png',
                         choiced: false
                     }
                 ],
                 page: 5,
                 imgPackage: 'characts',
                 pageName:'sleep',
-                nextPage:'#'
+                nextPage:'./unbear'
             }
 
         }

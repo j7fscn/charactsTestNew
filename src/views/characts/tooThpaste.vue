@@ -38,7 +38,7 @@ export default {
                     }
                    
                 ],
-                page: 1,
+                page: 5,
                 imgPackage: 'characts',
                 pageName:'tooThpaste',
                 nextPage:'./orderFood'
