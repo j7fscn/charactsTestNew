@@ -11,6 +11,19 @@ import watch from '@/views/characts/watch'
 import shoes from '@/views/characts/shoes'
 import skillStockings from '@/views/characts/skillStockings'
 import sleep from '@/views/characts/sleep'
+import toothpaste from '@/views/characts/toothpaste'
+import orderFood from '@/views/characts/orderFood'
+import camera from '@/views/characts/camera'
+import hairStyle from '@/views/characts/hairStyle'
+import unbear from '@/views/characts/unbear'
+import knowMan from '@/views/characts/knowMan'
+import mustHave from '@/views/characts/mustHave'
+import trydo from '@/views/characts/try'
+import dosome from '@/views/characts/dosome'
+import choiceColor from '@/views/characts/choiceColor'
+import choiceDraw from '@/views/characts/choiceDraw'
+import choicePic from '@/views/characts/choiceDraw'
+import result from '@/views/characts/result'
 
 import datePick from '@/views/characts/datePick'
 
@@ -73,7 +86,72 @@ export default new Router({
       path: '/sleep',
       name: 'sleep',
       component: sleep
+    },
+    {
+      path: '/toothpaste',
+      name: 'toothpaste',
+      component: toothpaste
+    },
+    {
+      path: '/orderFood',
+      name: 'orderFood',
+      component: orderFood
+    },
+    {
+      path: '/camera',
+      name: 'camera',
+      component: camera
+    },
+    {
+      path: '/hairStyle',
+      name: 'hairStyle',
+      component: hairStyle
+    },
+    {
+      path: '/unbear',
+      name: 'unbear',
+      component: unbear
+    },
+    {
+      path: '/knowMan',
+      name: 'knowMan',
+      component: knowMan
+    },
+    {
+      path: '/mustHave',
+      name: 'mustHave',
+      component: mustHave
+    },
+    {
+      path: '/try',
+      name: 'try',
+      component: trydo
+    },
+    {
+      path: '/dosome',
+      name: 'dosome',
+      component: dosome
+    },
+    {
+      path: '/choiceColor',
+      name: 'choiceColor',
+      component: choiceColor
+    },
+    {
+      path: '/choiceDraw',
+      name: 'choiceDraw',
+      component: choiceDraw
+    },
+    {
+      path: '/choicePic',
+      name: 'choicePic',
+      component: choicePic
+    },
+    {
+      path: '/result',
+      name: 'result',
+      component: result
     }
-   
+       
   ]
 })

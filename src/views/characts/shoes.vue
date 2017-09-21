@@ -28,8 +28,8 @@ export default {
                 ],
                 page: 1,
                 imgPackage: 'characts',
-                pageName:'clock',
-                nextPage:'./silkStockings'
+                pageName:'shoes',
+                nextPage:'./skillStockings'
             }
 
         }
