@@ -31,6 +31,8 @@ import sportW from '@/views/characts/sportW'
 import choiceColor from '@/views/characts/choiceColor'
 import choiceDraw from '@/views/characts/choiceDraw'
 import choicePic from '@/views/characts/choicePic'
+
+import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
 import result from '@/views/characts/result'
 
 
@@ -194,6 +196,11 @@ export default new Router({
       path: '/datePick',
       name: 'datePick',
       component: datePick
+    },
+    {
+      path: '/likeStyle',
+      name: 'likeStyle',
+      component: likeStyle
     }
        
   ]

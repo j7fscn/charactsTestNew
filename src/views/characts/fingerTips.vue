@@ -81,7 +81,7 @@ export default {
         goNext() {
             setTimeout(()=> {
                 this.$router.push({ path: './finger' });
-            }, 5000)
+            }, 1000)
         }
     }
 }

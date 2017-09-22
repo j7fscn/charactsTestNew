@@ -33,10 +33,6 @@
     </div>
 </template>
 <style>
-
-
-
-
 /*mask*/
 
 
@@ -59,14 +55,8 @@
 
 
 
+
 /*double*/
-
-
-
-
-
-
-
 </style>
 <script>
 
@@ -74,15 +64,19 @@ export default {
     props: ['mes'],
     data() {
         return {
-            dataJson:{},
-            currentKey:'',
+            dataJson: {},
+            currentKey: '',
             checkedValue: -1,
         }
     },
-    mounted(){
+    created() {
         this.getUserData();
-        this.currentKey=this.mes.pageName;
-       
+        this.setUserData();
+    },
+    mounted() {
+
+        this.currentKey = this.mes.pageName;
+
     },
     methods: {
         choice(e, index) {
@@ -104,28 +98,29 @@ export default {
             this.getUserData();
             this.$router.push({ path: this.mes.nextPage });
         },
-        getUserData () {
-            this.$jsonp('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=123').then(json => {
-        
-  
-            }).catch(err => {
+        getUserData() {
+
+            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
+                this.dataJson=json;
+           }).catch(err => {
             })
         },
-        setUserData () {
+        setUserData() {
+            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult' + this.setJsonToString();
+            this.$jsonp(url).then(json => {
 
-               var url='http://120.27.215.62:8999/personalityTest/getPersonalityTestResult'+this.setJsonToString();
-                this.$jsonp(url).then(json => {
-
-                }).catch(err => {
+            }).catch(err => {
                 console.log(err)
-                })
+            })
         },
-        setJsonToString(){
-            var str='?';
-            for(var o in json){
-                str+=o+'='+json[o]+'&'
+        setJsonToString() {
+            var json = this.dataJson;
+            var str = '?';
+            for (var o in json) {
+                str += o + '=' + json[o] + '&'
             }
-           str.substring(0,str.length-1)+"&"+this.currentKey+'='+this.checkedValue;
+            str = str.substring(0, str.length - 1) + this.currentKey + '=' + this.checkedValue;
+            return str;
         }
     }
 
