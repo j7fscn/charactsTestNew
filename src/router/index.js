@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import start from '@/views/characts/start'
 import shakeFirst from '@/views/shakeSmart/shakeFirst'
 import shakeSecond from '@/views/shakeSmart/shakeSecond'
+import shakeThird from '@/views/shakeSmart/shakeThird'
 import datePick from '@/views/characts/datePick' //出生
 import houseArea from '@/views/characts/houseArea' //户型图
 
@@ -48,6 +49,11 @@ export default new Router({
       path: '/shakeFirst',
       name: 'shakeFirst',
       component: shakeFirst
+    },
+    {
+      path: '/shakeThird',
+      name: 'shakeThird',
+      component: shakeThird
     },
     {
       path: '/shakeSecond',
