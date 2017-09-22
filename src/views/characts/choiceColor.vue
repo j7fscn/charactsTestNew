@@ -15,42 +15,42 @@ export default {
                     {
                         key: 0,
                         name: '',
-                        src: '13-1.png',
+                        src: '18-1.png',
                         choiced: false,
                         score:4,
                     },
                     {
                         key: 1,
                         name: '',
-                        src: '13-2.png',
+                        src: '18-2.png',
                         choiced: false,
                         score:3
                     },
                     {
                         key: 2,
                         name: '',
-                        src: '13-3.png',
+                        src: '18-3.png',
                         choiced: false,
                         score:4
                     },
                     {
                         key: 3,
                         name: '',
-                        src: '13-4-1png',
+                        src: '18-4.png',
                         choiced: false,
                         score:4
                     },
                     {
                         key: 4,
                         name: '',
-                        src: '13-4.png',
+                        src: '18-5.png',
                         choiced: false,
                         score:4
                     },
                     {
                         key: 5,
                         name: '',
-                        src: '13-6.png',
+                        src: '18-6.png',
                         choiced: false,
                         score:5
                     }
