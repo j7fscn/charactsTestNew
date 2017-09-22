@@ -28,7 +28,7 @@ export default {
                     },
                     {
                         key: 2,
-                        name: '每周都要和伴侣有约会',
+                        name: '每周都要和伴侣约会',
                         src: '14-3.png',
                         choiced: false,
                         score:4

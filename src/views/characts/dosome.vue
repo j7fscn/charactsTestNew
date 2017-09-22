@@ -22,14 +22,14 @@ export default {
                     },
                     {
                         key: 1,
-                        name: '用自己的头像做表情包',
+                        name: '用自己头像做表情包',
                         src: '16-2.png',
                         choiced: false,
                         score:5
                     },
                     {
                         key: 2,
-                        name: '给自己发的朋友圈点赞',
+                        name: '自己发的朋友圈点赞',
                         src: '16-3.png',
                         choiced: false,
                         score:3

@@ -14,7 +14,7 @@ export default {
                 dataList: [
                     {
                         key: 0,
-                        name: '看点评APP或者朋友推荐',
+                        name: '看点评或者朋友推荐',
                         src: '5-1.png',
                         choiced: false
                     },
