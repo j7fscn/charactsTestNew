@@ -33,78 +33,6 @@
     </div>
 </template>
 <style>
-/*common*/
-
-.sing.one ul {
-    margin: 0 .2rem;
-}
-
-.sing ul,
-.sing li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-
-.sing .imgWrap {
-    position: relative;
-}
-
-.sing .imgWrap img {
-    width: 100%;
-    border: #eee 1px solid;
-    box-sizing: border-box;
-    display: block;
-    border-radius: .04rem;
-}
-
-.sing .tit {
-    font-size: .17rem;
-    margin: .15rem 0 .2rem .2rem;
-    padding: 0;
-    color: #222;
-    text-align: left;
-}
-
-
-
-
-/*common*/
-
-
-/*mask*/
-
-.sing .mask {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 22;
-    top: 0;
-    border-radius: .04rem;
-}
-
-.sing .mask .shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: .14;
-}
-
-.sing .mask .checked {
-    position: absolute;
-    right: 0.15rem;
-    bottom: .1rem;
-    width: .2rem;
-    z-index: 99;
-    opacity: 1;
-}
-
-.sing .mask .checked img {
-    width: 100%;
-    border: none;
-}
 
 
 
@@ -134,18 +62,7 @@
 /*double*/
 
 
-/*progress*/
 
-.progress {
-    margin: .26rem .2rem 0 .2rem;
-    overflow: hidden;
-    text-align: right;
-}
-
-.sing .memo {
-    margin: .06rem 0 .15rem 0;
-    color: #666;
-}
 
 
 

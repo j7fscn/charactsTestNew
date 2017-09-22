@@ -1,5 +1,5 @@
 <template>
-    <div class="mulSelect">
+    <div class="double sing">
         <div class="progress">
             <div class="bar">
                 <div class="complete" :style="'width:'+mes.page/50*100+'%'"></div>
@@ -34,46 +34,7 @@
     </div>
 </template>
 <style>
-/*common*/
 
-.mulSelect ul {
-    margin: 0 .2rem;
-}
-
-.mulSelect ul,
-.mulSelect li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.mulSelect  li {
-    float: left;
-    width: 50%;
-}
-.mulSelect .imgWrap {
-    position: relative;
-}
-
-.mulSelect .imgWrap img {
-    width: 100%;
-    border: #eee 1px solid;
-    box-sizing: border-box;
-    display: block;
-    border-radius: .04rem;
-}
-
-.mulSelect .tit {
-    font-size: .17rem;
-    margin: .15rem 0 .2rem .2rem;
-    padding:0;
-    color: #222;
-    text-align: left;
-}
-
-
-
-/*common*/
 
 
 /*mask*/

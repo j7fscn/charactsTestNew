@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import start from '@/views/characts/start'
+import shakeFirst from '@/views/shakeSmart/shakeFirst'
+import shakeSecond from '@/views/shakeSmart/shakeSecond'
 import sex from '@/views/characts/sex'
 import fingerTips from '@/views/characts/fingerTips'
 import finger from '@/views/characts/finger'
@@ -38,6 +40,16 @@ export default new Router({
       path: '/start:userid',
       name: 'start',
       component: start
+    },
+    {
+      path: '/shakeFirst',
+      name: 'shakeFirst',
+      component: shakeFirst
+    },
+    {
+      path: '/shakeSecond',
+      name: 'shakeSecond',
+      component: shakeSecond
     },
     {
       path: '/sex',
