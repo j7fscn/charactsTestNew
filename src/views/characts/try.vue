@@ -89,7 +89,7 @@ export default {
                         score:0
                     }
                 ],
-                page: 10,
+                page: 16,
                 imgPackage: 'characts',
                 pageName:'try',
                 nextPage:'./dosome'

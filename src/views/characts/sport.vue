@@ -56,7 +56,7 @@ export default {
                     },
                    
                 ],
-                page: 10,
+                page: 18,
                 imgPackage: 'characts',
                 pageName:'sport',
                 nextPage:'./choiceColor'

@@ -55,7 +55,7 @@ export default {
                         score:5
                     }
                 ],
-                page: 5,
+                page: 19,
                 imgPackage: 'characts',
                 pageName:'choiceColor',
                 nextPage:'./choiceDraw',

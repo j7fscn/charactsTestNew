@@ -15,18 +15,18 @@ export default {
                     {
                         key: 0,
                         name: '高跟鞋',
-                        src: '10-1.png',
+                        src: '9-1-2.png',
                         choiced: false
                     },
                     {
                         key: 1,
                         name: '平底鞋',
-                        src: '10-2.png',
+                        src: '9-2-2.png',
                         choiced: false
                     },
                    
                 ],
-                page: 1,
+                page: 10,
                 imgPackage: 'characts',
                 pageName:'shoes',
                 nextPage:'./skillStockings'

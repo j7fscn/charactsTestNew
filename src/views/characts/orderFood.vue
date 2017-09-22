@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 1,
+                page: 6,
                 imgPackage: 'characts',
                 pageName:'orderFood',
                 nextPage:'./camera'

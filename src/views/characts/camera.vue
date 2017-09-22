@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 1,
+                page: 7,
                 imgPackage: 'characts',
                 pageName:'camera',
                 nextPage:'./travel'

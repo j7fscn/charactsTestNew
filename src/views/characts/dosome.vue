@@ -56,7 +56,7 @@ export default {
                         score:5
                     }
                 ],
-                page: 5,
+                page: 17,
                 imgPackage: 'characts',
                 pageName:'dosome',
                 nextPage:'',
@@ -71,9 +71,9 @@ export default {
         setData(){
              var sex = localStorage.getItem('sex')
              if(sex==0){
-                 this.message.nextPage = './sport'
+                 this.message.nextPage = './sportW'
              }
-             this.message.nextPage = './sportW'
+             this.message.nextPage = './sport'
         }
     }
   
