@@ -9,6 +9,7 @@ Vue.use(VueJsonp)
 import { DatetimePicker } from 'mint-ui';
 Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.config.productionTip = false
+import 'mint-ui/lib/style.css';
 
 /* eslint-disable no-new */
 new Vue({

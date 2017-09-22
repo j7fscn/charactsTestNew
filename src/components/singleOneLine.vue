@@ -147,50 +147,9 @@
     color: #666;
 }
 
-.progress .bar {
-    float: left;
-    margin-right: .55rem;
-    display: inline-block;
-    height: .02rem;
-    width: 85%;
-    background: #eeeeee;
-    border-radius: .04rem;
 
-    margin-top: .04rem;
-}
 
-.progress .bar .complete {
-    height: .02rem;
-    background: #43bb57;
-    border-radius: .04rem;
-}
 
-.progress .vl {
-    float: right;
-    color: #999;
-    font-size: .12rem;
-    margin-top: -.08rem;
-}
-
-.sing .bottom {
-    position: fixed;
-    bottom: .08rem;
-    width: 100%;
-}
-
-.bottom .cont {
-    margin: 0 .2rem .15rem .2rem;
-    color: #fff;
-    font-size: .17rem;
-    border-radius: .04rem;
-    line-height: .44rem;
-    height: .44rem;
-    background: #9c9c9c;
-}
-
-.bottom .cont.checked {
-    background: #43bb57;
-}
 </style>
 <script>
 
