@@ -6,8 +6,9 @@ import router from './router'
 import './common/css/base.css'
 import VueJsonp from 'vue-jsonp'
 Vue.use(VueJsonp)
-import { DatetimePicker } from 'mint-ui';
+import { DatetimePicker,Lazyload } from 'mint-ui';
 Vue.component(DatetimePicker.name, DatetimePicker);
+Vue.use(Lazyload);
 Vue.config.productionTip = false
 import 'mint-ui/lib/style.css';
 

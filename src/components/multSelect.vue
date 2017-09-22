@@ -12,11 +12,11 @@
             <li v-for="(item,index) in mes.dataList" @click="choice($event,index)">
                 <div class="cont">
                     <div class="imgWrap">
-                        <img :src="'./static/images/'+mes.imgPackage+'/'+item.src">
+                        <img v-lazy="'./static/images/'+mes.imgPackage+'/'+item.src">
                         <div class="mask" v-if="item.choiced">
                             <div class="shadow"></div>
                             <div class="checked">
-                                <img src="static/images/checked.png">
+                                <img lazy src="static/images/checked.png">
                             </div>
                         </div>
                     </div>
