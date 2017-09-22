@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import start from '@/views/characts/start'
 import shakeFirst from '@/views/shakeSmart/shakeFirst'
 import shakeSecond from '@/views/shakeSmart/shakeSecond'
+import datePick from '@/views/characts/datePick' //出生
+import houseArea from '@/views/characts/houseArea' //户型图
+
 import sex from '@/views/characts/sex'
 import fingerTips from '@/views/characts/fingerTips'
 import finger from '@/views/characts/finger'
@@ -29,7 +32,7 @@ import choiceDraw from '@/views/characts/choiceDraw'
 import choicePic from '@/views/characts/choicePic'
 import result from '@/views/characts/result'
 
-import datePick from '@/views/characts/datePick'
+
 
 
 Vue.use(Router)
@@ -50,6 +53,11 @@ export default new Router({
       path: '/shakeSecond',
       name: 'shakeSecond',
       component: shakeSecond
+    },
+    {
+      path: '/houseArea',
+      name: 'houseArea',
+      component: houseArea
     },
     {
       path: '/sex',
