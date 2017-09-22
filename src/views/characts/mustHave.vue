@@ -55,7 +55,7 @@ export default {
                         score:5
                     }
                 ],
-                page: 5,
+                page: 15,
                 imgPackage: 'characts',
                 pageName:'mustHave',
                 nextPage:'./try',

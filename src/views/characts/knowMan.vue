@@ -90,7 +90,7 @@ export default {
                     },
                    
                 ],
-                page: 10,
+                page: 14,
                 imgPackage: 'characts',
                 pageName:'knowMan',
                 nextPage:'./mustHave'

@@ -27,7 +27,7 @@ export default {
                     },
 
                 ],
-                page: 1,
+                page: 9,
                 imgPackage: 'characts',
                 pageName: 'clock',
                 nextPage: ''

@@ -50,7 +50,7 @@ export default {
                         choiced: false
                     }
                 ],
-                page: 5,
+                page: 12,
                 imgPackage: 'characts',
                 pageName:'sleep',
                 nextPage:'./unbear'

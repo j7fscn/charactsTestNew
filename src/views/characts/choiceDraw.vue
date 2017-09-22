@@ -41,7 +41,7 @@ export default {
                         score:4
                     }
                 ],
-                page: 5,
+                page: 20,
                 imgPackage: 'characts',
                 pageName:'choiceDraw',
                 nextPage:'./choicePic',
