@@ -29,7 +29,7 @@
 }
 
 .picker-item .picker-item {
-color:#999999;
+
 
 }
 .picker-item.picker-selected {
@@ -44,7 +44,7 @@ opacity: 1;
 
 }
 .page-datePick  .picker-items {
-  background: #ecf8ee;
+  background: #999999;
    margin: 0 .2rem;
 }
 

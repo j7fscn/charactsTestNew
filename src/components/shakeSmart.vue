@@ -1,5 +1,5 @@
 <template>
-    <div :class="mes.dataList.length>=4?'double sing':'one sing'">
+    <div >
         <div class="progress">
             <div class="bar">
                 <div class="complete" :style="'width:'+mes.page/50*100+'%'"></div>
@@ -13,12 +13,7 @@
                 <div class="cont">
                     <div class="imgWrap">
                         <img :src="'./static/images/'+mes.imgPackage+'/'+item.src">
-                        <div class="mask" v-if="item.choiced">
-                            <div class="shadow"></div>
-                            <div class="checked">
-                                <img src="static/images/checked.png">
-                            </div>
-                        </div>
+                      
                     </div>
                     <p class="memo">{{item.name}}</p>
 
@@ -26,8 +21,8 @@
             </li>
         </ul>
         <div class="bottom">
-            <div v-if="checkedValue==-1" class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-            <div v-else class="cont checked" @click="setValue">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+        
+            <div  class="cont checked" @click="nextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 
         </div>
     </div>
@@ -156,60 +151,16 @@
 export default {
     props: ['mes'],
     data() {
-        return {
-            dataJson:{},
-            currentKey:'',
-            checkedValue: -1,
-        }
+      
     },
     mounted(){
-        this.getUserData();
-        this.currentKey=this.mes.pageName;
+       
        
     },
     methods: {
-        choice(e, index) {
-            if (this.mes.dataList[index].choiced) {
-                this.mes.dataList[index].choiced = false;
-                this.checkedValue = -1;
-                return
-
-            }
-            this.checkedValue = this.mes.dataList[index].key;
-            this.mes.dataList[index].choiced = true;
-            this.mes.dataList.forEach(function(k, i) {
-                if (i != index) {
-                    k.choiced = false;
-                }
-            })
-        },
-        setValue() {
-            this.getUserData();
-            this.$router.push({ path: this.mes.nextPage });
-        },
-        getUserData () {
-            this.$jsonp('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=123').then(json => {
-        
-  
-            }).catch(err => {
-            })
-        },
-        setUserData () {
-
-               var url='http://120.27.215.62:8999/personalityTest/getPersonalityTestResult'+this.setJsonToString();
-                this.$jsonp(url).then(json => {
-
-                }).catch(err => {
-                console.log(err)
-                })
-        },
-        setJsonToString(){
-            var str='?';
-            for(var o in json){
-                str+=o+'='+json[o]+'&'
-            }
-           str.substring(0,str.length-1)+"&"+this.currentKey+'='+this.checkedValue;
-        }
+     nextPage(){
+         
+     }
     }
 
 }
