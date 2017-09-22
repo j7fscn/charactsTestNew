@@ -26,7 +26,7 @@
             </li>
         </ul>
         <div class="bottom">
-             <div v-if="score>0"  class="cont checked" @click="goNextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+             <div v-if="selectedValue==1"  class="cont checked" @click="goNextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             <div v-else class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
            
          
@@ -39,6 +39,7 @@ export default {
     data() {
         return {
             score: [0,0],
+            selectedValue:-1,
              message: {
                 tit: '你比较喜欢哪些运动（多选）',
                 dataList: [
@@ -95,16 +96,30 @@ export default {
     },
     methods: {
         choice(e, index) {
+            var _self =this
             if (this.message.dataList[index].choiced) {
                 this.message.dataList[index].choiced = false
                 this.score[0]-=this.message.dataList[index].score[0]
                 this.score[1]-=this.message.dataList[index].score[1]
+                if(!this.message.dataList[0].choiced && !this.message.dataList[1].choiced && !this.message.dataList[2].choiced && !this.message.dataList[3].choiced && !this.message.dataList[4].choiced && !this.message.dataList[5].choiced){
+                    _self.selectedValue = -1
+                }
+                // this.message.dataList.forEach(function(msg, index){
+                //     if(!msg.choiced){
+                //         _self.selectedValue = -1
+                //     }
+                //     if(msg.choiced){
+                //         _self.selectedValue = 1
+                //     }                                    
+                // })
+                //  _self.selectedValue = 1
                 return
             }
             this.checkedValue = this.message.dataList[index].key
             this.message.dataList[index].choiced = true
             this.score[0]+=this.message.dataList[index].score[0]
             this.score[1]+=this.message.dataList[index].score[1]
+            this.selectedValue = 1
         },
         goNextPage(){
 

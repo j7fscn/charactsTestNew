@@ -26,7 +26,7 @@
             </li>
         </ul>
         <div class="bottom">
-             <div v-if="score>0"  class="cont checked" @click="goNextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+             <div v-if="score[1]>0"  class="cont checked" @click="goNextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             <div v-else class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
            
          
@@ -39,49 +39,50 @@ export default {
     data() {
         return {
             score: [0,0],
+            checkedValue:-1,
              message: {
                 tit: '你比较喜欢哪些运动（多选）',
                 dataList: [
                     {
                         key: 0,
-                        score:[0, 0],
-                        name: '瑜伽',
-                        src: '17-1-2.png',
+                        score:[0, 4],
+                        name: '拳击',
+                        src: '17-1-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
-                        score:[0, 0],
-                        name: '芭蕾',
-                        src: '17-2-2.png',
+                        score:[5, 5],
+                        name: '羽毛球',
+                        src: '17-2-1.png',
                         choiced: false
                     },
                     {
                         key: 2,
                         score:[0, 1],
-                        name: '跑步',
-                        src: '17-3-2.png',
+                        name: '篮球',
+                        src: '17-3-1.png',
                         choiced: false
                     },
                     {
                         key: 3,
                         score:[5, 5],
-                        name: '排球',
-                        src: '17-4-2.png',
+                        name: '跑步',
+                        src: '17-4-1.png',
                         choiced: false
                     },
                     {
                         key: 4,
-                        score:[5, 5],
-                        name: '篮球',
-                        src: '17-5-2.png',
+                        score:[0, 1],
+                        name: '足球',
+                        src: '17-5-1.png',
                         choiced: false
                     },
                     {
                         key: 5,
                         score:[3, 5],
-                        name: '羽毛球',
-                        src: '17-6-2.png',
+                        name: '健身',
+                        src: '17-6-1.png',
                         choiced: false
                     },
                    
@@ -95,16 +96,25 @@ export default {
     },
     methods: {
         choice(e, index) {
-            if (this.message.dataList[index].choiced) {
+             var _self =this
+            if (this.message.dataList[index].choiced) {              
                 this.message.dataList[index].choiced = false
                 this.score[0]-=this.message.dataList[index].score[0]
                 this.score[1]-=this.message.dataList[index].score[1]
+                // this.message.dataList.forEach(function(msg, index){
+                //     if(msg.choiced){
+                //         _self.checkedValue = 1
+                //     }
+                //     _self.checkedValue = -1
+                // })               
                 return
             }
             this.checkedValue = this.message.dataList[index].key
             this.message.dataList[index].choiced = true
             this.score[0]+=this.message.dataList[index].score[0]
             this.score[1]+=this.message.dataList[index].score[1]
+            
+            // this.checkedValue = 1
         },
         goNextPage(){
 
