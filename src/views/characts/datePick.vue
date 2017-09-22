@@ -1,17 +1,16 @@
 <template>
-  <mt-datetime-picker
-    ref="picker"
-    type="time"
-    v-model="pickerValue">
-  </mt-datetime-picker>
+<mt-datetime-picker v-model="pickerVisible" type="date"> </mt-datetime-picker>
 </template>
 
 <script>
   export default {
+ data(){
+   return {
+     pickerVisible:true,
+   }
+ },
     methods: {
-      openPicker() {
-        this.$refs.picker.open();
-      }
+    
     }
   };
 </script>
