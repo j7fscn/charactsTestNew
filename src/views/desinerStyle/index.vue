@@ -250,30 +250,21 @@ export default {
                 this.nofelling = true;
             }
             this.fadeOut = false;
-
             this.imgOrder += 1;
             this.canClick = false;
 
-          
 
-            if (this.imgOrder >= 30) {
-                this.like = false;
-                this.dislike = false;
-                this.nofelling = false;
-                this.maxScore();
-                this.fadeOut = true;
-                return
-
-            }
             setTimeout(() => {
+                
                 this.fadeOut = true;
-                if(this.imgOrder >= 30){
-                     this.$router.push({ path: 'result' });
 
+            }, 100);
+
+            setTimeout(() => {
+                if (this.imgOrder >= 30) {
+                    this.maxScore();
+                    this.$router.push({ path: './result' });
                 }
-            }, 50);
-
-            setTimeout(() => {
                 this.like = false;
                 this.dislike = false;
                 this.nofelling = false;
@@ -355,9 +346,7 @@ export default {
     width: 100%;
 }
 
-
 .imgAimate {
-
     animation: myfirst .5s;
 }
 
