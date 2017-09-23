@@ -228,21 +228,16 @@ export default {
         likeChoice() {
             this.addScore(1);
             this.choiceOption('like');
-
         },
         dislikeChoice() {
             this.addScore(0);
             this.choiceOption('dislike');
-
         },
         nofellingChoice() {
             this.addScore(0.05);
             this.choiceOption('nofelling');
-
-
         },
         choiceOption(btn) {
-
             if (!this.canClick) {
                 return
             }
@@ -268,7 +263,6 @@ export default {
             this.imgOrder += 1;
             this.canClick = false;
             setTimeout(() => {
-
                 this.like = false;
                 this.dislike = false;
                 this.nofelling = false;
@@ -286,7 +280,8 @@ export default {
 
             });
         },
-        maxScore() {
+     
+        maxScore() {    /*第一风格*/
             var max = 0;
             var maxstyle = '';
             for (var o in this.styleScore) {
@@ -299,11 +294,10 @@ export default {
             this.fisrtStyle = maxstyle;
             this.secondMax();
         },
-        secondMax() {
+        secondMax() {    /*第二风格*/
             var second = 0;
             var secondStyle = '';
             for (var o in this.styleScore) {
-
                 if (second < this.styleScore[o] && (o != this.fisrtStyle)) {
                     second = this.styleScore[o];
                     secondStyle = o;
