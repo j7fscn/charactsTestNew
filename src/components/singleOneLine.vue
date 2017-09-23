@@ -32,6 +32,107 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default {
+    props: ['mes'],
+    data() {
+        return {
+            dataJson: '',
+            currentKey: '',
+            checkedValue: -1,
+        }
+    },
+    created() {
+        this.getUserData();
+
+    },
+    mounted() {
+
+        this.currentKey = this.mes.pageName;
+
+    },
+    methods: {
+        choice(e, index) {
+            if (this.mes.dataList[index].choiced) {
+                this.mes.dataList[index].choiced = false;
+                this.checkedValue = -1;
+                return
+
+            }
+            this.checkedValue = this.mes.dataList[index].key;
+            this.mes.dataList[index].choiced = true;
+            this.mes.dataList.forEach(function(k, i) {
+                if (i != index) {
+                    k.choiced = false;
+                }
+            })
+        },
+        setValue() {
+            this.setUserData();
+            this.$router.push({ path: this.mes.nextPage });
+        },
+        getUserData() {
+            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
+                this.dataJson=json.data.result
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        setUserData() {
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue    
+            var strToJson = this.parseQueryString(data)
+            var str =''
+            for(let i in strToJson){
+                if(i == this.currentKey){
+                    strToJson[i] = this.checkedValue
+                }
+                str += i + '=' +strToJson[i] + '&'
+            }
+            str = str.substring(0, str.length - 1)
+            
+            console.log(strToJson)
+            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+            
+            
+            // var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult' + this.setJsonToString();
+            this.$jsonp(url).then(json => {
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        parseQueryString(url) {
+            var obj={};
+            var keyvalue=[];
+            var key="",value=""; 
+            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+            for(var i in paraString)
+            {
+                keyvalue=paraString[i].split("=");
+                key=keyvalue[0];
+                value=keyvalue[1];
+                obj[key]=value; 
+            } 
+            return obj;
+        },
+        // setJsonToString() {
+        //     var json = this.dataJson;
+        //     console.log(1)
+        //     // console.log(this.dataJson)
+        //     var str = '?';
+        //     for (var o in json) {
+        //         str += o + '=' + json[o] + '&'
+        //     }
+        //     str = str.substring(0, str.length - 1) + this.currentKey + '=' + this.checkedValue;
+        //     return str;
+        // }
+    }
+
+}
+</script>
+
+
 <style>
 /*mask*/
 
@@ -58,73 +159,5 @@
 
 /*double*/
 </style>
-<script>
-
-export default {
-    props: ['mes'],
-    data() {
-        return {
-            dataJson: {},
-            currentKey: '',
-            checkedValue: -1,
-        }
-    },
-    created() {
-        this.getUserData();
-        this.setUserData();
-    },
-    mounted() {
-
-        this.currentKey = this.mes.pageName;
-
-    },
-    methods: {
-        choice(e, index) {
-            if (this.mes.dataList[index].choiced) {
-                this.mes.dataList[index].choiced = false;
-                this.checkedValue = -1;
-                return
-
-            }
-            this.checkedValue = this.mes.dataList[index].key;
-            this.mes.dataList[index].choiced = true;
-            this.mes.dataList.forEach(function(k, i) {
-                if (i != index) {
-                    k.choiced = false;
-                }
-            })
-        },
-        setValue() {
-            this.getUserData();
-            this.$router.push({ path: this.mes.nextPage });
-        },
-        getUserData() {
-
-            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
-                this.dataJson=json;
-           }).catch(err => {
-            })
-        },
-        setUserData() {
-            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult' + this.setJsonToString();
-            this.$jsonp(url).then(json => {
-
-            }).catch(err => {
-                console.log(err)
-            })
-        },
-        setJsonToString() {
-            var json = this.dataJson;
-            var str = '?';
-            for (var o in json) {
-                str += o + '=' + json[o] + '&'
-            }
-            str = str.substring(0, str.length - 1) + this.currentKey + '=' + this.checkedValue;
-            return str;
-        }
-    }
-
-}
-</script>
 
 
