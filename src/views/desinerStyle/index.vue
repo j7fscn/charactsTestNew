@@ -35,7 +35,7 @@
 export default {
     data() {
         return {
-            fadeOut:false,
+            fadeOut: false,
             canClick: true,
             dislike: false,
             nofelling: false,
@@ -249,19 +249,30 @@ export default {
             } else {
                 this.nofelling = true;
             }
-            this.fadeOut =false;
+            this.fadeOut = false;
+
+            this.imgOrder += 1;
+            this.canClick = false;
+
+          
+
             if (this.imgOrder >= 30) {
                 this.like = false;
                 this.dislike = false;
                 this.nofelling = false;
                 this.maxScore();
-                this.fadeOut =true;
+                this.fadeOut = true;
                 return
 
             }
+            setTimeout(() => {
+                this.fadeOut = true;
+                if(this.imgOrder >= 30){
+                     this.$router.push({ path: 'result' });
 
-            this.imgOrder += 1;
-            this.canClick = false;
+                }
+            }, 50);
+
             setTimeout(() => {
                 this.like = false;
                 this.dislike = false;
@@ -269,9 +280,7 @@ export default {
                 this.canClick = true;
 
             }, 500);
-            setTimeout(() => {
-                this.fadeOut = true;
-            }, 50);
+
         },
         addScore(percent) {
             var items = this.styleList[this.imgOrder - 1].classFily;
@@ -280,7 +289,7 @@ export default {
 
             });
         },
-     
+
         maxScore() {    /*第一风格*/
             var max = 0;
             var maxstyle = '';
@@ -350,23 +359,20 @@ export default {
 .imgAimate {
 
     animation: myfirst .5s;
-  
 }
 
-@keyframes myfirst
-{
-from { 
-     margin-left: 100%;
-   opacity: 0;
-   transform: rotateX(45deg);
-     transform: rotateY(45deg);
-   }
-to { 
-    width: 100%;
-    opacity: 1;
-       transform: rotateX(0deg);
-            transform: rotateY(0deg);
+@keyframes myfirst {
+    from {
+        margin-left: 100%;
+        opacity: 0;
+        transform: rotateX(45deg);
+        transform: rotateY(45deg);
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+        transform: rotateX(0deg);
+        transform: rotateY(0deg);
     }
 }
-
 </style>
