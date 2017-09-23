@@ -41,6 +41,7 @@ export default {
         return {
             dataJson: '',
             currentKey: '',
+            nextKey:'nextKey',
             checkedValue: -1,
         }
     },
@@ -81,7 +82,7 @@ export default {
             })
         },
         setUserData() {
-            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue    
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){

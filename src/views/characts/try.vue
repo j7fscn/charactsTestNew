@@ -41,6 +41,9 @@ export default {
     data() {
         return {
             score:0,
+            dataJson: '',
+            currentKey: '',
+            nextKey:'nextKey',
             checkedValue:-1,
             message: {
                 tit: '你想尝试什么（多选）',
@@ -96,6 +99,12 @@ export default {
             }
         }
     },
+    created() {
+        this.getUserData();
+    },
+    mounted() {
+        this.currentKey = this.mes.pageName;
+    },
     methods: {
         choice(e, index) {
             if (this.message.dataList[index].choiced) {
@@ -126,9 +135,51 @@ export default {
                 this.checkedValue=-1
             }
         },
-        goNextPage(){
-            localStorage.setItem(this.message.pageName,this.score)
-            this.$router.push({ path: this.message.nextPage})
+        setValue() {
+            localStorage.setItem(this.mes.pageName,this.score);
+            this.setUserData();
+            this.$router.push({ path: this.mes.nextPage });
+        },
+        getUserData() {
+            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
+                this.dataJson=json.data.result
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        setUserData() {
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
+            var strToJson = this.parseQueryString(data)
+            var str =''
+            for(let i in strToJson){
+                if(i == this.currentKey){
+                    strToJson[i] = this.checkedValue
+                }
+                str += i + '=' +strToJson[i] + '&'
+            }
+            str = str.substring(0, str.length - 1)
+            
+            console.log(strToJson)
+            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+            this.$jsonp(url).then(json => {
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        //字符串转JSON
+        parseQueryString(url) {
+            var obj={};
+            var keyvalue=[];
+            var key="",value=""; 
+            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+            for(var i in paraString)
+            {
+                keyvalue=paraString[i].split("=");
+                key=keyvalue[0];
+                value=keyvalue[1];
+                obj[key]=value; 
+            } 
+            return obj;
         }
     }
 

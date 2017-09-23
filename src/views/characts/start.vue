@@ -4,34 +4,36 @@
 <script>
 export default {
     created() {
-        this.linkToPage();
+        this.linkToPage()
 
     },
     methods:{
         linkToPage(){
             this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
                 var json = this.parseQueryString(json.data.result)
-                for(let i in json){
-
+                if(json.nextKey == './shakeFirst' || json.nextKey == './shakeSecond' || json.nextKey == './shakeThird' ){
+                    this.$router.push({ path: './shakeFirst'})
+                    return
                 }
+                this.$router.push({ path: json.nextKey})
                 
             }).catch(err => {
                 console.log(err)
             })
         },
         parseQueryString(url) {
-            var obj={};
-            var keyvalue=[];
-            var key="",value=""; 
-            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+            var obj={}
+            var keyvalue=[]
+            var key="",value="";
+            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&")
             for(var i in paraString)
             {
-                keyvalue=paraString[i].split("=");
-                key=keyvalue[0];
-                value=keyvalue[1];
-                obj[key]=value; 
+                keyvalue=paraString[i].split("=")
+                key=keyvalue[0]
+                value=keyvalue[1]
+                obj[key]=value
             } 
-            return obj;
+            return obj
         },
     }
   
