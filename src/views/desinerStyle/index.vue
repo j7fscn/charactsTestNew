@@ -14,17 +14,19 @@
             </transition>
         </div>
         <div class="opacity">
-            <div class="ceil">
-                <img src="static/images/dislike.png" v-if="!dislike" @click="dislikeChoice">
-                <img src="static/images/dislike-push.png" v-else>
-            </div>
-            <div class="ceil">
-                <img src="static/images/no-feelings.png" v-if="!nofelling" @click="nofellingChoice">
-                <img src="static/images/no-feelings-push.png" v-else>
-            </div>
-            <div class="ceil">
-                <img src="static/images/like.png" v-if="!like" @click="likeChoice">
-                <img src="static/images/like-push.png" v-else>
+            <div class="cont">
+                <div class="ceil">
+                    <img src="static/images/dislike.png" v-if="!dislike" @click="dislikeChoice">
+                    <img src="static/images/dislike-push.png" v-else>
+                </div>
+                <div class="ceil">
+                    <img src="static/images/no-feelings.png" v-if="!nofelling" @click="nofellingChoice">
+                    <img src="static/images/no-feelings-push.png" v-else>
+                </div>
+                <div class="ceil">
+                    <img src="static/images/like.png" v-if="!like" @click="likeChoice">
+                    <img src="static/images/like-push.png" v-else>
+                </div>
             </div>
         </div>
     </div>
@@ -255,7 +257,7 @@ export default {
 
 
             setTimeout(() => {
-                
+
                 this.fadeOut = true;
 
             }, 100);
@@ -321,11 +323,19 @@ export default {
 
 
 .pageDesinerStyle .opacity {
-    margin: 0 .45rem;
+
     bottom: .2rem;
-    display: flex;
+    width: 100%;
     position: fixed;
 }
+
+.pageDesinerStyle .opacity .cont {
+    display: flex;
+    margin: 0 .45rem;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 
 
 
