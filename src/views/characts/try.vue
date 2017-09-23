@@ -26,7 +26,7 @@
             </li>
         </ul>
         <div class="bottom">
-             <div v-if="score>0 || checkedValue ==1 "  class="cont checked" @click="goNextPage">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+             <div v-if="score>0 || checkedValue ==1 "  class="cont checked" @click="setValue">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             <div v-else class="cont">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
            
          
@@ -37,7 +37,6 @@
 <script>
 
 export default {
-    props: ['mes'],
     data() {
         return {
             score:0,
@@ -103,7 +102,7 @@ export default {
         this.getUserData();
     },
     mounted() {
-        this.currentKey = this.mes.pageName;
+        this.currentKey = this.message.pageName;
     },
     methods: {
         choice(e, index) {
@@ -136,9 +135,9 @@ export default {
             }
         },
         setValue() {
-            localStorage.setItem(this.mes.pageName,this.score);
+            // localStorage.setItem(this.mes.pageName,this.score);
             this.setUserData();
-            this.$router.push({ path: this.mes.nextPage });
+            this.$router.push({ path: this.message.nextPage });
         },
         getUserData() {
             this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
@@ -148,7 +147,7 @@ export default {
             })
         },
         setUserData() {
-            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.message.nextPage   
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){
