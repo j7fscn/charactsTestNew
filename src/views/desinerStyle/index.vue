@@ -57,6 +57,31 @@ export default {
                     classFily: [
                         { name: 'northernEurope', score: 1 }
                     ]
+                },
+                {
+                    classFily: [
+                        { name: 'northernEurope', score: 1 }
+                    ]
+                },
+                {
+                    classFily: [
+                        { name: 'mediterraneanSea', score: 1 }
+                    ]
+                },
+                {
+                    classFily: [
+                        { name: 'mediterraneanSea', score: 1 }
+                    ]
+                },
+                {
+                    classFily: [
+                        { name: 'french', score: 1 }
+                    ]
+                },
+                  {
+                    classFily: [
+                        { name: 'french', score: 1 }
+                    ]
                 }
             ]
 
@@ -64,16 +89,23 @@ export default {
     },
     methods: {
         likeChoice() {
+             this.addScore(1);
             this.choiceOption('like');
+           
         },
         dislikeChoice() {
+            this.addScore(0);
             this.choiceOption('dislike');
+            
         },
         nofellingChoice() {
+             this.addScore(0.05);
             this.choiceOption('nofelling');
+           
 
         },
         choiceOption(btn) {
+            var _self=this;
             if (!this.canClick) {
                 return
             }
@@ -88,13 +120,31 @@ export default {
             this.imgOrder += 1;
             this.canClick = false;
             this.imgOrder += 1;
-            setTimeout(() => {
-                this.canClick = true;
-                this.like = false;
-                this.dislike = false;
-                this.nofelling = false;
+            setTimeout(function(){
+                _self.canClick = true;
+                _self.like = false;
+                _self.dislike = false;
+                _self.nofelling = false;
 
             }, 200);
+        },
+        addScore(percent) {
+         
+            var items=this.styleList[this.imgOrder-1].classFily;
+             
+            var score=0;
+            items.forEach((element)=> {
+                this[element.name]+=element.score*percent;
+
+            });
+           
+            // for(var i=0;i<items.length;i++){
+              
+            //    _self[items[i].name]+=items[i][score]*percent;
+            //       debugger
+            // }
+    
+           
         }
     }
 
