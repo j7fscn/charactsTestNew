@@ -43,7 +43,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/start:userid',
+      path: '/start',
       name: 'start',
       component: start
     },
