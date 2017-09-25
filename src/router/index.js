@@ -7,6 +7,8 @@ import shakeThird from '@/views/shakeSmart/shakeThird'
 import datePick from '@/views/characts/datePick' //出生
 import houseArea from '@/views/characts/houseArea' //户型图
 
+import readyGo from '@/views/aboutMe/readyGo'
+
 import sex from '@/views/characts/sex'
 import fingerTips from '@/views/characts/fingerTips'
 import finger from '@/views/characts/finger'
@@ -66,6 +68,11 @@ export default new Router({
       path: '/houseArea',
       name: 'houseArea',
       component: houseArea
+    },
+    {
+      path: '/readyGo',
+      name: 'readyGo',
+      component: readyGo
     },
     {
       path: '/sex',
