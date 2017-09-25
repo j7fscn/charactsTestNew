@@ -16,19 +16,19 @@
         <div class="opacity">
             <div class="cont">
                 <div class="ceil">
-                    <input type="button" class="postApp" value="Call ObjC func with JSON " @click="AppModel.callWithDict({'testResult': 'testname'})">
+
                     <img src="static/images/dislike.png" v-if="!dislike" @click="dislikeChoice">
 
                     <img src="static/images/dislike-push.png" v-else>
                 </div>
                 <div class="ceil">
-                    <input type="button" class="postApp" value="Call ObjC func with JSON "  @click="AppModel.callWithDict({'testResult': 'testname'})">
+
                     <img src="static/images/no-feelings.png" v-if="!nofelling" @click="nofellingChoice">
 
                     <img src="static/images/no-feelings-push.png" v-else>
                 </div>
                 <div class="ceil">
-                    <input type="button" class="postApp" value="Call ObjC func with JSON " @click="AppModel.callWithDict({'testResult': 'testname'})">
+                    
                     <img src="static/images/like.png" v-if="!like" @click="likeChoice">
 
                     <img src="static/images/like-push.png" v-else>
@@ -232,6 +232,12 @@ export default {
 
         }
     },
+    created() {
+        this.$bridge.registerHandler("refreshPage", function() {
+            document.location.reload();
+        });
+    }
+    ,
     methods: {
         likeChoice() {
             this.addScore(1);
@@ -282,6 +288,7 @@ export default {
             }, 500);
         },
         addScore(percent) {
+           
             var _self = this;
             var items = this.styleList[this.imgOrder - 1].classFily;
             items.forEach(function(element) {
@@ -312,9 +319,13 @@ export default {
                 }
             }
             this.secondStyle = secondStyle;
+              this.$bridge.callHandler('callWithDict',{'testResult': [this.fisrtStyle,this.secondStyle]},function(data){
+               
+        
+            });
             console.log(this.fisrtStyle, this.secondStyle);
         },
-      
+
 
     }
 
@@ -373,7 +384,8 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 9;
-    opacity: 0;;
+    opacity: 0;
+    ;
 }
 
 @keyframes myfirst {
