@@ -1,5 +1,5 @@
 <template>
-  <div>11</div>
+  <div>{{$route.params.userid}}</div>
 </template>
 <script>
 export default {
@@ -15,11 +15,19 @@ export default {
     },
     methods:{
         linkToPage(){
-            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
+            if(this.$route.params.userid == undefined || this.$route.params.userid == null ){        
+                alert('请输入用户ID')
+            }
+            var url = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            this.$jsonp(url).then(json => {
+                // 插入新用户
+                if(json.data.result == null){
+                    this.insertUserid()
+                    return
+                }
                 var json = this.parseQueryString(json.data.result)
-                console.log(json)
-                if(json.nextKey == './shakeFirst' || json.nextKey == './shakeSecond' || json.nextKey == './shakeThird' ){
-                    this.$router.push({ path: './shakeFirst'})
+                if(json.user_id || json.nextKey == './shakeFirst' || json.nextKey == './shakeSecond' || json.nextKey == './shakeThird' ){
+                    this.$router.push({ path: '/shakeFirst'})
                     return
                 }
                 this.$router.push({ path: json.nextKey})
@@ -27,7 +35,15 @@ export default {
             }).catch(err => {
                 console.log(err)
             })
-            console.log(1)
+        },
+        insertUserid(){
+            var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id='+this.$route.params.userid
+                this.$jsonp(urlNew).then(json1 => {
+                    console.log(json1)
+                    this.$router.push({ path: '/shakeFirst'})
+                }).catch(err => {
+                    console.log('err')
+                })
         },
         parseQueryString(url) {
             var obj={}

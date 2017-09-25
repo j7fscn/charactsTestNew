@@ -70,7 +70,9 @@ export default {
             this.$router.push({ path: this.mes.nextPage });
         },
         getUserData() {
-            this.$jsonp('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=122').then(json => {
+            // ?user_id='+this.$route.params.userid
+            let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
             }).catch(err => {
                 console.log(err)
