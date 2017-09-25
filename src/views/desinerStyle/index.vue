@@ -16,15 +16,21 @@
         <div class="opacity">
             <div class="cont">
                 <div class="ceil">
+                    <input type="button" class="postApp" value="Call ObjC func with JSON " @click="AppModel.callWithDict({'testResult': 'testname'})">
                     <img src="static/images/dislike.png" v-if="!dislike" @click="dislikeChoice">
+
                     <img src="static/images/dislike-push.png" v-else>
                 </div>
                 <div class="ceil">
+                    <input type="button" class="postApp" value="Call ObjC func with JSON "  @click="AppModel.callWithDict({'testResult': 'testname'})">
                     <img src="static/images/no-feelings.png" v-if="!nofelling" @click="nofellingChoice">
+
                     <img src="static/images/no-feelings-push.png" v-else>
                 </div>
                 <div class="ceil">
+                    <input type="button" class="postApp" value="Call ObjC func with JSON " @click="AppModel.callWithDict({'testResult': 'testname'})">
                     <img src="static/images/like.png" v-if="!like" @click="likeChoice">
+
                     <img src="static/images/like-push.png" v-else>
                 </div>
             </div>
@@ -44,19 +50,19 @@ export default {
             like: false,
             fisrtStyle: '',
             secondStyle: '',
-            styleScore: {    
-                northernEurope:{score:0,alias:"北欧"} ,
-                mediterraneanSea: {score:0,alias:"地中海"},
-                french: {score:0,alias:"法式"},
-                industrialWind: {score:0,alias:"工业风"},
-                europeanism: {score:0,alias:"古典欧式"},
-                beautifulSimplicity: {score:0,alias:"简美"},
-                janeEuropean: {score:0,alias:"简欧"},
-                lightLuxury: {score:0,alias:"轻奢"},
-                japanese: {score:0,alias:"日式"},
-                modern: {score:0,alias:"现代"},
-                countryStyle: {score:0,alias:"乡村美式"},
-                chineseStyle: {score:0,alias:"中式"},
+            styleScore: {
+                northernEurope: { score: 0, alias: "北欧" },
+                mediterraneanSea: { score: 0, alias: "地中海" },
+                french: { score: 0, alias: "法式" },
+                industrialWind: { score: 0, alias: "工业风" },
+                europeanism: { score: 0, alias: "古典欧式" },
+                beautifulSimplicity: { score: 0, alias: "简美" },
+                janeEuropean: { score: 0, alias: "简欧" },
+                lightLuxury: { score: 0, alias: "轻奢" },
+                japanese: { score: 0, alias: "日式" },
+                modern: { score: 0, alias: "现代" },
+                countryStyle: { score: 0, alias: "乡村美式" },
+                chineseStyle: { score: 0, alias: "中式" },
             },
             imgOrder: 1,
             styleList: [
@@ -240,7 +246,7 @@ export default {
             this.choiceOption('nofelling');
         },
         choiceOption(btn) {
-            var _self=this;
+            var _self = this;
             if (!this.canClick) {
                 return
             }
@@ -255,8 +261,8 @@ export default {
             this.fadeOut = false;
             this.imgOrder += 1;
             this.canClick = false;
-             setTimeout(function(){
-                if (_self.imgOrder ==31) {
+            setTimeout(function() {
+                if (_self.imgOrder == 31) {
                     _self.maxScore();
                     _self.$router.push({ path: './result' });
                 }
@@ -264,8 +270,8 @@ export default {
             setTimeout(() => {
                 this.fadeOut = true;
             }, 100);
-            setTimeout(function(){
-                if (_self.imgOrder ==31) {
+            setTimeout(function() {
+                if (_self.imgOrder == 31) {
                     _self.maxScore();
                     _self.$router.push({ path: './result' });
                 }
@@ -276,7 +282,7 @@ export default {
             }, 500);
         },
         addScore(percent) {
-            var _self=this;
+            var _self = this;
             var items = this.styleList[this.imgOrder - 1].classFily;
             items.forEach(function(element) {
                 _self.styleScore[element.name].score += element.score * percent;
@@ -307,7 +313,8 @@ export default {
             }
             this.secondStyle = secondStyle;
             console.log(this.fisrtStyle, this.secondStyle);
-        }
+        },
+      
 
     }
 
@@ -350,6 +357,7 @@ export default {
 
 .pageDesinerStyle .ceil {
     width: .75rem;
+    position: relative;
 }
 
 .pageDesinerStyle .ceil img {
@@ -358,6 +366,14 @@ export default {
 
 .imgAimate {
     animation: myfirst .5s;
+}
+
+.postApp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    opacity: 0;;
 }
 
 @keyframes myfirst {
