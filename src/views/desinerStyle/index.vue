@@ -16,15 +16,21 @@
         <div class="opacity">
             <div class="cont">
                 <div class="ceil">
+                    <input type="button" class="postApp" value="Call ObjC func with JSON " @click="AppModel.callWithDict({'testResult': 'testname'})">
                     <img src="static/images/dislike.png" v-if="!dislike" @click="dislikeChoice">
+
                     <img src="static/images/dislike-push.png" v-else>
                 </div>
                 <div class="ceil">
+                    <input type="button" class="postApp" value="Call ObjC func with JSON "  @click="AppModel.callWithDict({'testResult': 'testname'})">
                     <img src="static/images/no-feelings.png" v-if="!nofelling" @click="nofellingChoice">
+
                     <img src="static/images/no-feelings-push.png" v-else>
                 </div>
                 <div class="ceil">
+                    <input type="button" class="postApp" value="Call ObjC func with JSON " @click="AppModel.callWithDict({'testResult': 'testname'})">
                     <img src="static/images/like.png" v-if="!like" @click="likeChoice">
+
                     <img src="static/images/like-push.png" v-else>
                 </div>
             </div>
@@ -45,18 +51,18 @@ export default {
             fisrtStyle: '',
             secondStyle: '',
             styleScore: {
-                northernEurope: 0,//北欧
-                mediterraneanSea: 0,//地中海
-                french: 0,//法式
-                industrialWind: 0,//工业风
-                europeanism: 0,//古典欧式
-                beautifulSimplicity: 0,//简美
-                janeEuropean: 0,//简欧
-                lightLuxury: 0,//轻奢
-                japanese: 0,//日式
-                modern: 0,//现代
-                countryStyle: 0,//乡村美式
-                chineseStyle: 0,//中式
+                northernEurope: { score: 0, alias: "北欧" },
+                mediterraneanSea: { score: 0, alias: "地中海" },
+                french: { score: 0, alias: "法式" },
+                industrialWind: { score: 0, alias: "工业风" },
+                europeanism: { score: 0, alias: "古典欧式" },
+                beautifulSimplicity: { score: 0, alias: "简美" },
+                janeEuropean: { score: 0, alias: "简欧" },
+                lightLuxury: { score: 0, alias: "轻奢" },
+                japanese: { score: 0, alias: "日式" },
+                modern: { score: 0, alias: "现代" },
+                countryStyle: { score: 0, alias: "乡村美式" },
+                chineseStyle: { score: 0, alias: "中式" },
             },
             imgOrder: 1,
             styleList: [
@@ -240,6 +246,7 @@ export default {
             this.choiceOption('nofelling');
         },
         choiceOption(btn) {
+            var _self = this;
             if (!this.canClick) {
                 return
             }
@@ -254,45 +261,43 @@ export default {
             this.fadeOut = false;
             this.imgOrder += 1;
             this.canClick = false;
-
-
-            setTimeout(() => {
-
-                this.fadeOut = true;
-
-            }, 100);
-
-            setTimeout(() => {
-                if (this.imgOrder >= 30) {
-                    this.maxScore();
-                    this.$router.push({ path: './result' });
+            setTimeout(function() {
+                if (_self.imgOrder == 31) {
+                    _self.maxScore();
+                    _self.$router.push({ path: './result' });
                 }
-                this.like = false;
-                this.dislike = false;
-                this.nofelling = false;
-                this.canClick = true;
-
+            }, 50);
+            setTimeout(() => {
+                this.fadeOut = true;
+            }, 100);
+            setTimeout(function() {
+                if (_self.imgOrder == 31) {
+                    _self.maxScore();
+                    _self.$router.push({ path: './result' });
+                }
+                _self.like = false;
+                _self.dislike = false;
+                _self.nofelling = false;
+                _self.canClick = true;
             }, 500);
-
         },
         addScore(percent) {
+            var _self = this;
             var items = this.styleList[this.imgOrder - 1].classFily;
-            items.forEach((element) => {
-                this.styleScore[element.name] += element.score * percent;
+            items.forEach(function(element) {
+                _self.styleScore[element.name].score += element.score * percent;
 
             });
         },
-
         maxScore() {    /*第一风格*/
             var max = 0;
             var maxstyle = '';
             for (var o in this.styleScore) {
-                if (max < this.styleScore[o]) {
-                    max = this.styleScore[o];
-                    maxstyle = o;
+                if (max < this.styleScore[o].score) {
+                    max = this.styleScore[o].score;
+                    maxstyle = this.styleScore[o].alias;
                 }
             }
-
             this.fisrtStyle = maxstyle;
             this.secondMax();
         },
@@ -300,14 +305,16 @@ export default {
             var second = 0;
             var secondStyle = '';
             for (var o in this.styleScore) {
-                if (second < this.styleScore[o] && (o != this.fisrtStyle)) {
-                    second = this.styleScore[o];
-                    secondStyle = o;
+                debugger
+                if (second < this.styleScore[o].score && (this.styleScore[o].alias != this.fisrtStyle)) {
+                    second = this.styleScore[o].score;
+                    secondStyle = this.styleScore[o].alias;
                 }
             }
             this.secondStyle = secondStyle;
             console.log(this.fisrtStyle, this.secondStyle);
-        }
+        },
+      
 
     }
 
@@ -350,6 +357,7 @@ export default {
 
 .pageDesinerStyle .ceil {
     width: .75rem;
+    position: relative;
 }
 
 .pageDesinerStyle .ceil img {
@@ -358,6 +366,14 @@ export default {
 
 .imgAimate {
     animation: myfirst .5s;
+}
+
+.postApp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    opacity: 0;;
 }
 
 @keyframes myfirst {
