@@ -51,7 +51,7 @@ export default {
     created(){
         this.getUserData();
         if(this.mes.nextPage == '/sex' ){
-                this.doShakeSmart = 1
+            this.doShakeSmart = 1
         }
     },
     mounted(){
