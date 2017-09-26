@@ -25,7 +25,7 @@ export default {
                         choiced: false
                     },
                      {
-                        key: '大户型',
+                        key: 1,
                         name: '超大户型（大于400平方）',
                         src: 'huxing-3.png',
                         choiced: false

@@ -28,7 +28,7 @@
                     <img src="static/images/no-feelings-push.png" v-else>
                 </div>
                 <div class="ceil">
-                    
+
                     <img src="static/images/like.png" v-if="!like" @click="likeChoice">
 
                     <img src="static/images/like-push.png" v-else>
@@ -48,8 +48,10 @@ export default {
             dislike: false,
             nofelling: false,
             like: false,
+            currentKey: 'likeStyle',
             fisrtStyle: '',
             secondStyle: '',
+            checkedValue: -1,
             styleScore: {
                 northernEurope: { score: 0, alias: "北欧" },
                 mediterraneanSea: { score: 0, alias: "地中海" },
@@ -228,7 +230,9 @@ export default {
                     ]
                 },
 
-            ]
+            ],
+            pageName: 'likeStyle',
+            nextPage: '/result'
 
         }
     },
@@ -236,6 +240,7 @@ export default {
         this.$bridge.registerHandler("refreshPage", function() {
             document.location.reload();
         });
+        this.getUserData();
     }
     ,
     methods: {
@@ -268,7 +273,7 @@ export default {
             this.imgOrder += 1;
             this.canClick = false;
             setTimeout(function() {
-                if (_self.imgOrder == 31) {
+                if (_self.imgOrder == 6) {
                     _self.maxScore();
                     _self.$router.push({ path: './result' });
                 }
@@ -277,7 +282,7 @@ export default {
                 this.fadeOut = true;
             }, 100);
             setTimeout(function() {
-                if (_self.imgOrder == 31) {
+                if (_self.imgOrder == 6) {
                     _self.maxScore();
                     _self.$router.push({ path: './result' });
                 }
@@ -288,7 +293,7 @@ export default {
             }, 500);
         },
         addScore(percent) {
-           
+
             var _self = this;
             var items = this.styleList[this.imgOrder - 1].classFily;
             items.forEach(function(element) {
@@ -312,18 +317,67 @@ export default {
             var second = 0;
             var secondStyle = '';
             for (var o in this.styleScore) {
-                debugger
+
                 if (second < this.styleScore[o].score && (this.styleScore[o].alias != this.fisrtStyle)) {
                     second = this.styleScore[o].score;
                     secondStyle = this.styleScore[o].alias;
                 }
             }
             this.secondStyle = secondStyle;
-              this.$bridge.callHandler('callWithDict',{'testResult': [this.fisrtStyle,this.secondStyle]},function(data){
-               
-        
+            this.setUserData();
+            this.currentKey=[this.fisrtStyle,this.secondStyle]
+            this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '' } }, function(data) {
+
+
             });
             console.log(this.fisrtStyle, this.secondStyle);
+        },
+        getUserData() {
+            var _self = this;
+            let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
+            this.$jsonp(urlG).then(json => {
+                this.dataJson = json.data.result
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        setUserData() {
+            var _self = this;
+            var data = '';
+            if (!this.dataJson) {
+                data = 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage;
+
+            } else {
+                data = this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage
+            }
+            var strToJson = this.parseQueryString(data)
+            var str = ''
+            for (let i in strToJson) {
+                if (i == this.currentKey) {
+                    strToJson[i] = this.checkedValue
+                }
+                str += i + '=' + strToJson[i] + '&'
+            }
+            str = str.substring(0, str.length - 1)
+            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+            this.$jsonp(url).then(json => {
+
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        parseQueryString(url) {
+            var obj = {};
+            var keyvalue = [];
+            var key = "", value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=");
+                key = keyvalue[0];
+                value = keyvalue[1];
+                obj[key] = value;
+            }
+            return obj;
         },
 
 
