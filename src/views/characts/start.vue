@@ -21,10 +21,10 @@ export default {
             if (!this.$route.params.userid ) {
                 alert('请输入用户ID')
             }
-            var url = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
+            var url = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
             this.$jsonp(url).then(function(json) {
                 // 插入新用户
-                if (json.data.result == null) {
+                if (json.data.result == '数据库没有该userId的记录') {
                     _self.insertUserid()
                 }
                 var json = _self.parseQueryString(json.data.result)

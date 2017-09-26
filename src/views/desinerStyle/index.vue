@@ -325,11 +325,8 @@ export default {
             }
             this.secondStyle = secondStyle;
             this.setUserData();
-            this.currentKey=[this.fisrtStyle,this.secondStyle];
-            debugger
-            
+            this.currentKey = [this.fisrtStyle, this.secondStyle];
             this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '中型' } }, function(data) {
-
 
             });
             console.log(this.fisrtStyle, this.secondStyle);
@@ -344,14 +341,7 @@ export default {
             })
         },
         setUserData() {
-            var _self = this;
-            var data = '';
-            if (!this.dataJson) {
-                data = 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage;
-
-            } else {
-                data = this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage
-            }
+            var data = this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage
             var strToJson = this.parseQueryString(data)
             var str = ''
             for (let i in strToJson) {
