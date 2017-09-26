@@ -64,7 +64,7 @@ export default {
             this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
         },
         getUserData() {
-            let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
             this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
             }).catch(err => {
@@ -88,7 +88,7 @@ export default {
             }
             str = str.substring(0, str.length - 1)
             console.log(strToJson) 
-            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?'+ str
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str
             this.$jsonp(url).then(json => {
             }).catch(err => {
                 console.log(err)

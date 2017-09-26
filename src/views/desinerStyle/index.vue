@@ -273,7 +273,7 @@ export default {
             this.imgOrder += 1;
             this.canClick = false;
             setTimeout(function() {
-                if (_self.imgOrder == 6) {
+                if (_self.imgOrder == 30) {
                     _self.maxScore();
                     _self.$router.push({ path: './result' });
                 }
@@ -282,7 +282,7 @@ export default {
                 this.fadeOut = true;
             }, 100);
             setTimeout(function() {
-                if (_self.imgOrder == 6) {
+                if (_self.imgOrder == 31) {
                     _self.maxScore();
                     _self.$router.push({ path: './result' });
                 }
@@ -325,8 +325,10 @@ export default {
             }
             this.secondStyle = secondStyle;
             this.setUserData();
-            this.currentKey=[this.fisrtStyle,this.secondStyle]
-            this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '' } }, function(data) {
+            this.currentKey=[this.fisrtStyle,this.secondStyle];
+            debugger
+            
+            this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '中型' } }, function(data) {
 
 
             });
@@ -334,7 +336,7 @@ export default {
         },
         getUserData() {
             var _self = this;
-            let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
             this.$jsonp(urlG).then(json => {
                 this.dataJson = json.data.result
             }).catch(err => {
@@ -359,7 +361,7 @@ export default {
                 str += i + '=' + strToJson[i] + '&'
             }
             str = str.substring(0, str.length - 1)
-            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
             this.$jsonp(url).then(json => {
 
             }).catch(err => {

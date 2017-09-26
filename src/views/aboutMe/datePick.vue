@@ -98,7 +98,7 @@ export default {
     },
     getUserData() {
       var _self = this;
-      let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
+      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
       this.$jsonp(urlG).then(json => {
         this.dataJson = json.data.result
       }).catch(err => {
@@ -123,7 +123,7 @@ export default {
         str += i + '=' + strToJson[i] + '&'
       }
       str = str.substring(0, str.length - 1)
-      var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+      var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
       this.$jsonp(url).then(json => {
         _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
       }).catch(err => {
