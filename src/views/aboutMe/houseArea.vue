@@ -13,19 +13,19 @@ export default {
                 tit: '您的户型是',
                 dataList: [
                     {
-                        key: 0,
+                        key:'中户型',
                         name: '中户型（小于150平方）',
                         src: 'huxing-1.png',
                         choiced: false
                     },
                     {
-                        key: 1,
+                        key: '大户型',
                         name: '大户型（150-400平方）',
                         src: 'huxing-2.png',
                         choiced: false
                     },
                      {
-                        key: 1,
+                        key: '大户型',
                         name: '超大户型（大于400平方）',
                         src: 'huxing-3.png',
                         choiced: false
@@ -34,8 +34,8 @@ export default {
                 ],
                 page: 1,
                 imgPackage: 'characts',
-                pageName:'datePick',
-                nextPage:'/houseArea'
+                pageName:'houseArea',
+                nextPage:'/likeStyle'
             }
 
         }
