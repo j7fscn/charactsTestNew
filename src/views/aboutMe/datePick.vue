@@ -68,7 +68,7 @@ export default {
       user_id: '',
       nextKey: 'nextKey',
       checkedValue: -1,
-      pageName: 'clock',
+      pageName: 'datePick',
       nextPage: 'houseArea',
       pickerVisible: '1990-6-15',
       startDate: new Date('1960'),
@@ -82,21 +82,24 @@ export default {
     },
   mounted() {
       this.currentKey = this.pageName;
-    this.openPicker();
+      this.openPicker();
 
   },
   methods: {
 
     openPicker() {
 
-      var birthday = this.$refs.picker.open();
+      this.checkedValue= this.$refs.picker.open();
 
     },
     setValue() {
       this.setUserData();
-      this.$router.push({ path: this.mes.nextPage + '/' + this.$route.params.userid });
+      this.$router.push({ path: this.nextPage + '/' + this.$route.params.userid });
     },
     getUserData() {
+       debugger
+      var _self=this;
+     
       let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
       this.$jsonp(urlG).then(json => {
         this.dataJson = json.data.result
@@ -105,8 +108,12 @@ export default {
       })
     },
     setUserData() {
-      var data = '';
-      data = this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage
+         var data ='';
+            if(this.dataJson == null || this.dataJson == undefined ){
+                data= 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage   
+            }else{
+                data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage  
+            }
       var strToJson = this.parseQueryString(data)
       var str = ''
       for (let i in strToJson) {
@@ -138,7 +145,9 @@ export default {
     submit() {
 
 
-      var date = this.$refs.picker.currentValue;
+     this.checkedValue= this.$refs.picker.currentValue;
+     this.setUserData();
+      
 
     }
   },
