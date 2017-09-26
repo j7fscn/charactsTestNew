@@ -53,7 +53,7 @@ export default new Router({
       component: start
     },
     {
-      path: '/shakeFirst',
+      path: '/shakeFirst/:userid',
       name: 'shakeFirst',
       component: shakeFirst
     },

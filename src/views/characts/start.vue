@@ -11,6 +11,8 @@ export default {
     computed:{},
     beforeCreate(){},
     created() {
+        debugger
+        this.$router.push({ path: '/shakeFirst/'+this.$route.params.userid})
         this.linkToPage()
     },
     methods:{
@@ -37,10 +39,12 @@ export default {
             })
         },
         insertUserid(){
+
             var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id='+this.$route.params.userid
                 this.$jsonp(urlNew).then(json1 => {
                     console.log(json1)
-                    this.$router.push({ path: '/shakeFirst'})
+                    debugger
+                    
                 }).catch(err => {
                     console.log('err')
                 })
