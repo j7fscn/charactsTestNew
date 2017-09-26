@@ -1,78 +1,74 @@
 <template>
-  <div></div>
+    <div>
+    </div>
 </template>
 <script>
 export default {
-    data(){
+    data() {
         return {
-            
+
         }
     },
-    computed:{},
-    beforeCreate(){},
+    computed: {},
+    beforeCreate() { },
     created() {
         // this.$router.push({ path: '/shakeFirst/'+this.$route.params.userid})
         this.linkToPage()
     },
-    methods:{
-        linkToPage(){
-            if(this.$route.params.userid == undefined || this.$route.params.userid == null ){        
+    methods: {
+        linkToPage() {
+            var _self=this;
+            if (this.$route.params.userid == undefined || this.$route.params.userid == null) {
                 alert('请输入用户ID')
             }
-            var url = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
-            this.$jsonp(url).then(json => {
+            var url = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
+            this.$jsonp(url).then(function(json) {
+                 debugger
                 // 插入新用户
-                if(json.data.result == null){
-                    this.insertUserid()
+                if (json.data.result == null) {
+                    _self.insertUserid()
                     return
                 }
-                var json = this.parseQueryString(json.data.result)
-                if(json.shakeSmart == '0'){
-                    this.$router.push({ path: '/shakeFirst/'+this.$route.params.userid})
+                var json = _self.parseQueryString(json.data.result)
+                if (json.shakeSmart == '0') {
+                    _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
                     return
                 }
-                this.$router.push({ path: json.nextKey+'/'+this.$route.params.userid})
-                
+                _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid })
+
             }).catch(err => {
+                 debugger
                 console.log(err)
             })
         },
-        insertUserid(){
+        insertUserid() {
             let _self = this
-            var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id='+this.$route.params.userid+'&shakeSmart=0&result=0'
-                
-                this.$jsonp(urlNew).then(json1 => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    console.log(json1)
-                
-=======
-                    _self.linkToPage()
->>>>>>> 9413abe0dd7ae5aa96e9c318506dee36ba6d33b3
-                    
-=======
-                    console.log(json1)
-                    _self.$router.push({ path: '/shakeFirst/'+_self.$route.params.userid})   
->>>>>>> 43d062f88d876556f0685e35f5fbb6eed182981b
-                }).catch(err => {
-                    console.log('err')
-                })
+            var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id=' + this.$route.params.userid + '&shakeSmart=0&result=0'
+           
+            this.$jsonp(urlNew).then(json1 => {
+         
+                // _self.linkToPage()
+                _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
+
+            }).catch(err => {
+               
+                console.log('err')
+            })
         },
         parseQueryString(url) {
-            var obj={}
-            var keyvalue=[]
-            var key="",value="";
-            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&")
-            for(var i in paraString)
-            {
-                keyvalue=paraString[i].split("=")
-                key=keyvalue[0]
-                value=keyvalue[1]
-                obj[key]=value
-            } 
+            var obj = {}
+            var keyvalue = []
+            var key = "", value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&")
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=")
+                key = keyvalue[0]
+                value = keyvalue[1]
+                obj[key] = value
+            }
             return obj
         },
     }
-  
+
 }
 </script>
