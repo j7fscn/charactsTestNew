@@ -44,12 +44,15 @@ export default {
             currentKey: '',
             user_id:'',
             nextKey:'nextKey',
-            checkedValue: -1,
+            doShakeSmart:0
         }
       
     },
     created(){
         this.getUserData();
+        if(this.mes.nextPage == '/sex' ){
+                this.doShakeSmart = 1
+        }
     },
     mounted(){
        this.currentKey = this.mes.pageName; 
@@ -57,11 +60,11 @@ export default {
     methods: {
       nextPage() {
             this.setUserData();
+            
             this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
         },
         getUserData() {
             let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
-            console.log(urlG)
             this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
             }).catch(err => {
@@ -73,21 +76,19 @@ export default {
             // if(this.dataJson == null || this.dataJson == undefined ){
             //     data= 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
             // }else{
-                data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  
+                data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  
             // }
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){
                 if(i == this.currentKey){
-                    strToJson[i] = this.checkedValue
+                    strToJson[i] = this.doShakeSmart
                 }
                 str += i + '=' +strToJson[i] + '&'
             }
             str = str.substring(0, str.length - 1)
-            console.log(strToJson)
-            // user_id='+this.$route.params.userid 
+            console.log(strToJson) 
             var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?'+ str
-            // var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult' + this.setJsonToString();
             this.$jsonp(url).then(json => {
             }).catch(err => {
                 console.log(err)

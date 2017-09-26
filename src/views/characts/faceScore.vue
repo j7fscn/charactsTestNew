@@ -29,7 +29,7 @@ export default {
                 ],
                 page: 9,
                 imgPackage: 'characts',
-                pageName: 'clock',
+                pageName: 'faceScore',
                 nextPage: ''
             }
 
