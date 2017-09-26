@@ -137,7 +137,7 @@ export default {
             var str =''
             for(let i in strToJson){
                 if(i == this.currentKey){
-                    strToJson[i] = this.checkedValue
+                    strToJson[i] = this.score
                 }
                 str += i + '=' +strToJson[i] + '&'
             }

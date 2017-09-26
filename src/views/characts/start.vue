@@ -1,5 +1,5 @@
 <template>
-  <div>{{$route.params.userid}}</div>
+  <div></div>
 </template>
 <script>
 export default {
@@ -27,7 +27,7 @@ export default {
                     return
                 }
                 var json = this.parseQueryString(json.data.result)
-                if(json.user_id || json.nextKey == './shakeFirst' || json.nextKey == './shakeSecond' || json.nextKey == './shakeThird' ){
+                if(json.shakeSmart == '0'){
                     this.$router.push({ path: '/shakeFirst/'+this.$route.params.userid})
                     return
                 }
@@ -39,8 +39,10 @@ export default {
         },
         insertUserid(){
             let _self = this
-            var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id='+this.$route.params.userid
+            var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id='+this.$route.params.userid+'&shakeSmart=0&result=0'
+                
                 this.$jsonp(urlNew).then(json1 => {
+<<<<<<< HEAD
 <<<<<<< HEAD
                     console.log(json1)
                 
@@ -48,6 +50,10 @@ export default {
                     _self.linkToPage()
 >>>>>>> 9413abe0dd7ae5aa96e9c318506dee36ba6d33b3
                     
+=======
+                    console.log(json1)
+                    _self.$router.push({ path: '/shakeFirst/'+_self.$route.params.userid})   
+>>>>>>> 43d062f88d876556f0685e35f5fbb6eed182981b
                 }).catch(err => {
                     console.log('err')
                 })

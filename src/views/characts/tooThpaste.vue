@@ -25,13 +25,13 @@ export default {
                         choiced: false
                     },
                     {
-                        key: 0,
+                        key: 2,
                         name: '从管口开始挤',
                         src: '4-3.png',
                         choiced: false
                     },
                     {
-                        key: 1,
+                        key: 3,
                         name: '从中间挤',
                         src: '4-4.png',
                         choiced: false

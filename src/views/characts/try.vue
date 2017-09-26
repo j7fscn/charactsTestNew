@@ -148,12 +148,12 @@ export default {
             })
         },
         setUserData() {
-            var data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.message.nextPage   
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.message.nextPage   
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){
                 if(i == this.currentKey){
-                    strToJson[i] = this.checkedValue
+                    strToJson[i] = this.score
                 }
                 str += i + '=' +strToJson[i] + '&'
             }

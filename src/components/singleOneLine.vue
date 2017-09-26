@@ -44,6 +44,7 @@ export default {
             user_id:'',
             nextKey:'nextKey',
             checkedValue: -1,
+            checkedImgKey:''
         }
     },
     created() {
@@ -59,6 +60,7 @@ export default {
         choice(e, index) {
             if (this.mes.dataList[index].choiced) {
                 this.mes.dataList[index].choiced = false;
+            
                 this.checkedValue = -1;
                 return
 
@@ -76,10 +78,12 @@ export default {
             this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid });
         },
         getUserData() {
-            // ?user_id='+this.$route.params.userid
+            var _self = this
             let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
             this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
+                var kk = _self.parseQueryString(this.dataJson)
+                console.log(kk)
             }).catch(err => {
                 console.log(err)
             })

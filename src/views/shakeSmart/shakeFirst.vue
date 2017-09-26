@@ -52,7 +52,7 @@ export default {
                 ],
                 page: 2,
                 imgPackage: 'shakeSmart',
-                pageName:'camera',
+                pageName:'shakeSmart',
                 nextPage:'/shakeSecond'
             }
 
