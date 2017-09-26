@@ -7,9 +7,7 @@
             <span class="vl">2/20</span>
         </div>
         <p class="tit">伸出您的左右，看看您的手指甲有多长</p>
-        <!-- <div class="bottom">
-            <div class="cont" @click="goNext">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-        </div> -->
+        
     </div>
 </template>
 <script>

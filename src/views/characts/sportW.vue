@@ -121,7 +121,6 @@ export default {
             this.selectedValue = 1
         },
         goNextPage() {
-            // localStorage.setItem(this.mes.pageName,this.score);
             this.setUserData();
             
         },

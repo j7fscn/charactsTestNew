@@ -137,7 +137,6 @@ export default {
             
         },
         setValue() {
-            // localStorage.setItem(this.message.pageName,this.score);
             this.setUserData();
            
         },
@@ -150,6 +149,7 @@ export default {
             })
         },
         setUserData() {
+            var _self =this
             var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.message.nextPage   
             var strToJson = this.parseQueryString(data)
             var str =''
@@ -160,7 +160,6 @@ export default {
                 str += i + '=' +strToJson[i] + '&'
             }
             str = str.substring(0, str.length - 1)
-            var _self =this
             console.log(strToJson)
             var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
             this.$jsonp(url).then(json => {

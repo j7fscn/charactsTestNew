@@ -135,7 +135,6 @@ export default {
             }
         },
         setValue() {
-            // localStorage.setItem(this.mes.pageName,this.score);
             this.setUserData();
             
         },

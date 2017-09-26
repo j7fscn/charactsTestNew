@@ -59,9 +59,7 @@ export default {
     },
     methods: {
       nextPage() {
-            this.setUserData();
-            
-            this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
+            this.setUserData()
         },
         getUserData() {
             let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
@@ -72,12 +70,9 @@ export default {
             })
         },
         setUserData() {
+            var _self =this
             var data =''
-            // if(this.dataJson == null || this.dataJson == undefined ){
-            //     data= 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
-            // }else{
-                data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  
-            // }
+            data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){
@@ -90,6 +85,7 @@ export default {
             console.log(strToJson) 
             var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str
             this.$jsonp(url).then(json => {
+                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
             }).catch(err => {
                 console.log(err)
             })

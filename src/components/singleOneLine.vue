@@ -90,11 +90,7 @@ export default {
         setUserData() {
             var data =''
             var _self =this
-            // if(this.dataJson == null || this.dataJson == undefined ){
-                // data= 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
-            // }else{
                 data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  
-            // }
             var strToJson = this.parseQueryString(data)
             
             var str =''
@@ -109,7 +105,7 @@ export default {
             console.log(strToJson)
             var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str
             this.$jsonp(url).then(json => {
-                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
+                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid })
             }).catch(err => {
                 console.log(err)
             })
