@@ -66,8 +66,8 @@ export default {
 
         },
         setValue() {
-            this.setUserData();
-            this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid });
+            this.setUserData()
+            
         },
         getUserData() {
             // ?user_id='+this.$route.params.userid
@@ -80,6 +80,7 @@ export default {
         },
 
         setUserData() {
+            var _self =this
             var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.mes.nextPage   
             var strToJson = this.parseQueryString(data)
             var str =''
@@ -94,6 +95,7 @@ export default {
             console.log(strToJson)
             var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
             this.$jsonp(url).then(json => {
+                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid })
             }).catch(err => {
                 console.log(err)
             })

@@ -75,27 +75,28 @@ export default {
         },
         setValue() {
             this.setUserData();
-            this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid });
+            
         },
         getUserData() {
             var _self = this
             let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
             this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
-                var kk = _self.parseQueryString(this.dataJson)
-                console.log(kk)
+                
             }).catch(err => {
                 console.log(err)
             })
         },
         setUserData() {
             var data =''
+            var _self =this
             // if(this.dataJson == null || this.dataJson == undefined ){
                 // data= 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage   
             // }else{
                 data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  
             // }
             var strToJson = this.parseQueryString(data)
+            
             var str =''
             for(let i in strToJson){
                 if(i == this.currentKey){
@@ -108,6 +109,7 @@ export default {
             console.log(strToJson)
             var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?'+ str
             this.$jsonp(url).then(json => {
+                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
             }).catch(err => {
                 console.log(err)
             })
