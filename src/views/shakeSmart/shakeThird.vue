@@ -53,7 +53,7 @@ export default {
                 page: 2,
                 imgPackage: 'shakeSmart',
                 pageName:'shakeThird',
-                nextPage:'./sex'
+                nextPage:'/sex'
             }
 
         }

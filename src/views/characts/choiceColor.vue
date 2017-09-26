@@ -58,7 +58,7 @@ export default {
                 page: 19,
                 imgPackage: 'characts',
                 pageName:'choiceColor',
-                nextPage:'./choiceDraw',
+                nextPage:'/choiceDraw',
             }
 
         }

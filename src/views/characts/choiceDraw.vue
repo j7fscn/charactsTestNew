@@ -44,7 +44,7 @@ export default {
                 page: 20,
                 imgPackage: 'characts',
                 pageName:'choiceDraw',
-                nextPage:'./choicePic',
+                nextPage:'/choicePic',
             }
 
         }

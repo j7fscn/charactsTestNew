@@ -29,7 +29,7 @@ export default {
                 page: 8,
                 imgPackage: 'characts',
                 pageName:'travel',
-                nextPage:'./faceScore'
+                nextPage:'/faceScore'
             }
 
         }

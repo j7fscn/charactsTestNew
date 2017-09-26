@@ -29,7 +29,7 @@ export default {
                 page: 10,
                 imgPackage: 'characts',
                 pageName:'shoes',
-                nextPage:'./skillStockings'
+                nextPage:'/skillStockings'
             }
 
         }

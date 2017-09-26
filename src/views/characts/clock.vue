@@ -29,7 +29,7 @@ export default {
                 page: 4,
                 imgPackage: 'characts',
                 pageName:'clock',
-                nextPage:'./toothpaste'
+                nextPage:'/toothpaste'
             }
 
         }

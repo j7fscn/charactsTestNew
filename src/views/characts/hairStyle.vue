@@ -29,7 +29,7 @@ export default {
                 page: 11,
                 imgPackage: 'characts',
                 pageName:'hairStyle',
-                nextPage:'./sleep'
+                nextPage:'/sleep'
             }
 
         }

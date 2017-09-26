@@ -67,7 +67,7 @@ export default {
         },
         setValue() {
             this.setUserData();
-            this.$router.push({ path: this.mes.nextPage });
+            this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid });
         },
         getUserData() {
             // ?user_id='+this.$route.params.userid

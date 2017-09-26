@@ -58,7 +58,7 @@ export default {
                 page: 15,
                 imgPackage: 'characts',
                 pageName:'mustHave',
-                nextPage:'./try',
+                nextPage:'/try',
             }
 
         }

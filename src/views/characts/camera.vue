@@ -29,7 +29,7 @@ export default {
                 page: 7,
                 imgPackage: 'characts',
                 pageName:'camera',
-                nextPage:'./travel'
+                nextPage:'/travel'
             }
 
         }

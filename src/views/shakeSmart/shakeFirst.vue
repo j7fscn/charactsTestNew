@@ -53,7 +53,7 @@ export default {
                 page: 2,
                 imgPackage: 'shakeSmart',
                 pageName:'camera',
-                nextPage:'./shakeSecond'
+                nextPage:'/shakeSecond'
             }
 
         }

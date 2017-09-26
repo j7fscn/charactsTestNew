@@ -94,7 +94,7 @@ export default {
                 page: 16,
                 imgPackage: 'characts',
                 pageName:'try',
-                nextPage:'./dosome'
+                nextPage:'/dosome'
             }
         }
     },
@@ -137,7 +137,7 @@ export default {
         setValue() {
             // localStorage.setItem(this.mes.pageName,this.score);
             this.setUserData();
-            this.$router.push({ path: this.message.nextPage });
+            this.$router.push({ path: this.message.nextPage+'/'+this.$route.params.userid });
         },
         getUserData() {
             let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)

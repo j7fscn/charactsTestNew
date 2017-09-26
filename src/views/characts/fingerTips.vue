@@ -12,6 +12,26 @@
         </div> -->
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    mounted() {
+            this.goNext();
+    },
+    methods: {
+        goNext() {
+            setTimeout(()=> {
+                this.$router.push({ path: '/finger/'+this.$route.params.userid  });
+            }, 1000)
+        }
+    }
+}
+</script>
+
 <style>
 .fingerTips .bottom {
     position: fixed;
@@ -67,24 +87,6 @@
     height: .44rem;
 }
 </style>
-<script>
-export default {
-    data() {
-        return {
 
-        }
-    },
-    mounted() {
-            this.goNext();
-    },
-    methods: {
-        goNext() {
-            setTimeout(()=> {
-                this.$router.push({ path: './finger' });
-            }, 1000)
-        }
-    }
-}
-</script>
 
 

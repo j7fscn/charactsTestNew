@@ -41,7 +41,7 @@ export default {
                 page: 5,
                 imgPackage: 'characts',
                 pageName:'tooThpaste',
-                nextPage:'./orderFood'
+                nextPage:'/orderFood'
             }
 
         }
