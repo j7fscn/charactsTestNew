@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//进入测试判断
 import start from '@/views/characts/start'
+//抖机灵
 import shakeFirst from '@/views/shakeSmart/shakeFirst'
 import shakeSecond from '@/views/shakeSmart/shakeSecond'
 import shakeThird from '@/views/shakeSmart/shakeThird'
-import datePick from '@/views/characts/datePick' //出生
-import houseArea from '@/views/characts/houseArea' //户型图
-
-import readyGo from '@/views/aboutMe/readyGo'
-
+//关于我
+import datePick from '@/views/aboutMe/datePick' //出生
+import houseArea from '@/views/aboutMe/houseArea' //户型图
+import readyGo from '@/views/aboutMe/readyGo' //转场
+// 性格测试
 import sex from '@/views/characts/sex'
 import fingerTips from '@/views/characts/fingerTips'
 import finger from '@/views/characts/finger'
@@ -33,8 +35,9 @@ import sportW from '@/views/characts/sportW'
 import choiceColor from '@/views/characts/choiceColor'
 import choiceDraw from '@/views/characts/choiceDraw'
 import choicePic from '@/views/characts/choicePic'
-
+//风格测试
 import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
+
 import result from '@/views/characts/result'
 
 
