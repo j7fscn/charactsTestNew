@@ -29,7 +29,7 @@ export default {
                 page: 3,
                 imgPackage: 'characts',
                 pageName:'finger',
-                nextPage:'./clock'
+                nextPage:'/clock'
             }
 
         }

@@ -29,7 +29,7 @@ export default {
                 page: 6,
                 imgPackage: 'characts',
                 pageName:'orderFood',
-                nextPage:'./camera'
+                nextPage:'/camera'
             }
 
         }

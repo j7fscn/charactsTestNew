@@ -29,7 +29,7 @@ export default {
                 page: 10,
                 imgPackage: 'characts',
                 pageName:'watch',
-                nextPage:'./hairstyle'
+                nextPage:'/hairstyle'
             }
 
         }

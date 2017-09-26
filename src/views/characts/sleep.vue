@@ -53,7 +53,7 @@ export default {
                 page: 12,
                 imgPackage: 'characts',
                 pageName:'sleep',
-                nextPage:'./unbear'
+                nextPage:'/unbear'
             }
 
         }

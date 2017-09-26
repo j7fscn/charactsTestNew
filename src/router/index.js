@@ -58,157 +58,157 @@ export default new Router({
       component: shakeFirst
     },
     {
-      path: '/shakeThird',
+      path: '/shakeThird/:userid',
       name: 'shakeThird',
       component: shakeThird
     },
     {
-      path: '/shakeSecond',
+      path: '/shakeSecond/:userid',
       name: 'shakeSecond',
       component: shakeSecond
     },
     {
-      path: '/houseArea',
+      path: '/houseArea/:userid',
       name: 'houseArea',
       component: houseArea
     },
     {
-      path: '/readyGo',
+      path: '/readyGo/:userid',
       name: 'readyGo',
       component: readyGo
     },
     {
-      path: '/sex',
+      path: '/sex/:userid',
       name: 'sex',
       component: sex
     },
     {
-      path: '/fingerTips',
+      path: '/fingerTips/:userid',
       name: 'fingerTips',
       component: fingerTips
     },
     {
-      path: '/clock',
+      path: '/clock/:userid',
       name: 'clock',
       component: clock
     },
     {
-      path: '/finger',
+      path: '/finger/:userid',
       name: 'finger',
       component: finger
     },
     {
-      path: '/travel',
+      path: '/travel/:userid',
       name: 'travel',
       component: travel
     },
     {
-      path: '/faceScore',
-      name: 'faceScore',
+      path: '/faceScore/:userid',
+      name: 'faceScore/:userid',
       component: faceScore
     },
     {
-      path: '/watch',
+      path: '/watch/:userid',
       name: 'watch',
       component: watch
     },
     {
-      path: '/shoes',
+      path: '/shoes/:userid',
       name: 'shoes',
       component: shoes
     },
     {
-      path: '/skillStockings',
+      path: '/skillStockings/:userid',
       name: 'skillStockings',
       component: skillStockings
     },
     {
-      path: '/sleep',
+      path: '/sleep/:userid',
       name: 'sleep',
       component: sleep
     },
     {
-      path: '/toothpaste',
+      path: '/toothpaste/:userid',
       name: 'toothpaste',
       component: toothpaste
     },
     {
-      path: '/orderFood',
+      path: '/orderFood/:userid',
       name: 'orderFood',
       component: orderFood
     },
     {
-      path: '/camera',
+      path: '/camera/:userid',
       name: 'camera',
       component: camera
     },
     {
-      path: '/hairStyle',
+      path: '/hairStyle/:userid',
       name: 'hairStyle',
       component: hairStyle
     },
     {
-      path: '/unbear',
+      path: '/unbear/:userid',
       name: 'unbear',
       component: unbear
     },
     {
-      path: '/knowMan',
+      path: '/knowMan/:userid',
       name: 'knowMan',
       component: knowMan
     },
     {
-      path: '/mustHave',
+      path: '/mustHave/:userid',
       name: 'mustHave',
       component: mustHave
     },
     {
-      path: '/try',
+      path: '/try/:userid',
       name: 'try',
       component: trydo
     },
     {
-      path: '/dosome',
+      path: '/dosome/:userid',
       name: 'dosome',
       component: dosome
     },
     {
-      path: '/sport',
+      path: '/sport/:userid',
       name: 'sport',
       component: sport
     },
     {
-      path: '/sportW',
-      name: 'sportW',
+      path: '/sportW/:userid',
+      name: 'sportW/:userid',
       component: sportW
     },
     {
-      path: '/choiceColor',
+      path: '/choiceColor/:userid',
       name: 'choiceColor',
       component: choiceColor
     },
     {
-      path: '/choiceDraw',
+      path: '/choiceDraw/:userid',
       name: 'choiceDraw',
       component: choiceDraw
     },
     {
-      path: '/choicePic',
+      path: '/choicePic/:userid',
       name: 'choicePic',
       component: choicePic
     },
     {
-      path: '/result',
+      path: '/result/:userid',
       name: 'result',
       component: result
     },
     {
-      path: '/datePick',
+      path: '/datePick/:userid',
       name: 'datePick',
       component: datePick
     },
     {
-      path: '/likeStyle',
+      path: '/likeStyle/:userid',
       name: 'likeStyle',
       component: likeStyle
     }

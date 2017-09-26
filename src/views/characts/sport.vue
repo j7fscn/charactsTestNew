@@ -40,6 +40,8 @@ export default {
         return {
             score: [0,0],
             checkedValue:-1,
+            nextKey:'nextKey',
+            currentKey:'',
              message: {
                 tit: '你比较喜欢哪些运动（多选）',
                 dataList: [
@@ -90,9 +92,15 @@ export default {
                 page: 18,
                 imgPackage: 'characts',
                 pageName:'sport',
-                nextPage:'./choiceColor'
+                nextPage:'/choiceColor'
             }
         }
+    },
+    created() {
+        this.getUserData();
+    },
+    mounted() {
+        this.currentKey = this.message.pageName;
     },
     methods: {
         choice(e, index) {
@@ -100,26 +108,62 @@ export default {
             if (this.message.dataList[index].choiced) {              
                 this.message.dataList[index].choiced = false
                 this.score[0]-=this.message.dataList[index].score[0]
-                this.score[1]-=this.message.dataList[index].score[1]
-                // this.message.dataList.forEach(function(msg, index){
-                //     if(msg.choiced){
-                //         _self.checkedValue = 1
-                //     }
-                //     _self.checkedValue = -1
-                // })               
+                this.score[1]-=this.message.dataList[index].score[1]          
                 return
             }
             this.checkedValue = this.message.dataList[index].key
             this.message.dataList[index].choiced = true
             this.score[0]+=this.message.dataList[index].score[0]
             this.score[1]+=this.message.dataList[index].score[1]
-            
+            console.log(this.score)
             // this.checkedValue = 1
         },
-        goNextPage(){
-
-            localStorage.setItem(this.message.pageName,this.score)
-            this.$router.push({ path: this.message.nextPage})
+        goNextPage() {
+            // localStorage.setItem(this.mes.pageName,this.score);
+            this.setUserData();
+            this.$router.push({ path: this.message.nextPage+'/'+this.$route.params.userid });
+        },
+        getUserData() {
+            let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            this.$jsonp(urlG).then(json => {
+                this.dataJson=json.data.result
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        setUserData() {
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.message.nextPage   
+            var strToJson = this.parseQueryString(data)
+            var str =''
+            for(let i in strToJson){
+                if(i == this.currentKey){
+                    strToJson[i] = this.checkedValue
+                }
+                str += i + '=' +strToJson[i] + '&'
+            }
+            str = str.substring(0, str.length - 1)
+            
+            console.log(strToJson)
+            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+            this.$jsonp(url).then(json => {
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        //字符串转JSON
+        parseQueryString(url) {
+            var obj={};
+            var keyvalue=[];
+            var key="",value=""; 
+            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+            for(var i in paraString)
+            {
+                keyvalue=paraString[i].split("=");
+                key=keyvalue[0];
+                value=keyvalue[1];
+                obj[key]=value; 
+            } 
+            return obj;
         }
     }
 

@@ -58,7 +58,7 @@ export default {
                 page: 11,
                 imgPackage: 'characts',
                 pageName:'skillStockings',
-                nextPage:'./sleep',
+                nextPage:'/sleep',
             }
 
         }

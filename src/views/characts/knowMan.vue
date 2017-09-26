@@ -95,7 +95,7 @@ export default {
                 page: 14,
                 imgPackage: 'characts',
                 pageName:'knowMan',
-                nextPage:'./mustHave'
+                nextPage:'/mustHave'
             }
         }
     },
@@ -134,11 +134,12 @@ export default {
             }else{
                 this.checkedValue=-1
             }
+            
         },
         setValue() {
             // localStorage.setItem(this.message.pageName,this.score);
             this.setUserData();
-            this.$router.push({ path: this.message.nextPage });
+            this.$router.push({ path: this.message.nextPage+'/'+this.$route.params.userid });
         },
         getUserData() {
             let urlG = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
