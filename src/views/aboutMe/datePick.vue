@@ -69,7 +69,7 @@ export default {
       nextKey: 'nextKey',
       checkedValue: -1,
       pageName: 'datePick',
-      nextPage: 'houseArea',
+      nextPage: '/houseArea',
       pickerVisible: '1990-6-15',
       startDate: new Date('1960'),
       endDate: new Date('2017'),

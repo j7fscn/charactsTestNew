@@ -329,6 +329,7 @@ export default {
             this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '中型' } }, function(data) {
 
             });
+             this.$router.push({ path: this.nextPage + '/' + this.$route.params.userid });
             console.log(this.fisrtStyle, this.secondStyle);
         },
         getUserData() {
