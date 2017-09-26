@@ -34,8 +34,8 @@ export default {
                 ],
                 page: 1,
                 imgPackage: 'characts',
-                pageName:'houseArea',
-                nextPage:'./sex'
+                pageName:'datePick',
+                nextPage:'/houseArea'
             }
 
         }
