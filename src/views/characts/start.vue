@@ -43,7 +43,7 @@ export default {
             var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id='+this.$route.params.userid
                 this.$jsonp(urlNew).then(json1 => {
                     console.log(json1)
-                    debugger
+                
                     
                 }).catch(err => {
                     console.log('err')
