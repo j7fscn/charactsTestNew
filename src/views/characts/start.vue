@@ -17,17 +17,15 @@ export default {
     },
     methods: {
         linkToPage() {
-            var _self=this;
+            let _self=this
             if (this.$route.params.userid == undefined || this.$route.params.userid == null) {
                 alert('请输入用户ID')
             }
             var url = ('http://192.168.2.240:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
             this.$jsonp(url).then(function(json) {
-                 debugger
                 // 插入新用户
                 if (json.data.result == null) {
                     _self.insertUserid()
-                    return
                 }
                 var json = _self.parseQueryString(json.data.result)
                 if (json.shakeSmart == '0') {
@@ -37,21 +35,16 @@ export default {
                 _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid })
 
             }).catch(err => {
-                 debugger
                 console.log(err)
             })
         },
         insertUserid() {
             let _self = this
             var urlNew = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?user_id=' + this.$route.params.userid + '&shakeSmart=0&result=0'
-           
-            this.$jsonp(urlNew).then(json1 => {
-         
-                // _self.linkToPage()
+            this.$jsonp(urlNew).then(function(json1){
                 _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
-
+                return
             }).catch(err => {
-               
                 console.log('err')
             })
         },
