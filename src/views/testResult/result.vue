@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-result">
     <characts-tag></characts-tag>
     <characts-special></characts-special>
     <like-color></like-color>
@@ -16,8 +16,11 @@ export default {
   
 }
 </script>
-<style scoped>
+<style >
+  .page-result {
+    background: url(http://owxa0vmjl.bkt.clouddn.com/background.png) center center;
 
+  }
 </style>
 
 
