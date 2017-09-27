@@ -42,14 +42,18 @@ export default {
             dataJson: '',
             currentKey: '',
             user_id:'',
+            sex:'',
             nextKey:'nextKey',
             checkedValue: -1,
-            checkedImgKey:''
+            checkedImgKey:'',
+            doShakeSmart:0
         }
     },
     created() {
         this.getUserData();
-
+        if(this.mes.nextPage == '/sex' ){
+            this.doShakeSmart = 1
+        }
     },
     mounted() {
 
@@ -75,7 +79,7 @@ export default {
         },
         setValue() {
             this.setUserData();
-             if(this.mes.nextPage == '/sex' ){
+            if(this.mes.nextPage == '/sex' ){
                 this.doShakeSmart = 1;
             }
             
@@ -92,9 +96,11 @@ export default {
         setUserData() {
             var data =''
             var _self =this
-                data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  ;
+
+            data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  ;
             var strToJson = this.parseQueryString(data);
             
+
             var str =''
             for(let i in strToJson){
                  if(i == 'houseArea'){
@@ -106,10 +112,13 @@ export default {
                 }
                 str += i + '=' +strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1);
-            
+            str = str.substring(0, str.length - 1)
+            if(this.mes.pageName =='sex'){
+                localStorage.setItem('sex',this.checkedValue )
+            }
             console.log(strToJson)
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str;
+            
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str
             this.$jsonp(url).then(json => {
                 _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
             }).catch(err => {
