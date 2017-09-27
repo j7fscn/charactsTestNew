@@ -74,6 +74,7 @@ export default {
             let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
             this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
+                this.dataJson
             }).catch(err => {
                 console.log(err)
             })
@@ -81,7 +82,8 @@ export default {
 
         setUserData() {
             var _self =this
-            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.mes.nextPage   
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.mes.nextPage
+            console.log(data)   
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){

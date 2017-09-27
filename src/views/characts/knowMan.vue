@@ -161,7 +161,7 @@ export default {
             }
             str = str.substring(0, str.length - 1)
             console.log(strToJson)
-            var url = 'http://192.168.2.240:8999/personalityTest/insertPersonalityTestResult?' + str
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
             this.$jsonp(url).then(json => {
                  _self.$router.push({ path: _self.message.nextPage+'/'+_self.$route.params.userid });
             }).catch(err => {

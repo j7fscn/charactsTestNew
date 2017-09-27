@@ -75,6 +75,9 @@ export default {
         },
         setValue() {
             this.setUserData();
+             if(this.mes.nextPage == '/sex' ){
+                this.doShakeSmart = 1
+            }
             
         },
         getUserData() {
@@ -82,7 +85,7 @@ export default {
             let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
             this.$jsonp(urlG).then(json => {
                 this.dataJson=json.data.result
-                
+                console.log(this.dataJson)
             }).catch(err => {
                 console.log(err)
             })

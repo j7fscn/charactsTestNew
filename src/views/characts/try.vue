@@ -148,6 +148,7 @@ export default {
         },
         setUserData() {
             var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.message.nextPage   
+            console.log(data)
             var strToJson = this.parseQueryString(data)
             var str =''
             for(let i in strToJson){
@@ -158,7 +159,6 @@ export default {
             }
             str = str.substring(0, str.length - 1)
             var _self =this
-            console.log(strToJson)
             var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
             this.$jsonp(url).then(json => {
                 _self.$router.push({ path: _self.message.nextPage+'/'+_self.$route.params.userid });
