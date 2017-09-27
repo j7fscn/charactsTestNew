@@ -52,13 +52,13 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .resultStyle{
     margin-top: 1.1rem;
     margin-left:.2rem;
     margin-right:.2rem;
 }
-.likeTitle{
+.resultStyle .likeTitle{
     margin-top:0;
     margin-bottom: .4rem;
     text-align: left;
