@@ -9,53 +9,91 @@
       </div>
       <div class="result">
         <div class="rt">
-          <span>向外坦率</span>
+          <span v-if="result.finger==0">向外坦率</span>
+          <span v-else>向外坦率</span>
           <i></i>
         </div>
         <div class="rt">
-          <span>自律</span>
+          <span v-if="result.clock==0">依赖性强</span>
+          <span v-else>注重外表</span>
           <i></i>
         </div>
-         <div class="rt">
-            <i></i>
-          <span>自由散漫</span>
+        <div class="rt" v-if="result.sex==0">
+          <i></i>
+          <span v-if="result.faceScore==0">依赖性强</span>
+          <span v-else>自律</span>
+        </div>
+        <div class="rt" v-else>
+          <i></i>
+          <span v-if="result.faceScore==0">求知欲强</span>
+          <span v-else>注重外在</span>
         </div>
         <div class="rt">
-            <i></i>
-          <span>生性好奇</span>
+          <i></i>
+          <span v-if="result.travel==0">向往自由</span>
+          <span v-else>好胜心强</span>
         </div>
-         <div class="rt">
-            <i></i>
-          <span>爱折腾胡闹</span>
+        <div class="rt">
+          <i></i>
+          <span v-if="result.camera==0">爱折腾捣鼓</span>
+          <span v-else>爱折腾捣鼓</span>
         </div>
-          <div class="rt">
-            <i></i>
-          <span>神秘沉重</span>
+
+        <div class="rt" v-if="result.sex==0">
+          <i></i>
+          <span v-if="result.watch==0">喜新厌旧</span>
+          <span v-else>钟爱经典</span>
         </div>
-         <div class="rt">
-            <i></i>
-          <span>神秘沉重</span>
+
+        <div class="rt" v-else>
+          <i></i>
+          <span v-if="result.skillStockings">优雅知性</span>
+          <span class="v-else">随性</span>
         </div>
-         <div class="rt">
-            <i></i>
-        
-          <span>强迫症重度患者</span>
+
+        <div class="rt">
+          <i></i>
+          <span v-if="result.orderFood==0">在意他人看法</span>
+          <span v-else>喜欢独立思考</span>
         </div>
-         <div class="rt">
-            <i></i>
- 
-          <span>强迫症重度患者</span>
+        <div class="rt">
+          <i></i>
+
+          <span v-if="result.unbear==17">强迫症重度患者</span>
+          <span v-if="result.unbear>=9&&result.unbear<=16">强迫症中度患者</span>
+          <span v-if="result.unbear<9">强迫症轻微患者</span>
         </div>
-          <div class="rt">
-            <i></i>
- 
-          <span>求知欲强</span>
+        <div class="rt">
+          <i></i>
+
+          <span v-if="result.knowMan==18">强迫症重度患者</span>
+          <span v-if="result.knowMan>=9&&result.knowMan<=17">强迫症重度患者</span>
+          <span v-if="result.knowMan>0&&result.knowMan<=8">强迫症重度患者</span>
+          <span v-if="result.knowMan==0">对二次元不感冒</span>
         </div>
-          <div class="rt">
-            <i></i>
- 
-          <span>小性感</span>
+
+        <div class="rt" v-if="result.sex==0">
+          <i></i>
+          <span v-if="result.sportW>=5&&result.sportW<=13">喜欢团队协作</span>
+          <span v-else>喜欢独处</span>
         </div>
+        <div class="rt" v-else>
+          <i></i>
+          <span v-if="result.sportW>=5&&result.sportW<=13">生性好强</span>
+          <span v-else>性情温和</span>
+        </div>
+
+        <div class="rt" v-if="result.sex==0">
+          <i></i>
+          <span v-if="hairStyle==0">中规中矩</span>
+           <span v-else>骚气</span>
+        </div>
+        <div class="rt" v-else>
+          <i></i>
+          <span v-if="result.skillStockings<7">小性感</span>
+            <span v-else>超级性感</span>
+        </div>
+
       </div>
 
     </div>
@@ -63,10 +101,10 @@
 </template>
 <script>
 export default {
-      props: ['result'],
+  props: ['result'],
 }
 </script>
-<style>
+<style scoped>
 .m-charatcs {
   padding: .5rem 0 2rem;
 }
@@ -76,9 +114,9 @@ export default {
   font-size: 19px;
   padding-top: .5rem;
   text-decoration: underline;
-  padding-bottom:1.75rem;
+  padding-bottom: 1.75rem;
   text-align: left;
-  padding-left:.2rem;
+  padding-left: .2rem;
 }
 
 .m-charatcs .head {
@@ -96,12 +134,12 @@ export default {
 
 .m-charatcs .head img {
   width: 100%;
-  height:100%;
+  height: 100%;
   border-radius: 50%;
   margin: .1rem;
 }
 
- .m-charatcs .tag {
+.m-charatcs .tag {
   position: relative;
 }
 
@@ -148,6 +186,7 @@ export default {
   font-size: .14rem;
   color: #dcad9c;
 }
+
 .result .rt:nth-child(2) i {
   height: .15rem;
   width: .15rem;
@@ -160,17 +199,20 @@ export default {
   font-size: .14rem;
   color: #e7908d;
 }
+
 .result .rt:nth-child(3) i {
   height: .2rem;
   width: .2rem;
   background: #f7f7f7;
 }
+
 .result .rt:nth-child(4) {
   right: .65rem;
   top: -.37rem;
   font-size: .14rem;
   color: #e79e92;
 }
+
 .result .rt:nth-child(4) i {
   height: .3rem;
   width: .3rem;
@@ -182,6 +224,7 @@ export default {
   font-size: .14rem;
   color: #679cb6;
 }
+
 .result .rt:nth-child(5) i {
   height: .3rem;
   width: .3rem;
@@ -190,11 +233,12 @@ export default {
 
 
 .result .rt:nth-child(6) {
-  top:.8rem;
+  top: .8rem;
   right: .25rem;
   font-size: .14rem;
   color: #9eb58d;
 }
+
 .result .rt:nth-child(6) i {
   height: .2rem;
   width: .2rem;
@@ -202,11 +246,12 @@ export default {
 }
 
 .result .rt:nth-child(7) {
-  top:1.85rem;
-  right:.4rem;
+  top: 1.85rem;
+  right: .4rem;
   font-size: .14rem;
   color: #e68caa;
 }
+
 .result .rt:nth-child(7) i {
   height: .2rem;
   width: .2rem;
@@ -214,63 +259,67 @@ export default {
 }
 
 .result .rt:nth-child(8) {
-  top:1.45rem;
+  top: 1.45rem;
   left: 1.33rem;
   font-size: .14rem;
   color: #9cd87e;
 }
+
 .result .rt:nth-child(8) i {
   height: .2rem;
   width: .2rem;
   background: #fff;
 }
-.result .rt:nth-child(8)  span{
+
+.result .rt:nth-child(8) span {
   position: absolute;
   left: 0;
-  top:.2rem;
-  width:1rem;
-  
+  top: .2rem;
+  width: 1rem;
 }
+
 .result .rt:nth-child(9) {
-  top:1.75rem;
+  top: 1.75rem;
   left: .2rem;
   font-size: .14rem;
   color: #e68caa;
 }
+
 .result .rt:nth-child(9) i {
   height: .2rem;
   width: .2rem;
   background: #f9f9f9;
 }
-.result .rt:nth-child(9)  span{
+
+.result .rt:nth-child(9) span {
   position: absolute;
   left: 0;
-  top:.2rem;
-  width:1rem;
-  
+  top: .2rem;
+  width: 1rem;
 }
 
 .result .rt:nth-child(10) {
-  top:1.2rem;
+  top: 1.2rem;
   left: .2rem;
   font-size: .14rem;
   color: #74a5be;
 }
+
 .result .rt:nth-child(10) i {
   height: .15rem;
   width: .15rem;
   background: #f9f9f9;
 }
-.result .rt:nth-child(10)  span{
+
+.result .rt:nth-child(10) span {
   position: absolute;
   left: 0;
-  top:.2rem;
-  width:1rem;
-  
+  top: .2rem;
+  width: 1rem;
 }
 
 .result .rt:nth-child(11) {
-  top:.43rem;
+  top: .43rem;
   left: .23rem;
   font-size: .14rem;
   color: #9cd87e;
@@ -281,10 +330,10 @@ export default {
   width: .4rem;
   background: #fff;
 }
+
 .page-result {
   max-width: 8rem;
-  margin:0 auto;
+  margin: 0 auto;
 }
-
 </style>
 
