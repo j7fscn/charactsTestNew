@@ -3,6 +3,7 @@
     <characts-tag></characts-tag>
     <characts-special></characts-special>
     <like-color></like-color>
+    <like-style></like-style>
   </div>
 </template>
 <script>
