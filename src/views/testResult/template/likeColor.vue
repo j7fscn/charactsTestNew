@@ -3,7 +3,7 @@
       <p class="likeTitle">我喜欢的颜色</p>
       <ul>
         <p class="titleLeft">淡山茱萸粉</p>
-        <li v-for="(item,inde x) in message.dataList">
+        <li v-for="(item,index) in message.dataList">
             <div class="cont">
                 <div class="imgWrap">
                     <img v-lazy="'../../static/images/result/'+item.src">
@@ -65,8 +65,4 @@ li{
     height: 1.5rem;
 }
 </style>
-
-
-
-
 
