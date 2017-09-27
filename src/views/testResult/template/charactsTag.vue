@@ -77,6 +77,8 @@ export default {
   padding-top: .5rem;
   text-decoration: underline;
   padding-bottom:1.75rem;
+  text-align: left;
+  padding-left:.2rem;
 }
 
 .m-charatcs .head {
@@ -94,6 +96,7 @@ export default {
 
 .m-charatcs .head img {
   width: 100%;
+  height:100%;
   border-radius: 50%;
   margin: .1rem;
 }
@@ -175,13 +178,13 @@ export default {
 }
 
 .result .rt:nth-child(5) {
-  right: .25rem;
+  right: .2rem;
   font-size: .14rem;
   color: #679cb6;
 }
 .result .rt:nth-child(5) i {
-  height: .35rem;
-  width: .35rem;
+  height: .3rem;
+  width: .3rem;
   background: #fff;
 }
 
@@ -211,7 +214,7 @@ export default {
 }
 
 .result .rt:nth-child(8) {
-  top:1.23rem;
+  top:1.45rem;
   left: 1.33rem;
   font-size: .14rem;
   color: #9cd87e;
@@ -276,9 +279,12 @@ export default {
 .result .rt:nth-child(11) i {
   height: .4rem;
   width: .4rem;
-  background: #f9f9f9;
+  background: #fff;
 }
-
+.page-result {
+  max-width: 8rem;
+  margin:0 auto;
+}
 
 </style>
 
