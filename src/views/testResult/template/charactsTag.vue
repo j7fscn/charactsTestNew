@@ -63,7 +63,7 @@
 </template>
 <script>
 export default {
-
+      props: ['result'],
 }
 </script>
 <style>
@@ -101,7 +101,7 @@ export default {
   margin: .1rem;
 }
 
-.tag {
+ .m-charatcs .tag {
   position: relative;
 }
 
