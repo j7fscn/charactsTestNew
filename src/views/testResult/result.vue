@@ -2,7 +2,7 @@
   <div>
     <characts-tag></characts-tag>
     <characts-special></characts-special>
-    <like-color
+    <like-color></like-color>
   </div>
 </template>
 <script>
