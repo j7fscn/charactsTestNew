@@ -38,7 +38,7 @@ import choicePic from '@/views/characts/choicePic'
 //风格测试
 import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
 
-import result from '@/views/characts/result'
+import result from '@/views/testResult/result'
 
 
 
@@ -198,7 +198,7 @@ export default new Router({
       component: choicePic
     },
     {
-      path: '/result/:userid',
+      path: '/result',
       name: 'result',
       component: result
     },
