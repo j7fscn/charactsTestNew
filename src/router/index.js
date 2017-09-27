@@ -38,7 +38,7 @@ import choicePic from '@/views/characts/choicePic'
 //风格测试
 import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
 
-import result from '@/views/characts/result'
+import result from '@/views/testResult/result'
 
 
 
