@@ -275,7 +275,7 @@ export default {
             setTimeout(function() {
                 if (_self.imgOrder == 6) {
                     _self.maxScore();
-                  
+
                 }
                 _self.like = false;
                 _self.dislike = false;
@@ -285,7 +285,7 @@ export default {
             setTimeout(() => {
                 this.fadeOut = true;
             }, 30);
-          
+
         },
         addScore(percent) {
 
@@ -309,7 +309,7 @@ export default {
             this.secondMax();
         },
         secondMax() {    /*第二风格*/
-            var _self=this;
+            var _self = this;
             var second = 0;
             var secondStyle = '';
             for (var o in this.styleScore) {
@@ -325,10 +325,10 @@ export default {
             this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '中型' } }, function(data) {
 
             });
-            setTimeout(function(){
-                  _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
-            },50)
-           
+            setTimeout(function() {
+                _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
+            }, 50)
+
             console.log(this.fisrtStyle, this.secondStyle);
         },
         getUserData() {
@@ -348,6 +348,14 @@ export default {
                 if (i == this.currentKey) {
                     strToJson[i] = this.checkedValue
                 }
+                if (i == 'result') {
+                    strToJson[i] = 1;
+                }
+                if (i == 'houseArea') {
+                    this.houseName = decodeURIComponent(strToJson[i]);
+
+                }
+
                 str += i + '=' + strToJson[i] + '&'
             }
             str = str.substring(0, str.length - 1)
