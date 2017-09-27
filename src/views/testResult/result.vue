@@ -1,9 +1,9 @@
 <template>
   <div class="page-result">
-    <characts-tag></characts-tag>
-    <characts-special></characts-special>
-    <like-color></like-color>
-    <like-style></like-style>
+    <characts-tag :result="dataJson"></characts-tag>
+    <characts-special :result="dataJson"></characts-special>
+    <like-color :result="dataJson"></like-color>
+    <like-style :result="dataJson"></like-style>
   </div>
 </template>
 <script>
@@ -12,15 +12,44 @@ import charactsSpecial from './template/charactsSpecial'
 import likeColor from './template/likeColor'
 import likeStyle from './template/likeStyle'
 export default {
-    components: { charactsTag,charactsSpecial,likeColor,likeStyle },
-  
+  components: { charactsTag, charactsSpecial, likeColor, likeStyle },
+  data() {
+    return {
+      dataJson:'',
+    }
+  },
+  created() {
+      var _self = this;
+      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
+      this.$jsonp(urlG).then(function(json) {
+        _self.dataJson = _self.parseQueryString(json.data.result);
+        debugger
+      }).catch(err => {
+        console.log(err)
+      });
+  },
+  methods: {
+     parseQueryString(url) {
+            var obj = {};
+            var keyvalue = [];
+            var key = "", value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=");
+                key = keyvalue[0];
+                value = keyvalue[1];
+                obj[key] = value;
+            }
+            return obj;
+        },
+  }
+
 }
 </script>
 <style >
-  .page-result {
-    background: url(http://owxa0vmjl.bkt.clouddn.com/background.png) center center;
-
-  }
+.page-result {
+  background: url(http://owxa0vmjl.bkt.clouddn.com/background.png) center center;
+}
 </style>
 
 

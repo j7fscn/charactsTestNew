@@ -198,7 +198,7 @@ export default new Router({
       component: choicePic
     },
     {
-      path: '/result',
+      path: '/result/:userid',
       name: 'result',
       component: result
     },
