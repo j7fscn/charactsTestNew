@@ -20,6 +20,35 @@
       
   </div>
 </template>
+<style scoped>
+.resultStyle{
+    margin-top: 1.1rem;
+    margin-left:.2rem;
+
+}
+.colorText{
+    margin-top:.35rem;
+    text-align: left;
+}
+.colorText p{
+    margin: 0;
+    color: #666;
+    line-height: .3rem;
+    font-size: .16rem;
+}
+img{
+    height: 1.5rem;
+    width:2.8rem;
+}
+ul, li{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+li{
+    height: 1.5rem;
+}
+</style>
 <script>
 export default {
     name: 'likeColor',
@@ -47,22 +76,5 @@ export default {
     }
 }
 </script>
-<style scoped>
-.resultStyle{
-    margin:0 .2rem;
 
-}
-img{
-    height: 1.5rem;
-    width:2.8rem;
-}
-ul, li{
-    margin:0;
-    padding:0;
-    list-style-type: none;
-}
-li{
-    height: 1.5rem;
-}
-</style>
 

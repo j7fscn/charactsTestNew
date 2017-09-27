@@ -13,7 +13,7 @@
         </ul>
 
       <div class="mt40">
-        <div class="bottom">
+        <div class="btn">
             <div  class="cont checked" @click="nextPage">进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
         </div>
       </div>
@@ -54,9 +54,13 @@ export default {
 </script>
 <style>
 .resultStyle{
-    margin:0 .2rem;
+    margin-top: 1.1rem;
+    margin-left:.2rem;
+    margin-right:.2rem;
 }
 .likeTitle{
+    margin-top:0;
+    margin-bottom: .4rem;
     text-align: left;
     color:#666;
     line-height: .2rem;
@@ -64,6 +68,8 @@ export default {
     text-decoration: underline;
 }
 .titleLeft{
+    margin-top:0;
+    margin-bottom: .2rem;
     text-align: left;
     color:#222;
     line-height: .2rem;
@@ -84,9 +90,22 @@ li{
 .mt40{
     margin-top:40px;
 }
-.bottom{
-    position: relative !important;
+.btn {
+    position: relative;
+    bottom: .08rem;
+    width: 100%;
 }
+
+.btn .cont {
+    /* margin: 0 .2rem .15rem .2rem; */
+    color: #fff;
+    font-size: .17rem;
+    border-radius: .04rem;
+    line-height: .44rem;
+    height: .44rem;
+    background: #43bb57;
+}
+
 </style>
 
 
