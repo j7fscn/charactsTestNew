@@ -71,35 +71,34 @@ export default {
         },
         getUserData() {
             // ?user_id='+this.$route.params.userid
-            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid);
             this.$jsonp(urlG).then(json => {
-                this.dataJson=json.data.result
-                this.dataJson
+                this.dataJson=json.data.result;
+                this.dataJson;
             }).catch(err => {
-                console.log(err)
+                console.log(err);
             })
         },
 
         setUserData() {
             var _self =this
-            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.mes.nextPage
-            console.log(data)   
-            var strToJson = this.parseQueryString(data)
-            var str =''
+            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.mes.nextPage;
+            var strToJson = this.parseQueryString(data);
+            var str ='';
             for(let i in strToJson){
                 if(i == this.currentKey){
-                    strToJson[i] = this.score
+                    strToJson[i] = this.score;
                 }
-                str += i + '=' +strToJson[i] + '&'
+                str += i + '=' +strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1)
+            str = str.substring(0, str.length - 1);
             
             console.log(strToJson)
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str;
             this.$jsonp(url).then(json => {
-                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid })
+                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
             }).catch(err => {
-                console.log(err)
+                console.log(err);
             })
         },
         //字符串转JSON
