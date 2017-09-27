@@ -10,7 +10,7 @@
         <p class="tit">选择您喜欢的风格</p>
         <div class="imgWrap">
             <transition name="fade">
-                <img v-lazy="'static/images/desinerStyle/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}">
+                <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png?imageView/2/w/750'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
             </transition>
         </div>
         <div class="opacity">
@@ -273,24 +273,19 @@ export default {
             this.imgOrder += 1;
             this.canClick = false;
             setTimeout(function() {
-                if (_self.imgOrder == 30) {
+                if (_self.imgOrder == 6) {
                     _self.maxScore();
-                    _self.$router.push({ path: './result' });
-                }
-            }, 50);
-            setTimeout(() => {
-                this.fadeOut = true;
-            }, 100);
-            setTimeout(function() {
-                if (_self.imgOrder == 31) {
-                    _self.maxScore();
-                    _self.$router.push({ path: './result' });
+                  
                 }
                 _self.like = false;
                 _self.dislike = false;
                 _self.nofelling = false;
                 _self.canClick = true;
-            }, 500);
+            }, 10);
+            setTimeout(() => {
+                this.fadeOut = true;
+            }, 30);
+          
         },
         addScore(percent) {
 
@@ -314,6 +309,7 @@ export default {
             this.secondMax();
         },
         secondMax() {    /*第二风格*/
+            var _self=this;
             var second = 0;
             var secondStyle = '';
             for (var o in this.styleScore) {
@@ -329,7 +325,10 @@ export default {
             this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '中型' } }, function(data) {
 
             });
-             this.$router.push({ path: this.nextPage + '/' + this.$route.params.userid });
+            setTimeout(function(){
+                  _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
+            },50)
+           
             console.log(this.fisrtStyle, this.secondStyle);
         },
         getUserData() {
