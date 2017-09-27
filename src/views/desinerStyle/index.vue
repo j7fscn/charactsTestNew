@@ -322,7 +322,7 @@ export default {
             this.secondStyle = secondStyle;
             this.setUserData();
             this.currentKey = [this.fisrtStyle, this.secondStyle];
-            this.$bridge.callHandler('callWithDict', { 'testResult': { style: [this.fisrtStyle, this.secondStyle], area: '中型' } }, function(data) {
+            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: [this.fisrtStyle, this.secondStyle], houseArea: '中型' } }, function(data) {
 
             });
             setTimeout(function() {
