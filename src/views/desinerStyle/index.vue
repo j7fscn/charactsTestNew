@@ -10,7 +10,7 @@
         <p class="tit">选择您喜欢的风格</p>
         <div class="imgWrap">
             <transition name="fade">
-                <img v-lazy="'static/images/desinerStyle/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
+                <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png?imageView/2/w/750'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
             </transition>
         </div>
         <div class="opacity">
@@ -281,10 +281,10 @@ export default {
                 _self.dislike = false;
                 _self.nofelling = false;
                 _self.canClick = true;
-            }, 30);
+            }, 10);
             setTimeout(() => {
                 this.fadeOut = true;
-            }, 80);
+            }, 30);
           
         },
         addScore(percent) {
