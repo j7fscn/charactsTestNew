@@ -51,7 +51,7 @@ export default {
     created(){
         this.getUserData();
         if(this.mes.nextPage == '/sex' ){
-            this.doShakeSmart = 1
+            this.doShakeSmart = 1;
         }
     },
     mounted(){
@@ -59,35 +59,34 @@ export default {
     },
     methods: {
       nextPage() {
-            this.setUserData()
+            this.setUserData();
         },
         getUserData() {
-            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid);
             this.$jsonp(urlG).then(json => {
-                this.dataJson=json.data.result
+                this.dataJson=json.data.result;
             }).catch(err => {
-                console.log(err)
+                console.log(err);
             })
         },
         setUserData() {
             var _self =this
             var data =''
-            data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  
-            var strToJson = this.parseQueryString(data)
-            var str =''
+            data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  ;
+            var strToJson = this.parseQueryString(data);
+            var str ='';
             for(let i in strToJson){
                 if(i == this.currentKey){
-                    strToJson[i] = this.doShakeSmart
+                    strToJson[i] = this.doShakeSmart;
                 }
-                str += i + '=' +strToJson[i] + '&'
+                str += i + '=' +strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1)
-            console.log(strToJson) 
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str
+            str = str.substring(0, str.length - 1);
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str;
             this.$jsonp(url).then(json => {
                 _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
             }).catch(err => {
-                console.log(err)
+                console.log(err);
             })
         },
         parseQueryString(url) {

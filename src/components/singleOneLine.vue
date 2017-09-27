@@ -76,41 +76,44 @@ export default {
         setValue() {
             this.setUserData();
              if(this.mes.nextPage == '/sex' ){
-                this.doShakeSmart = 1
+                this.doShakeSmart = 1;
             }
             
         },
         getUserData() {
             var _self = this
-            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid);
             this.$jsonp(urlG).then(json => {
-                this.dataJson=json.data.result
-                console.log(this.dataJson)
+                this.dataJson=json.data.result;
             }).catch(err => {
-                console.log(err)
+
             })
         },
         setUserData() {
             var data =''
             var _self =this
-                data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  
-            var strToJson = this.parseQueryString(data)
+                data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  ;
+            var strToJson = this.parseQueryString(data);
             
             var str =''
             for(let i in strToJson){
-                if(i == this.currentKey){
-                    strToJson[i] = this.checkedValue
+                 if(i == 'houseArea'){
+                    strToJson[i] = this.swithHouseName(strToJson[i]);
                 }
-                str += i + '=' +strToJson[i] + '&'
+
+                if(i == this.currentKey){
+                    strToJson[i] = this.checkedValue;
+                }
+                str += i + '=' +strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1)
+            str = str.substring(0, str.length - 1);
             
             console.log(strToJson)
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str;
             this.$jsonp(url).then(json => {
-                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid })
+                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
             }).catch(err => {
-                console.log(err)
+                console.log(err);
             })
         },
         parseQueryString(url) {
@@ -127,17 +130,22 @@ export default {
             } 
             return obj;
         },
-        // setJsonToString() {
-        //     var json = this.dataJson;
-        //     console.log(1)
-        //     // console.log(this.dataJson)
-        //     var str = '?';
-        //     for (var o in json) {
-        //         str += o + '=' + json[o] + '&'
-        //     }
-        //     str = str.substring(0, str.length - 1) + this.currentKey + '=' + this.checkedValue;
-        //     return str;
-        // }
+         swithHouseName(n){
+      
+           switch(n)
+            {
+            case 0:
+            return '小户型'
+            break;
+            case 1:
+             return '大户型'
+            break;
+            default:
+              return '超户型'
+            }
+
+        }
+
     }
 
 }
