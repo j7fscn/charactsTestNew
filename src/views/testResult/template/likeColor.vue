@@ -1,25 +1,24 @@
 <template>
     <div class="resultStyle">
       <p class="likeTitle">我喜欢的颜色</p>
-      <p>{{dataJson.choiceColor}}</p>
-      <!-- <ul>
-        <p class="titleLeft">{{message.dataList[dataJson.choiceColor].name}}</p>
+      <ul>
+          <!-- {{message.dataList[choiceColor].name}} -->
+        <p class="titleLeft" v-if="choiceColor == index" v-for="(item, index) in message.dataList" >{{message.dataList[index].name}}</p>
         <li>
             <div class="cont">
                 <div class="imgWrap">
-                    <img  v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[result.choiceColor].src">
-
+                    <img v-if="choiceColor == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
                 </div>
             </div>
         </li>
-      </ul> -->
+      </ul>
       
-    <!-- <div class="colorText">
-        <p>{{message.dataText[dataJson.choiceDraw].draw}}</p>
-        <p>{{message.dataText[dataJson.choiceDraw].draw1}}</p>
-        <p>{{message.dataText[dataJson.choiceDraw].pic}}</p>
-        <p>{{message.dataText[dataJson.choiceDraw].pic1}}</p>
-    </div> -->
+    <div class="colorText">
+        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].draw}}</p>
+        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].draw1}}</p>
+        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].pic}}</p>
+        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].pic1}}</p>
+    </div>
       
   </div>
 </template>
@@ -30,6 +29,8 @@ export default {
     data(){
         return{
             dataJson:'',
+            choiceColor:'',
+            choiceDraw:'',
             message: {
                 dataList: [
                     {   
@@ -104,17 +105,20 @@ export default {
         }
     },
     mounted() {  
-      
-    },
-    created() {
       var _self = this;
       let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
       this.$jsonp(urlG).then(function(json) {
         _self.dataJson = _self.parseQueryString(json.data.result);
-        console.log(_self.dataJson)
+        _self.choiceColor = _self.dataJson.choiceColor;
+        _self.choiceDraw = _self.dataJson.choiceDraw;
+        _self.choiceDraw = Number(_self.choiceDraw);
+        _self.choiceColor = Number(_self.choiceColor);
       }).catch(err => {
         console.log(err)
       });
+    },
+    created() {
+      
     },
     methods: {
         parseQueryString(url) {

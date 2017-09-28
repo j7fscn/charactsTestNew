@@ -1,40 +1,40 @@
 <template>
   <div class="resultStyle">
-      <!-- <p class="likeTitle">你喜欢的风格</p>
+      <p class="likeTitle">你喜欢的风格</p>
       <ul>
-          <p class="titleLeft">{{}}</p>
+          <p class="titleLeft">{{likeStyle[0]}}</p>
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[1].src">
+                        <img v-if="strArr[0] == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
                     </div>
                 </div>
             </li>
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[1].src">
+                        <img v-if="strArr[0] == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1">
                     </div>
                 </div>
             </li>
        </ul>
        <ul>
-          <p class="titleLeft">{{strArr[1]}}</p>
+          <p class="titleLeft">{{likeStyle[1]}}</p>
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[0].src">
+                        <img v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
                     </div>
                 </div>
             </li>
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[0].src">
+                        <img v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1">
                     </div>
                 </div>
             </li>
-       </ul>  -->
+       </ul> 
 
       <div class="mt40">
         <div class="btn">
@@ -51,6 +51,8 @@ export default {
     data(){
         return{
             strArr:[],
+            dataJson:'',
+            likeStyle:[],
             message: {
                 dataList: [
                     {
@@ -120,13 +122,29 @@ export default {
         }
     },
     mounted() {
-         console.log(this.result,'tj')
+         var _self = this;
+        let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
+        this.$jsonp(urlG).then(function(json) {
+        _self.dataJson = _self.parseQueryString(json.data.result);
+        _self.strArr = _self.dataJson.likeStyle.split(",");
+        _self.strArr[0] = decodeURIComponent(_self.strArr[0]);
+        _self.likeStyle[0] = decodeURIComponent(_self.strArr[0]);
+        _self.strArr[1] = decodeURIComponent(_self.strArr[1]);
+        _self.likeStyle[1] = decodeURIComponent(_self.strArr[1]);
+        var styleAll =['北欧','日式','地中海','中式','轻奢','乡村美式','现代美式','现代简约','法式','工业风','古典欧式','简欧'];
+        styleAll.forEach((item, index)=>{
+            if(_self.strArr[0] == item){
+                _self.strArr[0] = index
+            }
+            if(_self.strArr[1] == item){
+                _self.strArr[1] = index
+            }
+        })
+      }).catch(err => {
+        console.log(err)
+      });
     },
     created(){
-        // var styleStr = result.likeStyle
-        // strArr  = styleStr.split(",")
-        // strArr[0]=decodeURIComponent(strArr[0])
-        // strArr[1]=decodeURIComponent(strArr[1])
     },
     methods:{
         nextPage(){
@@ -134,12 +152,24 @@ export default {
         },
         postResult(){
             var _likeStyle=decodeURIComponent(this.result.likeStyle).split(',');
-            debugger
            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.result.houseArea),result:1 } }, function(data) {
 
             });
 
-        }
+        },
+        parseQueryString(url) {
+            var obj = {};
+            var keyvalue = [];
+            var key = "", value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=");
+                key = keyvalue[0];
+                value = keyvalue[1];
+                obj[key] = value;
+            }
+            return obj;
+        },
     }
 }
 </script>
