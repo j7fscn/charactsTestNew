@@ -4,7 +4,8 @@
     <div class="tag">
       <div class="head">
         <div class="shadow">
-          <img src="static/images/girl.png">
+          <img src="static/images/girl.png" v-if="result.sex==1">
+           <img src="static/images/man.png" v-else>
         </div>
       </div>
       <div class="result">

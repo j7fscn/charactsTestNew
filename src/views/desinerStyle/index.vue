@@ -231,7 +231,7 @@ export default {
 
             ],
             pageName: 'likeStyle',
-            nextPage: '/result'
+            nextPage: '/likeMiddle'
 
         }
     },

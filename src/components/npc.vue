@@ -30,7 +30,8 @@ export default {
 .cont {
     position: fixed;
     bottom: .2rem;
-    margin: .1rem;
+   width:96%;
+   margin-left:2%;
 }
 
 .shadow {

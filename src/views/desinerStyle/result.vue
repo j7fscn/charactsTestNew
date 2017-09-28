@@ -10,7 +10,7 @@ export default {
         return {
             mes: {
                 title: '很棒你的眼光,<br>很独特查<br>看测试报告',
-                nextPage:'/datePick',
+                nextPage:'/result',
             } 
         }
     }
