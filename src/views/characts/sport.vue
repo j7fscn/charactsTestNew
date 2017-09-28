@@ -12,7 +12,7 @@
             <li v-for="(item,index) in message.dataList" @click="choice($event,index)">
                 <div class="cont">
                     <div class="imgWrap">
-                        <img :src="'./static/images/'+message.imgPackage+'/'+item.src">
+                        <img :src="'http://owxa0vmjl.bkt.clouddn.com/characts'+item.src">
                         <div class="mask" v-if="item.choiced">
                             <div class="shadow"></div>
                             <div class="checked">

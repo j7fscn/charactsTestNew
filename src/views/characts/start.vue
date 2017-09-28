@@ -12,7 +12,6 @@ export default {
     computed: {},
     beforeCreate() { },
     created() {
-        // this.$router.push({ path: '/shakeFirst/'+this.$route.params.userid})
         this.linkToPage()
     },
     methods: {
@@ -29,25 +28,20 @@ export default {
                     return
                 }
                  var json = _self.parseQueryString(json.data.result);
-                 debugger
                 if (json.shakeSmart == '0') {
                     _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
                     return
                 }
                 _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid })
-                
-             
-               
 
             }).catch(err => {
-                console.log(err)
+               
             })
         },
         insertUserid() {
             var _self = this
             var urlNew = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?user_id=' + this.$route.params.userid + '&shakeSmart=0&result=0'
             this.$jsonp(urlNew).then(function(json){
-                debugger
                 _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
                 return
             }).catch(err => {

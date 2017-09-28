@@ -33,7 +33,7 @@
 <script>
 export default {
     name: 'likeStyle',
-    props: ['likeStyle'],
+    props: ['result'],
     data(){
         return{
             message: {

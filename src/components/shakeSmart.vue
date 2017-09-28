@@ -13,7 +13,7 @@
                  <!-- @click="choice($event,index)" -->
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'./static/images/'+mes.imgPackage+'/'+item.src">
+                        <img v-lazy="item.src">
                       
                     </div>
                     <p class="memo">{{item.name}}</p>
