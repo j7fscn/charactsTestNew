@@ -78,7 +78,7 @@
           <span v-if="sportTeam>=5">喜欢团队协作</span>
           <span v-else>喜欢独处</span>
 
-           <span v-if="sportPerson>=4">生性好强</span>
+          <span v-if="sportPerson>=4">生性好强</span>
           <span v-else>性情温和</span>
         </div>
         <div class="rt" v-else>
@@ -86,7 +86,7 @@
           <span v-if="sportTeam>=5">喜欢团队协作</span>
           <span v-else>喜欢独处</span>
 
-           <span v-if="sportPerson>=5">生性好强</span>
+          <span v-if="sportPerson>=5">生性好强</span>
           <span v-else>性情温和</span>
         </div>
 
@@ -116,7 +116,6 @@ export default {
 
     }
   },
-<<<<<<< HEAD
   mounted() {
 
   },
@@ -131,11 +130,6 @@ export default {
       arr = this.result.sport.split(',');
       this.sportTeam = arr[0];
       this.sportPerson = arr[1];
-
-
-=======
-  mounted(){
->>>>>>> c9d65c17d5907ef81e577f85b80b4e23c722e611
     }
   }
 }
