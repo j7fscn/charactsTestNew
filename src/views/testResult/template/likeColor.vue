@@ -25,11 +25,9 @@
 
 <script>
 export default {
-    // name: 'likeColor',
     props: ['result'],
     data(){
         return{
-            dataJson:'',
             message: {
                 dataList: [
                     {   

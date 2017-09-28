@@ -79,10 +79,6 @@ export default {
         },
         setValue() {
             this.setUserData();
-            if(this.mes.nextPage == '/sex' ){
-                this.doShakeSmart = 1;
-            }
-            
         },
         getUserData() {
             var _self = this
@@ -99,8 +95,6 @@ export default {
 
             data= this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.mes.nextPage  ;
             var strToJson = this.parseQueryString(data);
-            
-
             var str =''
             for(let i in strToJson){
                  if(i == 'houseArea'){
