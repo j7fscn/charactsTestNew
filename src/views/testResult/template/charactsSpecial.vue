@@ -38,8 +38,8 @@
 </template>
 <script>
 export default {
-    name: 'charactsSpecial',
-    props: ['resultSpecial'],
+    // name: 'charactsSpecial',
+    props: ['result1'],
     data(){
         return{
             message: {
@@ -131,7 +131,7 @@ export default {
         }
     },
    mounted(){
-        console.log(this.result,'tj')
+        console.log(this.result1,'tj')
     }
 }
 </script>

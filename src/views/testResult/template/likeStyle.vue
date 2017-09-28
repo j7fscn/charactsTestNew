@@ -1,6 +1,6 @@
 <template>
   <div class="resultStyle">
-      <p class="likeTitle">你喜欢的风格</p>
+      <!-- <p class="likeTitle">你喜欢的风格</p>
       <ul>
           <p class="titleLeft">{{}}</p>
             <li>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </li>
-       </ul> 
+       </ul>  -->
 
       <div class="mt40">
         <div class="btn">
@@ -134,6 +134,7 @@ export default {
         },
         postResult(){
             var _likeStyle=decodeURIComponent(this.result.likeStyle).split(',');
+            debugger
            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.result.houseArea),result:1 } }, function(data) {
 
             });

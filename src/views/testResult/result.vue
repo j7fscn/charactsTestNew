@@ -1,8 +1,8 @@
 <template>
   <div class="page-result">
     <characts-tag :result="dataJson"></characts-tag>
-    <characts-special :result="dataJson"></characts-special>
-    <like-color :result="dataJson"></like-color>
+    <!-- <characts-special :result1="dataJson"></characts-special> -->
+    <!-- <like-color :result="dataJson"></like-color> -->
     <like-style :result="dataJson"></like-style>
   </div>
 </template>
