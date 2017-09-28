@@ -57,16 +57,14 @@ export default {
     },
     methods:{
         nextPage(){
-            console.log('进入设计IN')
-<<<<<<< HEAD
+
         },
         postResult(){
             var _likeStyle=decodeURIComponent(this.result.likeStyle).split(',');
            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.result.houseArea),result:1 } }, function(data) {
 
             });
-=======
->>>>>>> 0d52da2a04a53e8955c78360ede7401b6b728703
+
         }
     }
 }
