@@ -51,7 +51,6 @@ export default {
             currentKey: 'likeStyle',
             fisrtStyle: '',
             secondStyle: '',
-            checkedValue: -1,
             styleScore: {
                 northernEurope: { score: 0, alias: "北欧" },
                 mediterraneanSea: { score: 0, alias: "地中海" },
@@ -237,9 +236,7 @@ export default {
         }
     },
     created() {
-        this.$bridge.registerHandler("refreshPage", function() {
-            document.location.reload();
-        });
+      
         this.getUserData();
     }
     ,
@@ -321,10 +318,7 @@ export default {
             }
             this.secondStyle = secondStyle;
             this.setUserData();
-            this.currentKey = [this.fisrtStyle, this.secondStyle];
-            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: [this.fisrtStyle, this.secondStyle], houseArea: '中型' } }, function(data) {
-
-            });
+          
             setTimeout(function() {
                 _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
             }, 50)
@@ -341,12 +335,12 @@ export default {
             })
         },
         setUserData() {
-            var data = this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage
+            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle+','+this.secondStyle+ '&' + this.nextKey + '=' + this.nextPage
             var strToJson = this.parseQueryString(data)
             var str = ''
             for (let i in strToJson) {
-                if (i == this.currentKey) {
-                    strToJson[i] = this.checkedValue
+                if (i == 'likeStyle') {
+                    strToJson[i] = this.fisrtStyle+','+this.secondStyle;
                 }
                 if (i == 'result') {
                     strToJson[i] = 1;

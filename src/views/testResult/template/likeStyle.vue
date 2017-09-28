@@ -13,7 +13,7 @@
         </ul>
 
       <div class="mt40">
-        <div class="btn">
+        <div class="btn" @click="postResult">
             <div  class="cont checked" @click="nextPage">进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
         </div>
       </div>
@@ -23,7 +23,7 @@
 <script>
 export default {
     name: 'likeStyle',
-    props: ['likeStyle'],
+    props: ['result'],
     data(){
         return{
             message: {
@@ -43,11 +43,22 @@ export default {
             }
         }
     },
+      created() {
+        this.$bridge.registerHandler("refreshPage", function() {
+            document.location.reload();
+        });
+    },
     mounted() {
     },
     methods:{
         nextPage(){
             console.log('进入设计IN')
+        },
+        postResult(){
+            var _likeStyle=decodeURIComponent(this.result.likeStyle).split(',');
+           this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.result.houseArea) } }, function(data) {
+
+            });
         }
     }
 }

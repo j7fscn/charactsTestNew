@@ -35,7 +35,7 @@ export default {
                 _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid })
 
             }).catch(err => {
-                console.log(err)
+               
             })
         },
         insertUserid() {
