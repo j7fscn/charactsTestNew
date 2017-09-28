@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             message: {
-                tit: '您的性别是',
+                tit: '你的性别是',
                 dataList: [
                     {
                         key: 0,

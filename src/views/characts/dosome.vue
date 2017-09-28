@@ -11,72 +11,97 @@ export default {
         return {
             message: {
                 tit: '你做过哪些（多选）',
-                sex: localStorage.getItem('sex'),
+                sex:'',
                 dataList: [
                     {
                         key: 0,
                         name: '手机相册很多自拍',
                         src: '16-1.png',
                         choiced: false,
-                        score:4,
+                        score: 4,
                     },
                     {
                         key: 1,
                         name: '用自己头像做表情包',
                         src: '16-2.png',
                         choiced: false,
-                        score:5
+                        score: 5
                     },
                     {
                         key: 2,
                         name: '自己发的朋友圈点赞',
                         src: '16-3.png',
                         choiced: false,
-                        score:3
+                        score: 3
                     },
                     {
                         key: 3,
                         name: '起床马上照镜子',
                         src: '16-4.png',
                         choiced: false,
-                        score:5
+                        score: 5
                     },
                     {
                         key: 4,
                         name: '拿自己的照片做屏保',
                         src: '16-5.png',
                         choiced: false,
-                        score:4
+                        score: 4
                     },
                     {
                         key: 5,
                         name: '觉得自己很帅很美',
                         src: '16-6.png',
                         choiced: false,
-                        score:5
+                        score: 5
                     }
                 ],
                 page: 19,
                 imgPackage: 'characts',
-                pageName:'dosome',
-                nextPage:'',
+                pageName: 'dosome',
+                nextPage: '',
             }
 
         }
     },
-    created(){
+    created() {
         this.setData()
+        this.getUserData();
     },
-    methods:{
-        setData(){
-             var sex = localStorage.getItem('sex')
-             if(sex==0){
-                 this.message.nextPage = '/sport'
-             }
-             this.message.nextPage = '/sportW'
+    methods: {
+        getUserData() {
+            var _self = this
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
+            this.$jsonp(urlG).then(json => {
+                this.sex = this.parseQueryString(json.data.result);
+            }).catch(err => {
+
+            })
+        },
+         parseQueryString(url) {
+            var obj={};
+            var keyvalue=[];
+            var key="",value=""; 
+            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+            for(var i in paraString)
+            {
+                keyvalue=paraString[i].split("=");
+                key=keyvalue[0];
+                value=keyvalue[1];
+                obj[key]=value; 
+            } 
+            return obj;
+        },
+        setData() {
+            if (this.sex == 0) {
+                this.message.nextPage = '/sport';
+                return
+            
+            }
+            this.message.nextPage = '/sportW'
         }
     }
-  
+
 }
 </script>
 

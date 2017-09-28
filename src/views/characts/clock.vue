@@ -12,16 +12,17 @@ export default {
             message: {
                 tit: '你的手机闹钟是哪种形式',
                 dataList: [
-                    {
-                        key: 0,
-                        name: '一个闹钟',
-                        src: '3-1.png',
-                        choiced: false
-                    },
+                   
                     {
                         key: 1,
                         name: '连续多个闹钟',
                         src: '3-2.png',
+                        choiced: false
+                    },
+                     {
+                        key: 0,
+                        name: '一个闹钟',
+                        src: '3-1.png',
                         choiced: false
                     },
                    
