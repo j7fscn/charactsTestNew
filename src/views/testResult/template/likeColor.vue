@@ -3,21 +3,21 @@
       <p class="likeTitle">我喜欢的颜色</p>
       <ul>
           <!-- {{message.dataList[choiceColor].name}} -->
-        <p class="titleLeft" v-if="choiceColor == index" v-for="(item, index) in message.dataList" >{{message.dataList[index].name}}</p>
+        <p class="titleLeft" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList" >{{message.dataList[index].name}}</p>
         <li>
             <div class="cont">
                 <div class="imgWrap">
-                    <img v-if="choiceColor == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
+                    <img v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
                 </div>
             </div>
         </li>
       </ul>
       
     <div class="colorText">
-        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].draw}}</p>
-        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].draw1}}</p>
-        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].pic}}</p>
-        <p  v-if="choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].pic1}}</p>
+        <p  v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].draw}}</p>
+        <p  v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].draw1}}</p>
+        <p  v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].pic}}</p>
+        <p  v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.dataText">{{message.dataText[index].pic1}}</p>
     </div>
       
   </div>
@@ -25,12 +25,9 @@
 
 <script>
 export default {
-    // props: ['result'],
+     props: ['dataJson'],
     data(){
         return{
-            dataJson:'',
-            choiceColor:'',
-            choiceDraw:'',
             message: {
                 dataList: [
                     {   
@@ -105,35 +102,14 @@ export default {
         }
     },
     mounted() {  
-      var _self = this;
-      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
-      this.$jsonp(urlG).then(function(json) {
-        _self.dataJson = _self.parseQueryString(json.data.result);
-        _self.choiceColor = _self.dataJson.choiceColor;
-        _self.choiceDraw = _self.dataJson.choiceDraw;
-        _self.choiceDraw = Number(_self.choiceDraw);
-        _self.choiceColor = Number(_self.choiceColor);
-      }).catch(err => {
-        console.log(err)
-      });
+ 
+ 
     },
     created() {
       
     },
     methods: {
-        parseQueryString(url) {
-            var obj = {};
-            var keyvalue = [];
-            var key = "", value = "";
-            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-            for (var i in paraString) {
-                keyvalue = paraString[i].split("=");
-                key = keyvalue[0];
-                value = keyvalue[1];
-                obj[key] = value;
-            }
-            return obj;
-        },
+       
     }
 
 }

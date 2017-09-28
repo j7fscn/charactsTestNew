@@ -41,7 +41,6 @@ export default {
     props: ['dataJson'],
     data(){
         return{
-            dataJson:'',
             message: {
                 titEleven: [
                     {

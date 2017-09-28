@@ -125,9 +125,7 @@ export default {
         this.sportTeam= arr[0]>=5?'喜欢团队协作':'喜欢独处' ;//
         this.sportPerson= arr[1]>=5?'生性好强':'性情温和' ;
      
-        return
       }
-     debugger
       arr = this.mes.sportW.split(',');
       this.sportTeam= arr[0]>=5?'喜欢团队协作':'喜欢独处' ;//
       this.sportPerson= arr[1]>=5?'生性好强':'性情温和' ;
