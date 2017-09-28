@@ -384,49 +384,35 @@ export default {
 .pageDesinerStyle {
     position: relative;
 }
-
-
-
-
 .pageDesinerStyle .opacity {
 
     bottom: .2rem;
     width: 100%;
     position: fixed;
 }
-
 .pageDesinerStyle .opacity .cont {
     display: flex;
     margin: 0 .45rem;
     flex-direction: row;
     justify-content: space-around;
 }
-
-
-
-
 .pageDesinerStyle .imgWrap {
     margin: .18rem .2rem 0 .2rem;
 }
-
 .pageDesinerStyle .imgWrap img {
     width: 100%;
     transition-duration: 2s
 }
-
 .pageDesinerStyle .ceil {
     width: .75rem;
     position: relative;
 }
-
 .pageDesinerStyle .ceil img {
     width: 100%;
 }
-
 .imgAimate {
     animation: myfirst .5s;
 }
-
 .postApp {
     position: absolute;
     width: 100%;
@@ -435,7 +421,6 @@ export default {
     opacity: 0;
     ;
 }
-
 @keyframes myfirst {
     from {
         margin-left: 100%;

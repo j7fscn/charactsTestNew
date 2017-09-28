@@ -14,44 +14,43 @@ export default {
                 dataList: [
                     {
                         name: '口红',
-                        src: '2-1.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-1.png',
                         choiced: false
                     },
                     {
                         name: '柠檬',
-                        src: '2-2.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-2.png',
                         choiced: false
                     },
                      {
                         name: '树叶',
-                        src: '2-3.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-3.png',
                      },
                       {
                         name: '牛奶',
-                        src: '2-4.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-4.png',
                      },
                       {
                         name: '蜂窝煤',
-                        src: '2-5.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-5.png',
                      },
                      
                       {
                         name: '大海',
-                        src: '2-6.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-6.png',
                      },
                       {
                         name: '薰衣草',
-                        src: '2-7.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-7.png',
                      },
                       {
                         name: '领带',
-                        src: '2-8.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm2-8.png',
                      }
 
                    
                 ],
                 page: 2,
-                imgPackage: 'shakeSmart',
                 pageName:'shakeSmart',
                 nextPage:'/shakeThird'
             }

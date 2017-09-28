@@ -14,44 +14,43 @@ export default {
                 dataList: [
                     {
                         name: '眼影',
-                        src: '1-1.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-1.png',
                         choiced: false
                     },
                     {
                         name: '眉笔',
-                        src: '1-2.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-2.png',
                         choiced: false
                     },
                      {
                         name: '指甲油',
-                        src: '1-3.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-3.png',
                      },
                       {
                         name: '假睫毛',
-                        src: '1-4.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-4.png',
                      },
                       {
                         name: '粉底',
-                        src: '1-5.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-5.png',
                      },
                      
                       {
                         name: '领带夹',
-                        src: '1-6.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-6.png',
                      },
                       {
                         name: '领结',
-                        src: '1-7.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-7.png',
                      },
                       {
                         name: '衬衫',
-                        src: '1-8.png',
+                        src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-8.png',
                      }
 
                    
                 ],
                 page: 2,
-                imgPackage: 'shakeSmart',
                 pageName:'shakeSmart',
                 nextPage:'/shakeSecond'
             }
