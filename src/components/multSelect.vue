@@ -16,7 +16,7 @@
                         <div class="mask" v-if="item.choiced">
                             <div class="shadow"></div>
                             <div class="checked">
-                                <img lazy src="static/images/checked.png">
+                                <img lazy src="http://owxa0vmjl.bkt.clouddn.com/checked.png">
                             </div>
                         </div>
                     </div>

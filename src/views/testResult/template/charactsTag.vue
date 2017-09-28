@@ -4,8 +4,8 @@
     <div class="tag">
       <div class="head">
         <div class="shadow">
-          <img src="static/images/girl.png" v-if="mes.sex==1">
-          <img src="static/images/man.png" v-else>
+          <img src="http://owxa0vmjl.bkt.clouddn.com/girl.png" v-if="mes.sex==1">
+          <img src="http://owxa0vmjl.bkt.clouddn.com/man.png" v-else>
         </div>
       </div>
       <div class="result">
