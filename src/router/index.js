@@ -7,7 +7,7 @@ import shakeFirst from '@/views/shakeSmart/shakeFirst'
 import shakeSecond from '@/views/shakeSmart/shakeSecond'
 import shakeThird from '@/views/shakeSmart/shakeThird'
 
-import shakeResult from '@/views/shakeSmart/result' //抖机灵结果
+import shakeResult from '@/views/shakeSmart/result' //抖机过渡页面
 //关于我
 import datePick from '@/views/aboutMe/datePick' //出生
 import houseArea from '@/views/aboutMe/houseArea' //户型图
@@ -37,8 +37,11 @@ import sportW from '@/views/characts/sportW'
 import choiceColor from '@/views/characts/choiceColor'
 import choiceDraw from '@/views/characts/choiceDraw'
 import choicePic from '@/views/characts/choicePic'
+
+import charactsResult from '@/views/characts/result' //性格过渡页面
 //风格测试
 import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
+import likeMiddle from '@/views/desinerStyle/result'
 
 import result from '@/views/testResult/result'
 
@@ -190,6 +193,11 @@ export default new Router({
       component: sportW
     },
     {
+      path: '/charactsResult/:userid',
+      name: 'charactsResult/:userid',
+      component: charactsResult
+    },
+    {
       path: '/choiceColor/:userid',
       name: 'choiceColor',
       component: choiceColor
@@ -213,6 +221,11 @@ export default new Router({
       path: '/datePick/:userid',
       name: 'datePick',
       component: datePick
+    },
+    {
+      path: '/likeMiddle/:userid',
+      name: 'likeMiddle',
+      component: likeMiddle
     },
     {
       path: '/likeStyle/:userid',

@@ -23,7 +23,7 @@ export default {
       let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
       this.$jsonp(urlG).then(function(json) {
         _self.dataJson = _self.parseQueryString(json.data.result);
-        // console.log(_self.dataJson)
+    
       }).catch(err => {
         console.log(err)
       });

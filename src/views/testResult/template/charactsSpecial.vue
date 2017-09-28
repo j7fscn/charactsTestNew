@@ -38,7 +38,8 @@
 </template>
 <script>
 export default {
-    props: ['result'],
+    name: 'charactsSpecial',
+    props: ['resultSpecial'],
     data(){
         return{
             message: {
@@ -129,10 +130,9 @@ export default {
             }
         }
     },
-    mounted() {
-        // debugger
-        console.log(this.result)
-    },
+   mounted(){
+        console.log(this.result,'tj')
+    }
 }
 </script>
 <style scoped>
