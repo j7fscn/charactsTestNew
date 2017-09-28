@@ -64,7 +64,6 @@ export default {
         choice(e, index) {
             if (this.mes.dataList[index].choiced) {
                 this.mes.dataList[index].choiced = false;
-            
                 this.checkedValue = -1;
                 return
 

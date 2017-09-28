@@ -5,7 +5,7 @@
       <div class="head">
         <div class="shadow">
           <img src="static/images/girl.png" v-if="result.sex==1">
-           <img src="static/images/man.png" v-else>
+          <img src="static/images/man.png" v-else>
         </div>
       </div>
       <div class="result">
@@ -16,13 +16,13 @@
         </div>
         <div class="rt">
           <span v-if="result.clock==0">依赖性强</span>
-          <span v-else>注重外表</span>
+          <span v-else>自律</span>
           <i></i>
         </div>
         <div class="rt" v-if="result.sex==0">
           <i></i>
-          <span v-if="result.faceScore==0">依赖性强</span>
-          <span v-else>自律</span>
+          <span v-if="result.faceScore==0">求知欲强</span>
+          <span v-else>注重外表</span>
         </div>
         <div class="rt" v-else>
           <i></i>
@@ -67,32 +67,38 @@
         <div class="rt">
           <i></i>
 
-          <span v-if="result.knowMan==18">强迫症重度患者</span>
-          <span v-if="result.knowMan>=9&&result.knowMan<=17">强迫症重度患者</span>
-          <span v-if="result.knowMan>0&&result.knowMan<=8">强迫症重度患者</span>
+          <span v-if="result.knowMan==18">二次元骨灰级玩家</span>
+          <span v-if="result.knowMan>=9&&result.knowMan<=17">二次元中毒较深</span>
+          <span v-if="result.knowMan>0&&result.knowMan<=8">二次元轻度玩家</span>
           <span v-if="result.knowMan==0">对二次元不感冒</span>
         </div>
 
         <div class="rt" v-if="result.sex==0">
           <i></i>
-          <span v-if="result.sportW>=5&&result.sportW<=13">喜欢团队协作</span>
+          <span v-if="sportTeam>=5">喜欢团队协作</span>
           <span v-else>喜欢独处</span>
+
+           <span v-if="sportPerson>=4">生性好强</span>
+          <span v-else>性情温和</span>
         </div>
         <div class="rt" v-else>
           <i></i>
-          <span v-if="result.sportW>=5&&result.sportW<=13">生性好强</span>
+          <span v-if="sportTeam>=5">喜欢团队协作</span>
+          <span v-else>喜欢独处</span>
+
+           <span v-if="sportPerson>=5">生性好强</span>
           <span v-else>性情温和</span>
         </div>
 
         <div class="rt" v-if="result.sex==0">
           <i></i>
           <span v-if="result.hairStyle==0">中规中矩</span>
-           <span v-else>骚气</span>
+          <span v-else>骚气</span>
         </div>
         <div class="rt" v-else>
           <i></i>
-          <span v-if="result.skillStockings<7">小性感</span>
-            <span v-else>超级性感</span>
+          <span v-if="result.skillStockings<=7">小性感</span>
+          <span v-else>超级性感</span>
         </div>
 
       </div>
@@ -103,14 +109,31 @@
 <script>
 export default {
   props: ['result'],
-  data(){
+  data() {
     return {
+      sportTeam: 0,
+      sportPerson: 0,
 
     }
   },
-  mounted(){
-        console.log(this.result,'tj')
+  mounted() {
+
+  },
+  methods: {
+    getScore() {
+      var arr = [];
+      if (this.result.sex == 0) {
+        arr = this.result.sport.split(',');
+        return
+      }
+
+      arr = this.result.sport.split(',');
+      this.sportTeam = arr[0];
+      this.sportPerson = arr[1];
+
+
     }
+  }
 }
 </script>
 <style scoped>
