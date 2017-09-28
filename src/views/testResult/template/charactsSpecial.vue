@@ -4,31 +4,31 @@
       <div class="content">
           <div class="subject">
               <!-- <span class="subject-color">言行一致</span> -->
-              <p>{{message.titEleven[result.choiceDraw].name0}}</p>
-              <p>{{message.titEleven[result.choiceDraw].name1}}</p>
-              <p>{{message.titEleven[result.choiceDraw].name2}}</p>
+              <p v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.titEleven">{{message.titEleven[index].name0}}</p>
+              <p v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.titEleven">{{message.titEleven[index].name1}}</p>
+              <p v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.titEleven">{{message.titEleven[index].name2}}</p>
           </div>
           <div class="subject">
-              <p>{{message.titFour[result.tooThpaste].name0}}</p>
+              <p v-if="dataJson.tooThpaste == index" v-for="(item, index) in message.titFour">{{message.titFour[index].name0}}</p>
           </div>
           <div class="subject">
-              <p v-if="result.dosome <=13 ">{{message.titSixteen[0].name1}}</p>
-              <p v-if="result.dosome <=13 ">{{message.titSixteen[0].name2}}</p>
-              <p v-if="result.dosome >13 ">{{message.titSixteen[1].name1}}</p>
-              <p v-if="result.dosome >13 ">{{message.titSixteen[1].name2}}</p>
+              <p v-if="dataJson.dosome <=13 ">{{message.titSixteen[0].name1}}</p>
+              <p v-if="dataJson.dosome <=13 ">{{message.titSixteen[0].name2}}</p>
+              <p v-if="dataJson.dosome >13 ">{{message.titSixteen[1].name1}}</p>
+              <p v-if="dataJson.dosome >13 ">{{message.titSixteen[1].name2}}</p>
           </div>
           <div class="subject">
-              <p v-if="result.try ==0 ">{{message.titFifteen[0].name1}}</p>
-              <p v-if="result.try ==0 ">{{message.titFifteen[0].name2}}</p>
-              <p v-if="result.try <=9 ">{{message.titFifteen[1].name1}}</p>
-              <p v-if="result.try <=9 ">{{message.titFifteen[1].name2}}</p>
-              <p v-if="result.try >9 ">{{message.titFifteen[2].name1}}</p>
-              <p v-if="result.try >9 ">{{message.titFifteen[2].name2}}</p>
+              <p v-if="dataJson.try ==0 ">{{message.titFifteen[0].name1}}</p>
+              <p v-if="dataJson.try ==0 ">{{message.titFifteen[0].name2}}</p>
+              <p v-if="dataJson.try <=9 ">{{message.titFifteen[1].name1}}</p>
+              <p v-if="dataJson.try <=9 ">{{message.titFifteen[1].name2}}</p>
+              <p v-if="dataJson.try >9 ">{{message.titFifteen[2].name1}}</p>
+              <p v-if="dataJson.try >9 ">{{message.titFifteen[2].name2}}</p>
 
-              <p v-if="result.mustHave <12 ">{{message.titFourteen[0].name1}}</p>
-              <p v-if="result.mustHave <12 ">{{message.titFourteen[0].name2}}</p>
-              <p v-if="result.mustHave >=12 ">{{message.titFourteen[1].name1}}</p>
-              <p v-if="result.mustHave >=12 ">{{message.titFourteen[1].name2}}</p>
+              <p v-if="dataJson.mustHave <12 ">{{message.titFourteen[0].name1}}</p>
+              <p v-if="dataJson.mustHave <12 ">{{message.titFourteen[0].name2}}</p>
+              <p v-if="dataJson.mustHave >=12 ">{{message.titFourteen[1].name1}}</p>
+              <p v-if="dataJson.mustHave >=12 ">{{message.titFourteen[1].name2}}</p>
           </div>
           <div class="subject">
               <p>-设计IN</p>
@@ -38,10 +38,10 @@
 </template>
 <script>
 export default {
-    // name: 'charactsSpecial',
-    props: ['result1'],
+    // props: ['result1'],
     data(){
         return{
+            dataJson:'',
             message: {
                 titEleven: [
                     {
@@ -130,8 +130,32 @@ export default {
             }
         }
     },
-   mounted(){
-        console.log(this.result1,'tj')
+   mounted() {  
+      var _self = this;
+      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
+      this.$jsonp(urlG).then(function(json) {
+        _self.dataJson = _self.parseQueryString(json.data.result);
+        console.log(_self.dataJson)
+      }).catch(err => {
+        console.log(err)
+      });
+    },
+    created() {     
+    },
+    methods: {
+        parseQueryString(url) {
+            var obj = {};
+            var keyvalue = [];
+            var key = "", value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=");
+                key = keyvalue[0];
+                value = keyvalue[1];
+                obj[key] = value;
+            }
+            return obj;
+        },
     }
 }
 </script>

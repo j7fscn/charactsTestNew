@@ -116,6 +116,7 @@ export default {
 
     }
   },
+<<<<<<< HEAD
   mounted() {
 
   },
@@ -132,6 +133,9 @@ export default {
       this.sportPerson = arr[1];
 
 
+=======
+  mounted(){
+>>>>>>> c9d65c17d5907ef81e577f85b80b4e23c722e611
     }
   }
 }

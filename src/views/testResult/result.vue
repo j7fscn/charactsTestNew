@@ -1,8 +1,8 @@
 <template>
   <div class="page-result">
     <characts-tag :result="dataJson"></characts-tag>
-    <!-- <characts-special :result1="dataJson"></characts-special> -->
-    <!-- <like-color :result="dataJson"></like-color> -->
+    <characts-special></characts-special>
+    <like-color ></like-color>
     <like-style :result="dataJson"></like-style>
 
   </div>
@@ -24,7 +24,6 @@ export default {
       let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
       this.$jsonp(urlG).then(function(json) {
         _self.dataJson = _self.parseQueryString(json.data.result);
-    
       }).catch(err => {
         console.log(err)
       });
