@@ -37,6 +37,8 @@ import sportW from '@/views/characts/sportW'
 import choiceColor from '@/views/characts/choiceColor'
 import choiceDraw from '@/views/characts/choiceDraw'
 import choicePic from '@/views/characts/choicePic'
+
+import charactsResult from '@/views/characts/result'
 //风格测试
 import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
 
@@ -188,6 +190,11 @@ export default new Router({
       path: '/sportW/:userid',
       name: 'sportW/:userid',
       component: sportW
+    },
+    {
+      path: '/charactsResult/:userid',
+      name: 'charactsResult/:userid',
+      component: charactsResult
     },
     {
       path: '/choiceColor/:userid',
