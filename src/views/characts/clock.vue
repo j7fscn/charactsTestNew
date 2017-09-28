@@ -29,9 +29,9 @@ export default {
                 page: 4,
                 imgPackage: 'characts',
                 pageName:'clock',
-                // nextPage:'/choiceColor' //临时测试
+                nextPage:'/choiceColor' //临时测试
 
-                nextPage:'/toothpaste'
+              //  nextPage:'/toothpaste'
             }
 
         }
