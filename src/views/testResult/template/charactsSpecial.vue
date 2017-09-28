@@ -38,7 +38,7 @@
 </template>
 <script>
 export default {
-    // props: ['result1'],
+    props: ['dataJson'],
     data(){
         return{
             dataJson:'',
@@ -131,31 +131,12 @@ export default {
         }
     },
    mounted() {  
-      var _self = this;
-      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
-      this.$jsonp(urlG).then(function(json) {
-        _self.dataJson = _self.parseQueryString(json.data.result);
-        console.log(_self.dataJson)
-      }).catch(err => {
-        console.log(err)
-      });
+    
     },
     created() {     
     },
     methods: {
-        parseQueryString(url) {
-            var obj = {};
-            var keyvalue = [];
-            var key = "", value = "";
-            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-            for (var i in paraString) {
-                keyvalue = paraString[i].split("=");
-                key = keyvalue[0];
-                value = keyvalue[1];
-                obj[key] = value;
-            }
-            return obj;
-        },
+      
     }
 }
 </script>
