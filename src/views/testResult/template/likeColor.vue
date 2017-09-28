@@ -6,7 +6,7 @@
         <li>
             <div class="cont">
                 <div class="imgWrap">
-                    <img  v-lazy="'../../static/images/result/'+message.dataList[result.choiceColor].src">
+                    <img  v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[result.choiceColor].src">
 
                 </div>
             </div>

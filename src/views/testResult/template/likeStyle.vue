@@ -2,21 +2,35 @@
   <div class="resultStyle">
       <p class="likeTitle">你喜欢的风格</p>
       <ul>
-          <p class="titleLeft">乡村田园美式</p>
-            <li v-for="(item,index) in message.dataList">
+          <p class="titleLeft">{{}}</p>
+            <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'../../static/images/result/'+item.src">
+                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[1].src">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cont">
+                    <div class="imgWrap">
+                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[1].src">
                     </div>
                 </div>
             </li>
        </ul>
        <ul>
-          <p class="titleLeft">现代美式</p>
-            <li v-for="(item,index) in message.dataList">
+          <p class="titleLeft">{{strArr[1]}}</p>
+            <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'../../static/images/result/'+item.src">
+                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[0].src">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cont">
+                    <div class="imgWrap">
+                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[0].src">
                     </div>
                 </div>
             </li>
@@ -36,24 +50,82 @@ export default {
     props: ['result'],
     data(){
         return{
+            strArr:[],
             message: {
                 dataList: [
                     {
                         name: '窗帘',
                         src: 'l-1-1.png',
-                        choiced: false
+                        src1: 'l-1-2.png',
                     },
                     {
-                        name: '餐桌',
-                        src: 'l-1-2.png',
-                        choiced: false
-                    }       
-                ],
+                        name: '窗帘',
+                        src: 'l-2-1.png',
+                        src1: 'l-2-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-3-1.png',
+                        src1: 'l-3-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-4-1.png',
+                        src1: 'l-4-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-5-1.png',
+                        src1: 'l-5-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-6-1.png',
+                        src1: 'l-6-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-7-1.png',
+                        src1: 'l-7-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-8-1.png',
+                        src1: 'l-8-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-9-1.png',
+                        src1: 'l-9-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-10-1.png',
+                        src1: 'l-10-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-11-1.png',
+                        src1: 'l-11-2.png',
+                    },
+                    {
+                        name: '窗帘',
+                        src: 'l-12-1.png',
+                        src1: 'l-12-2.png',
+                    }
+                          
+                ]
 
             }
         }
     },
     mounted() {
+    },
+    created(){
+        // var styleStr = result.likeStyle
+        // strArr  = styleStr.split(",")
+        // strArr[0]=decodeURIComponent(strArr[0])
+        // strArr[1]=decodeURIComponent(strArr[1])
     },
     methods:{
         nextPage(){
