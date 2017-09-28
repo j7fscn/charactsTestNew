@@ -142,7 +142,7 @@ export default {
              return '大户型'
             break;
             default:
-              return '超户型'
+              return '超大户型'
             }
 
         }
