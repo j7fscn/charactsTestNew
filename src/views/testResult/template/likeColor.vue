@@ -1,8 +1,9 @@
 <template>
     <div class="resultStyle">
       <p class="likeTitle">我喜欢的颜色</p>
-      <ul>
-        <p class="titleLeft">{{message.dataList[result.choiceColor].name}}</p>
+      <p>{{dataJson.choiceColor}}</p>
+      <!-- <ul>
+        <p class="titleLeft">{{message.dataList[dataJson.choiceColor].name}}</p>
         <li>
             <div class="cont">
                 <div class="imgWrap">
@@ -11,23 +12,24 @@
                 </div>
             </div>
         </li>
-      </ul>
+      </ul> -->
       
-    <div class="colorText">
-        <p>{{message.dataText[result.choiceDraw].draw}}</p>
-        <p>{{message.dataText[result.choiceDraw].draw1}}</p>
-        <p>{{message.dataText[result.choiceDraw].pic}}</p>
-        <p>{{message.dataText[result.choiceDraw].pic1}}</p>
-    </div>
+    <!-- <div class="colorText">
+        <p>{{message.dataText[dataJson.choiceDraw].draw}}</p>
+        <p>{{message.dataText[dataJson.choiceDraw].draw1}}</p>
+        <p>{{message.dataText[dataJson.choiceDraw].pic}}</p>
+        <p>{{message.dataText[dataJson.choiceDraw].pic1}}</p>
+    </div> -->
       
   </div>
 </template>
 
 <script>
 export default {
-    props: ['result'],
+    // props: ['result'],
     data(){
         return{
+            dataJson:'',
             message: {
                 dataList: [
                     {   
@@ -104,10 +106,32 @@ export default {
     mounted() {  
       
     },
-    created(){
+    created() {
+      var _self = this;
+      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
+      this.$jsonp(urlG).then(function(json) {
+        _self.dataJson = _self.parseQueryString(json.data.result);
+        console.log(_self.dataJson)
+      }).catch(err => {
+        console.log(err)
+      });
     },
-    methods:{
+    methods: {
+        parseQueryString(url) {
+            var obj = {};
+            var keyvalue = [];
+            var key = "", value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=");
+                key = keyvalue[0];
+                value = keyvalue[1];
+                obj[key] = value;
+            }
+            return obj;
+        },
     }
+
 }
 </script>
 
