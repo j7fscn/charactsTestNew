@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 3,
+                page: 5,
                 imgPackage: 'characts',
                 pageName:'finger',
                 nextPage:'/clock'

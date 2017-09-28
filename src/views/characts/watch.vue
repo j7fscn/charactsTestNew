@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 10,
+                page: 12,
                 imgPackage: 'characts',
                 pageName:'watch',
                 nextPage:'/hairstyle'
