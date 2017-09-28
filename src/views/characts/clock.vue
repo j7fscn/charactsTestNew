@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 4,
+                page: 6,
                 imgPackage: 'characts',
                 pageName:'clock',
                 // nextPage:'/choiceColor' //临时测试

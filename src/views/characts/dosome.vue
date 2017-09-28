@@ -56,7 +56,7 @@ export default {
                         score:5
                     }
                 ],
-                page: 17,
+                page: 19,
                 imgPackage: 'characts',
                 pageName:'dosome',
                 nextPage:'',

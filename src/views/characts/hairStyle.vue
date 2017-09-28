@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 11,
+                page: 13,
                 imgPackage: 'characts',
                 pageName:'hairStyle',
                 nextPage:'/sleep'

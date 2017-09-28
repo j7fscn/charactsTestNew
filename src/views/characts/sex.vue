@@ -26,7 +26,7 @@ export default {
                     },
                    
                 ],
-                page: 1,
+                page: 4,
                 imgPackage: 'characts',
                 pageName:'sex',
                 nextPage:'/fingerTips'

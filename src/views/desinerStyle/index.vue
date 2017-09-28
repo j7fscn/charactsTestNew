@@ -2,9 +2,9 @@
     <div class="pageDesinerStyle">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+5/50*100+'%'"></div>
+                <div class="complete" :style="'width:'+24/24*100+'%'"></div>
             </div>
-            <span class="vl">2/20</span>
+            <span class="vl">24/24</span>
 
         </div>
         <p class="tit">选择您喜欢的风格</p>

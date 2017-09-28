@@ -2,9 +2,9 @@
     <div class="fingerTips">
         <div class="progress">
             <div class="bar">
-                <div class="complete" style="width:2%"></div>
+                <div class="complete" style="width:20.8%"></div>
             </div>
-            <span class="vl">2/20</span>
+            <span class="vl">5/24</span>
         </div>
         <p class="tit">伸出您的左右，看看您的手指甲有多长</p>
         

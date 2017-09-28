@@ -32,7 +32,7 @@ export default {
                     },
                    
                 ],
-                page: 1,
+                page: 3,
                 imgPackage: 'characts',
                 pageName:'houseArea',
                 nextPage:'/readyGo'

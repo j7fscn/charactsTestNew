@@ -55,7 +55,7 @@ export default {
                         score:4
                     }
                 ],
-                page: 11,
+                page: 13,
                 imgPackage: 'characts',
                 pageName:'skillStockings',
                 nextPage:'/sleep',

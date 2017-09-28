@@ -2,9 +2,9 @@
     <div class="mulSelect">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+message.page/50*100+'%'"></div>
+                <div class="complete" :style="'width:'+message.page/24*100+'%'"></div>
             </div>
-            <span class="vl">{{message.page}}/20</span>
+            <span class="vl">{{message.page}}/24</span>
 
         </div>
         <p class="tit">{{message.tit}}</p>
@@ -91,7 +91,7 @@ export default {
                         score:0
                     }
                 ],
-                page: 16,
+                page: 18,
                 imgPackage: 'characts',
                 pageName:'try',
                 nextPage:'/dosome'

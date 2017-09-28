@@ -41,7 +41,7 @@ export default {
                         score:4
                     }
                 ],
-                page: 21,
+                page: 23,
                 imgPackage: 'characts',
                 pageName:'choicePic',
                 nextPage:'/likeStyle',
