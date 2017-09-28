@@ -10,7 +10,17 @@
                     </div>
                 </div>
             </li>
-        </ul>
+       </ul>
+       <ul>
+          <p class="titleLeft">现代美式</p>
+            <li v-for="(item,index) in message.dataList">
+                <div class="cont">
+                    <div class="imgWrap">
+                        <img v-lazy="'../../static/images/result/'+item.src">
+                    </div>
+                </div>
+            </li>
+       </ul> 
 
       <div class="mt40">
         <div class="btn">
@@ -77,7 +87,6 @@ export default {
 }
 img{
     height: 1.5rem;
-    width:2.8rem;
 }
 ul, li{
     margin:0.1rem 0;
@@ -86,6 +95,9 @@ ul, li{
 }
 li{
     height: 1.5rem;
+}
+.cont{
+    width:100%;
 }
 .mt40{
     margin-top:40px;
