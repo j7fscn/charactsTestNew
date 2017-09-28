@@ -86,7 +86,7 @@
 
         <div class="rt" v-if="result.sex==0">
           <i></i>
-          <span v-if="hairStyle==0">中规中矩</span>
+          <span v-if="result.hairStyle==0">中规中矩</span>
            <span v-else>骚气</span>
         </div>
         <div class="rt" v-else>

@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             message: {
-                tit: '选择一个并记在心中',
+                tit: '选择一个与你刚刚选择有关联的并记在心里',
                 dataList: [
                     {
                         name: '口红',

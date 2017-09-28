@@ -11,7 +11,7 @@ export default {
         return {
             message: {
                 tit: '',
-                sex: localStorage.getItem('sex'),
+                sex: '',
                 dataList: [
                     {
                         key: 0,
@@ -36,12 +36,36 @@ export default {
         }
     },
     created() {
+        this.getUserData();
         this.setData();
     },
     methods: {
+            getUserData() {
+            var _self = this
+            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
+            this.$jsonp(urlG).then(json => {
+                this.sex = this.parseQueryString(json.data.result);
+            }).catch(err => {
+
+            })
+        },
+         parseQueryString(url) {
+            var obj={};
+            var keyvalue=[];
+            var key="",value=""; 
+            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+            for(var i in paraString)
+            {
+                keyvalue=paraString[i].split("=");
+                key=keyvalue[0];
+                value=keyvalue[1];
+                obj[key]=value; 
+            } 
+            return obj;
+        },
         setData() {
-            var sex = localStorage.getItem('sex');
-            if (sex == 0) {
+      
+            if (this.sex == 0) {
                 this.message.tit='二者只能选一你更希望拥有的是';
                 this.message.dataList[0].name = '高晓松的才华';
                 this.message.dataList[1].name = '吴彦祖的颜值';

@@ -38,7 +38,7 @@
 
       <div class="mt40">
         <div class="btn">
-            <div  class="cont checked" @click="nextPage">进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
+            <div  class="cont checked" @click="postResult">进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
         </div>
       </div>
       
@@ -129,12 +129,9 @@ export default {
         // strArr[1]=decodeURIComponent(strArr[1])
     },
     methods:{
-        nextPage(){
 
-        },
         postResult(){
             var _likeStyle=decodeURIComponent(this.result.likeStyle).split(',');
-            debugger
            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.result.houseArea),result:1 } }, function(data) {
 
             });

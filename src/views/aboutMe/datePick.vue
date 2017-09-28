@@ -5,7 +5,7 @@
         <div class="bar">
           <div class="complete" style="width: 2%;"></div>
         </div>
-        <span class="vl">2/20</span>
+        <span class="vl">2/24</span>
       </div>
       <p class="tit">您的出生日期</p>
     </div>

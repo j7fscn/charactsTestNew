@@ -106,10 +106,8 @@ export default {
                 }
                 str += i + '=' +strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1)
-            if(this.mes.pageName =='sex'){
-                localStorage.setItem('sex',this.checkedValue )
-            }
+            str = str.substring(0, str.length - 1);
+       
             console.log(strToJson)
             
             var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str

@@ -22,7 +22,7 @@ export default {
                     {
                         key: 1,
                         name: '蜷缩着睡',
-                        src: '11-1.png',
+                        src: '11-2.png',
                         choiced: false
                     },
                     {
