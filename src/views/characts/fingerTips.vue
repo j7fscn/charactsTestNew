@@ -24,7 +24,7 @@ export default {
         goNext() {
             setTimeout(()=> {
                 this.$router.push({ path: '/finger/'+this.$route.params.userid  });
-            }, 1000)
+            }, 5000)
         }
     }
 }

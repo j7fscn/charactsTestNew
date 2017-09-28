@@ -6,7 +6,7 @@
         <li v-for="(item,index) in message.dataList">
             <div class="cont">
                 <div class="imgWrap">
-                    <img v-lazy="'../../static/images/result/'+item.src">
+                    <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+item.src">
                 </div>
             </div>
         </li>

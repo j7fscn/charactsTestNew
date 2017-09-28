@@ -285,7 +285,6 @@ export default {
 
         },
         addScore(percent) {
-
             var _self = this;
             var items = this.styleList[this.imgOrder - 1].classFily;
             items.forEach(function(element) {

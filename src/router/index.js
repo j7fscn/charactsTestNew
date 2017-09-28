@@ -6,6 +6,8 @@ import start from '@/views/characts/start'
 import shakeFirst from '@/views/shakeSmart/shakeFirst'
 import shakeSecond from '@/views/shakeSmart/shakeSecond'
 import shakeThird from '@/views/shakeSmart/shakeThird'
+
+import shakeResult from '@/views/shakeSmart/result' //抖机灵结果
 //关于我
 import datePick from '@/views/aboutMe/datePick' //出生
 import houseArea from '@/views/aboutMe/houseArea' //户型图
