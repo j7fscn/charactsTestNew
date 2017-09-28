@@ -31,7 +31,7 @@
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/like.png" v-if="!like" @click="likeChoice">
 
-                    <img src="shttp://owxa0vmjl.bkt.clouddn.com/like-push.png" v-else>
+                    <img src="http://owxa0vmjl.bkt.clouddn.com/like-push.png" v-else>
                 </div>
             </div>
         </div>
