@@ -70,6 +70,11 @@ export default new Router({
       component: shakeSecond
     },
     {
+      path: '/shakeResult/:userid',
+      name: 'shakeResult',
+      component: shakeResult
+    },
+    {
       path: '/houseArea/:userid',
       name: 'houseArea',
       component: houseArea

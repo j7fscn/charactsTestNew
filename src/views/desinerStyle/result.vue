@@ -9,8 +9,8 @@ export default {
     data() {
         return {
             mes: {
-                title: '不错我想我大概了解你的性格了,<br>接下来我们来看看这些图谈谈你的看法',
-                nextPage:'/likeStyle',
+                title: '很棒你的眼光,<br>很独特查<br>看测试报告',
+                nextPage:'/datePick',
             } 
         }
     }

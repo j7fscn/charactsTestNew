@@ -52,7 +52,7 @@ export default {
                 ],
                 page: 2,
                 pageName:'shakeSmart',
-                nextPage:'/datePick'
+                nextPage:'/shakeResult'
             }
 
         }

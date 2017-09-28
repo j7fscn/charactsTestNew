@@ -14,13 +14,13 @@ export default {
                 dataList: [
                     {
                         key: 0,
-                        name: '连续多个闹钟',
+                        name: '一个闹钟',
                         src: '3-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
-                        name: '一个闹钟',
+                        name: '连续多个闹钟',
                         src: '3-2.png',
                         choiced: false
                     },
@@ -29,9 +29,9 @@ export default {
                 page: 4,
                 imgPackage: 'characts',
                 pageName:'clock',
-                nextPage:'/choiceColor' //临时测试
+                // nextPage:'/choiceColor' //临时测试
 
-              //  nextPage:'/toothpaste'
+               nextPage:'/toothpaste'
             }
 
         }
