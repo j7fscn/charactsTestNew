@@ -47,7 +47,7 @@
 <script>
 export default {
     name: 'likeStyle',
-    props: ['result'],
+   props: ['result'],
     data(){
         return{
             strArr:[],
@@ -120,6 +120,7 @@ export default {
         }
     },
     mounted() {
+         console.log(this.result,'tj')
     },
     created(){
         // var styleStr = result.likeStyle

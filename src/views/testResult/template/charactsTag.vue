@@ -102,6 +102,14 @@
 <script>
 export default {
   props: ['result'],
+  data(){
+    return {
+
+    }
+  },
+  mounted(){
+        console.log(this.result,'tj')
+    }
 }
 </script>
 <style scoped>

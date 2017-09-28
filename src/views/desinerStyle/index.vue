@@ -334,7 +334,7 @@ export default {
             })
         },
         setUserData() {
-            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle+','+this.secondStyle+ '&' + this.nextKey + '=' + this.nextPage
+            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle+','+this.secondStyle+ '&' + 'nextKey'+ '=' + this.nextPage
             var strToJson = this.parseQueryString(data)
             var str = ''
             for (let i in strToJson) {
