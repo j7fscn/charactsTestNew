@@ -38,7 +38,6 @@
 </template>
 <script>
 export default {
-    name: 'charactsSpecial',
     props: ['result'],
     data(){
         return{
@@ -131,6 +130,8 @@ export default {
         }
     },
     mounted() {
+        // debugger
+        console.log(this.result)
     },
 }
 </script>

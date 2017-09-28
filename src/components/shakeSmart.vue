@@ -50,9 +50,6 @@ export default {
     },
     created(){
         this.getUserData();
-        if(this.mes.nextPage == '/sex' ){
-            this.doShakeSmart = 1;
-        }
     },
     mounted(){
        this.currentKey = this.mes.pageName; 
@@ -74,6 +71,9 @@ export default {
             var data =''
             data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  ;
             var strToJson = this.parseQueryString(data);
+            if(strToJson.nextKey == '/shakeResult'){
+                this.doShakeSmart = 1;
+            }
             var str ='';
             for(let i in strToJson){
                 if(i == this.currentKey){
