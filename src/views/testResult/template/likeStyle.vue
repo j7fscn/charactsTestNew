@@ -6,14 +6,24 @@
             <li v-for="(item,index) in message.dataList">
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+item.src">
+                        <img v-lazy="'../../static/images/result/'+item.src">
                     </div>
                 </div>
             </li>
-        </ul>
+       </ul>
+       <ul>
+          <p class="titleLeft">现代美式</p>
+            <li v-for="(item,index) in message.dataList">
+                <div class="cont">
+                    <div class="imgWrap">
+                        <img v-lazy="'../../static/images/result/'+item.src">
+                    </div>
+                </div>
+            </li>
+       </ul> 
 
       <div class="mt40">
-        <div class="btn" @click="postResult">
+        <div class="btn">
             <div  class="cont checked" @click="nextPage">进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
         </div>
       </div>
@@ -43,22 +53,20 @@ export default {
             }
         }
     },
-      created() {
-        this.$bridge.registerHandler("refreshPage", function() {
-            document.location.reload();
-        });
-    },
     mounted() {
     },
     methods:{
         nextPage(){
             console.log('进入设计IN')
+<<<<<<< HEAD
         },
         postResult(){
             var _likeStyle=decodeURIComponent(this.result.likeStyle).split(',');
            this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.result.houseArea),result:1 } }, function(data) {
 
             });
+=======
+>>>>>>> 0d52da2a04a53e8955c78360ede7401b6b728703
         }
     }
 }
@@ -88,7 +96,6 @@ export default {
 }
 img{
     height: 1.5rem;
-    width:2.8rem;
 }
 ul, li{
     margin:0.1rem 0;
@@ -97,6 +104,9 @@ ul, li{
 }
 li{
     height: 1.5rem;
+}
+.cont{
+    width:100%;
 }
 .mt40{
     margin-top:40px;
