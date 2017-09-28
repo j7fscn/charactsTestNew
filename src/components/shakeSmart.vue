@@ -13,7 +13,7 @@
                  <!-- @click="choice($event,index)" -->
                 <div class="cont">
                     <div class="imgWrap">
-                        <img v-lazy="item.src+'?imageView2/2/w/750 '">
+                        <img v-lazy="item.src">
                       
                     </div>
                     <p class="memo">{{item.name}}</p>
