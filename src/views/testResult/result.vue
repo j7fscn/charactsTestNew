@@ -1,15 +1,10 @@
 <template>
   <div class="page-result">
     <characts-tag :result="dataJson"></characts-tag>
-<<<<<<< HEAD
     <!-- <characts-special :result1="dataJson"></characts-special> -->
     <!-- <like-color :result="dataJson"></like-color> -->
     <like-style :result="dataJson"></like-style>
-=======
-    <!-- <characts-special :result="dataJson"></characts-special> -->
-    <like-color :result="dataJson"></like-color>
-    <!-- <like-style :result="dataJson"></like-style> -->
->>>>>>> ac27c9cb762820a73e5e1616438522e98d32ac9f
+
   </div>
 </template>
 <script>
