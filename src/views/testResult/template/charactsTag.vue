@@ -109,10 +109,7 @@ export default {
 
     }
   },
-    beforeUpdate() {  
-       console.log(this.dataJson);
-     
-    },
+
   created(){
    
   },
@@ -122,15 +119,17 @@ export default {
   },
   methods: {
     getScore() {
-      var arr = [];
+
+      debugger
       if (this.mes.sex == 0) {
       
-        arr = this.mes.sport.split(',');
+        var arr = this.mes.sport.split(',');
         this.sportTeam= arr[0]>=5?'喜欢团队协作':'喜欢独处' ;//
         this.sportPerson= arr[1]>=5?'生性好强':'性情温和' ;
+        return
      
       }
-      arr = this.mes.sportW.split(',');
+      var arr = this.mes.sportW.split(',');
       this.sportTeam= arr[0]>=5?'喜欢团队协作':'喜欢独处' ;//
       this.sportPerson= arr[1]>=5?'生性好强':'性情温和' ;
     }

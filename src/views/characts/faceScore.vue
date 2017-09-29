@@ -66,7 +66,7 @@ export default {
             return obj;
         },
         setData() {
-            debugger
+    
       
             if (this.sex == 0) {
                 this.message.tit='二者只能选一你更希望拥有的是';

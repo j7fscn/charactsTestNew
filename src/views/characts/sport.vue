@@ -120,8 +120,7 @@ export default {
         },
         goNextPage() {
             this.setUserData();
-              debugger
-            
+          
         },
         getUserData() {
             let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
