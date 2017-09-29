@@ -2,33 +2,61 @@
   <div class="resultStyle">
       <p class="likeTitle">我的性格特点 </p>
       <div class="content">
-          <div class="subject">
-              <!-- <span class="subject-color">言行一致</span> -->
-              <p v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.titEleven">{{message.titEleven[index].name0}}</p>
-              <p v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.titEleven">{{message.titEleven[index].name1}}</p>
-              <p v-if="dataJson.choiceDraw == index" v-for="(item, index) in message.titEleven">{{message.titEleven[index].name2}}</p>
+          <div class="subject titEleven" v-if="dataJson.choiceDraw == 0">
+            <p>你是个<span class="subject-color">言行一致</span>的⼈，</p>
+            <P>不念过去也不畏将来，</P>
+            <P><span class="subject-color">冷静</span>地⾯对处理⼈⽣中的变化</P>
           </div>
-          <div class="subject">
-              <p v-if="dataJson.tooThpaste == index" v-for="(item, index) in message.titFour">{{message.titFour[index].name0}}</p>
+          <div class="subject titEleven" v-if="dataJson.choiceDraw == 1">
+            <p>你是个<span class="subject-color">⼼细如发</span>的⼈，</p>
+            <P>别⼈的看法很重要，</P>
+            <P>也渴望得到真挚的认可和理解。</P>
           </div>
-          <div class="subject">
-              <p v-if="dataJson.dosome <=13 ">{{message.titSixteen[0].name1}}</p>
-              <p v-if="dataJson.dosome <=13 ">{{message.titSixteen[0].name2}}</p>
-              <p v-if="dataJson.dosome >13 ">{{message.titSixteen[1].name1}}</p>
-              <p v-if="dataJson.dosome >13 ">{{message.titSixteen[1].name2}}</p>
+          <div class="subject titEleven" v-if="dataJson.choiceDraw == 2">
+            <p>你是个<span class="subject-color">统领⼤局</span>的⼈，</p>
+            <P>被动等待不是你的作⻛，</P>
+            <P>总是能<span class="subject-color">把握趋势</span>去制定计划。</P>
           </div>
-          <div class="subject">
-              <p v-if="dataJson.try ==0 ">{{message.titFifteen[0].name1}}</p>
-              <p v-if="dataJson.try ==0 ">{{message.titFifteen[0].name2}}</p>
-              <p v-if="dataJson.try <=9 ">{{message.titFifteen[1].name1}}</p>
-              <p v-if="dataJson.try <=9 ">{{message.titFifteen[1].name2}}</p>
-              <p v-if="dataJson.try >9 ">{{message.titFifteen[2].name1}}</p>
-              <p v-if="dataJson.try >9 ">{{message.titFifteen[2].name2}}</p>
+          <div class="subject titEleven" v-if="dataJson.choiceDraw == 3">
+            <p>你是个<span class="subject-color">性情豪爽</span>的⼈，</p>
+            <P>身边的⼈喜欢你的<span class="subject-color">开朗⼤⽅</span>，</P>
+            <P>⼈群中的你都是<span class="subject-color">焦点</span>。</P>
+          </div>
+          <div class="subject titEleven" v-if="dataJson.choiceDraw == 4">
+            <p>你是个<span class="subject-color">严于律⼰</span>的⼈，</p>
+            <P>快速地适应多变的环境，</P>
+            <P>也很清楚⾃⼰想要什么。</P>
+          </div>
+          <div class="subject titEleven" v-if="dataJson.choiceDraw == 5">
+            <p>你是个<span class="subject-color">追求⾃由</span>的⼈，</p>
+            <P>抗拒着⼀成不变的⽣活，</P>
+            <P>不可预知的未来是你的向往。</P>
+          </div>
 
-              <p v-if="dataJson.mustHave <12 ">{{message.titFourteen[0].name1}}</p>
-              <p v-if="dataJson.mustHave <12 ">{{message.titFourteen[0].name2}}</p>
-              <p v-if="dataJson.mustHave >=12 ">{{message.titFourteen[1].name1}}</p>
-              <p v-if="dataJson.mustHave >=12 ">{{message.titFourteen[1].name2}}</p>
+          <div class="subject">
+            <p v-if="dataJson.tooThpaste == 0" ><span class="subject-color">谨慎⼩⼼</span>是你的特质。</p>
+            <p v-if="dataJson.tooThpaste == 1" ><span class="subject-color">个性随意</span>是你的特质。</p>
+            <p v-if="dataJson.tooThpaste == 2" ><span class="subject-color">脚踏实地</span>是你的特质。</p>
+            <p v-if="dataJson.tooThpaste == 3" ><span class="subject-color">不拘⼩节</span>是你的特质。</p>
+          </div>
+          <div class="subject">
+              <p v-if="dataJson.dosome <=13 ">确是<span class="subject-color">好看</span>的你，</p>
+              <p v-if="dataJson.dosome <=13 ">被⼈喜欢认同总能让你欣喜。</p>
+              <p v-if="dataJson.dosome >13 ">确是<span class="subject-color">⾃信</span>的你，</p>
+              <p v-if="dataJson.dosome >13 ">不曾在意别⼈⽚⾯看法。</p>
+          </div>
+          <div class="subject">
+              <p v-if="dataJson.try ==0 ">不喜欢过于困难挑战的你，</p>
+              <p v-if="dataJson.try ==0 ">更享受⽣活的平淡乐，</p>
+              <p v-if="dataJson.try <=9 && dataJson.try>=3 "><span class="subject-color">好奇</span>的你，</p>
+              <p v-if="dataJson.try <=9 && dataJson.try>=3 ">更想<span class="subject-color">尝试新事物</span>也渴望得到帮助，</p>
+              <p v-if="dataJson.try >9 ">富有<span class="subject-color">冒险精神</span>的你，</p>
+              <p v-if="dataJson.try >9 ">更喜欢不同常⼈的挑战，</p>
+
+              <p v-if="dataJson.mustHave <12 ">也喜欢⽣活多⼀些<span class="subject-color">仪式感</span>，</p>
+              <p v-if="dataJson.mustHave <12 ">来增添⽣活的不经意的⼩确幸。</p>
+              <p v-if="dataJson.mustHave >=12 ">也重视⽣活<span class="subject-color">仪式感</span>，</p>
+              <p v-if="dataJson.mustHave >=12 ">把每件事都做成值得回味的。</p>
           </div>
           <div class="subject">
               <p>-设计IN</p>
@@ -41,101 +69,28 @@ export default {
     props: ['dataJson'],
     data(){
         return{
-            message: {
-                titEleven: [
-                    {
-                        name0: '你是个⾔⾏⼀致的⼈，',
-                        name1: '不念过去也不畏将来，',
-                        name2: '冷静地⾯对处理⼈⽣中的变化',            
-                    },
-                    {
-                        name0: '你是个⼼细如发，',
-                        name1: '别⼈的看法很重要，',
-                        name2: '也渴望得到真挚的认可和理解。',     
-                    },
-                    {
-                        name0: '你是个统领⼤局的⼈，',  
-                        name1: '被动等待不是你的作⻛，',
-                        name2: '总是能把握趋势去制定计划。',            
-                    },
-                    {
-                        name0: '你是个性情豪爽的⼈，', 
-                        name1: '身边的⼈喜欢你的开朗⼤⽅，',
-                        name2: '⼈群中的你都是焦点。',     
-                    },
-                    {
-                        name0: '你是个严于律⼰的⼈',
-                        name1: '快速地适应多变的环境，',
-                        name2: '也很清楚⾃⼰想要什么。',            
-                    },
-                    {
-                        name0: '你是个追求⾃由的⼈，', 
-                        name1: '抗拒着⼀成不变的⽣活，',
-                        name2: '不可预知的未来是你的向往。',     
-                    }       
-                ],
-                titFour: [
-                    {
-                        name0: '谨慎⼩⼼是你的特质。',
-                              
-                    },
-                    {
-                        name0: '个性随意是你的特质。',
-                    },
-                    {
-                        name0: '脚踏实地是你的特质。',  
-                               
-                    },
-                    {
-                        name0: '不拘⼩节是你的特质。', 
-                  
-                    }
-                ],
-                titSixteen:[
-                    {                     
-                        name1: '确是⾃信的你，',
-                        name2: '不曾在意别⼈⽚⾯看法。',            
-                    },
-                    {
-                        name1: '确是好看的你，',
-                        name2: '被⼈喜欢认同总能让你欣喜。',     
-                    }    
-                ],
-                titFifteen:[
-                    {                     
-                        name1: '不喜欢过于困难挑战的你，',
-                        name2: '更享受⽣活的平淡乐，',            
-                    },
-                    {                     
-                        name1: '好奇的你,',
-                        name2: '更想尝试新事物也渴望得到帮助，',            
-                    },
-                    {
-                        name1: '富有冒险精神的你，',
-                        name2: '更喜欢不同常⼈的挑战，',     
-                    } 
-                ],
-                titFourteen:[
-                    {                     
-                        name1: '也喜欢⽣活多⼀些仪式感，',
-                        name2: '来增添⽣活的不经意的⼩确幸。',            
-                    },
-                    {
-                        name1: '也重视⽣活仪式感，',
-                        name2: '把每件事都做成值得回味的。',     
-                    } 
-                ]
-
-            }
         }
     },
    mounted() {  
-    
+       console.log(this.dataJson);
+       this.getColor()
     },
-    created() {     
+    created() {
+        
     },
     methods: {
-      
+      getColor(){
+          var textColorNum = this.dataJson.choiceColor;
+          var textColorArr= ['#e79e92','#deb844','#679cb6','#9eb58d','#fb7472','#7ccbe2'];  
+          debugger   
+          var textColor = textColorArr[textColorNum];
+          console.log(textColor);
+          debugger
+         var allSpan =  document.querySelectorAll('span.subject-color'); //querySelectorAll  getElementsByClassName
+        //   document.getElementsByClassName('.subject-color').style.color = textColor
+            allSpan.style.color = textColor;
+          debugger
+      }
     }
 }
 </script>
@@ -174,8 +129,7 @@ export default {
     margin-top:.35rem;
 }
 .subject .subject-color{
-    color:#9eb58d;
-;
+    /* color:#9eb58d; */
 }
 .subject p{
     margin-top:0;
