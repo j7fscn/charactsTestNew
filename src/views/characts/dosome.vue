@@ -66,15 +66,17 @@ export default {
         }
     },
     created() {
-        this.setData()
         this.getUserData();
+           
+      
     },
     methods: {
         getUserData() {
-            var _self = this
-            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
-            this.$jsonp(urlG).then(json => {
-                _self.sex = _self.parseQueryString(json.data.result);
+            var _self = this;
+            var urlG = 'http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid;
+            _self.$jsonp(urlG).then(function(json) {
+            _self.sex = _self.parseQueryString(json.data.result).sex;
+            _self.setData();
             }).catch(err => {
 
             })
