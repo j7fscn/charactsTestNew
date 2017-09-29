@@ -14,13 +14,13 @@ export default {
                 dataList: [
                    
                     {
-                        key: 1,
+                        key: 0,
                         name: '连续多个闹钟',
                         src: '3-2.png',
                         choiced: false
                     },
                      {
-                        key: 0,
+                        key: 1,
                         name: '一个闹钟',
                         src: '3-1.png',
                         choiced: false
