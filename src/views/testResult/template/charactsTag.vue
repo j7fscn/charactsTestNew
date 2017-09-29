@@ -136,7 +136,7 @@ export default {
 </script>
 <style scoped>
 .m-charatcs {
-  padding: .5rem 0 2rem;
+  padding: .1rem 0 2rem;
 }
 
 .m-charatcs .tit {

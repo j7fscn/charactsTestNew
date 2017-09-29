@@ -190,7 +190,7 @@ export default {
     text-decoration: underline;
 }
 .titleLeft{
-    margin-top:0;
+    margin-top:.4rem;
     margin-bottom: .2rem;
     text-align: left;
     color:#222;
