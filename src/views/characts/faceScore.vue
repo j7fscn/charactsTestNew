@@ -9,6 +9,7 @@ export default {
     components: { singleOneLine },
     data() {
         return {
+            sex:'',
             message: {
                 tit: '',
                 sex: '',
@@ -35,16 +36,17 @@ export default {
 
         }
     },
-    created() {
-        this.getUserData();
-        this.setData();
+    created(){
+          this.getUserData();
+            this.setData();
     },
+    
     methods: {
             getUserData() {
-            var _self = this
+            var _self = this;
             let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
             this.$jsonp(urlG).then(json => {
-                this.sex = this.parseQueryString(json.data.result);
+                _self.sex = _self.parseQueryString(json.data.result);
             }).catch(err => {
 
             })
@@ -64,6 +66,7 @@ export default {
             return obj;
         },
         setData() {
+            debugger
       
             if (this.sex == 0) {
                 this.message.tit='二者只能选一你更希望拥有的是';

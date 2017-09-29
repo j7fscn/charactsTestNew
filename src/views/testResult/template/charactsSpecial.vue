@@ -72,9 +72,10 @@ export default {
             textColor:''
         }
     },
-   beforeUpdate() {  
-       console.log(this.dataJson);
-       this.getColor()
+
+    beforeUpdate(){
+        this.getColor()
+
     },
     created() {
         
