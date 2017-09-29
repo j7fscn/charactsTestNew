@@ -145,6 +145,9 @@ export default {
       });
     },
     created(){
+             this.$bridge.callHandler('enterLastPage', { 'testResult': {result:1 } }, function(data) {
+
+            });
     },
     methods:{
 

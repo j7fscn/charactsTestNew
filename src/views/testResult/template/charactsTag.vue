@@ -119,8 +119,6 @@ export default {
   },
   methods: {
     getScore() {
-
-      debugger
       if (this.mes.sex == 0) {
       
         var arr = this.mes.sport.split(',');
