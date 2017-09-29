@@ -15,12 +15,12 @@
           <div class="subject titEleven" v-if="dataJson.choiceDraw == 2">
             <p>你是个<span :style="{color:textColor}" class="subject-color">统领⼤局</span>的⼈，</p>
             <P>被动等待不是你的作⻛，</P>
-            <P>总是能<span class="subject-color">把握趋势</span>去制定计划。</P>
+            <P>总是能<span :style="{color:textColor}" class="subject-color">把握趋势</span>去制定计划。</P>
           </div>
           <div class="subject titEleven" v-if="dataJson.choiceDraw == 3">
             <p>你是个<span :style="{color:textColor}" class="subject-color">性情豪爽</span>的⼈，</p>
-            <P>身边的⼈喜欢你的<span class="subject-color">开朗⼤⽅</span>，</P>
-            <P>⼈群中的你都是<span class="subject-color">焦点</span>。</P>
+            <P>身边的⼈喜欢你的<span :style="{color:textColor}" class="subject-color">开朗⼤⽅</span>，</P>
+            <P>⼈群中的你都是<span :style="{color:textColor}" class="subject-color">焦点</span>。</P>
           </div>
           <div class="subject titEleven" v-if="dataJson.choiceDraw == 4">
             <p>你是个<span :style="{color:textColor}" class="subject-color">严于律⼰</span>的⼈，</p>

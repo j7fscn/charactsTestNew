@@ -62,7 +62,7 @@ export default {
                     },
                     {   
                         key:5,
-                        name: '你喜欢海岛天',
+                        name: '你喜欢海岛天堂蓝',
                         src: 'y-6.png',
                         choiced: false
                     }      
