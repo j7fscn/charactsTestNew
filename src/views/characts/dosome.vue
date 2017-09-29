@@ -9,6 +9,7 @@ export default {
     components: { multSelect },
     data() {
         return {
+            sex:'',
             message: {
                 tit: '你做过哪些（多选）',
                 sex:'',
@@ -73,7 +74,7 @@ export default {
             var _self = this
             let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
             this.$jsonp(urlG).then(json => {
-                this.sex = this.parseQueryString(json.data.result);
+                _self.sex = _self.parseQueryString(json.data.result);
             }).catch(err => {
 
             })
