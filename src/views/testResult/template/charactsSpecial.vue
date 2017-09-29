@@ -71,7 +71,7 @@ export default {
         return{
         }
     },
-   mounted() {  
+   beforeUpdate() {  
        console.log(this.dataJson);
        this.getColor()
     },

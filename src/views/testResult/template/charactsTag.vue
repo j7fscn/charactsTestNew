@@ -109,6 +109,10 @@ export default {
 
     }
   },
+    beforeUpdate() {  
+       console.log(this.dataJson);
+     
+    },
   created(){
    
   },
