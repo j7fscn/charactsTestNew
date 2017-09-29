@@ -10,8 +10,8 @@
       </div>
       <div class="result">
         <div class="rt">
-          <span v-if="mes.finger==0">向外坦率</span>
-          <span v-else>向外坦率</span>
+          <span v-if="mes.finger==0">外向坦率</span>
+          <span v-else>内向含蓄</span>
           <i></i>
         </div>
         <div class="rt">
@@ -37,7 +37,7 @@
         <div class="rt">
           <i></i>
           <span v-if="mes.camera==0">爱折腾捣鼓</span>
-          <span v-else>爱折腾捣鼓</span>
+          <span v-else>简单直率</span>
         </div>
 
         <div class="rt" v-if="mes.sex==0">
@@ -49,7 +49,7 @@
         <div class="rt" v-else>
           <i></i>
           <span v-if="mes.skillStockings">优雅知性</span>
-          <span class="v-else">随性</span>
+          <span v-else>随性</span>
         </div>
 
         <div class="rt">
