@@ -174,8 +174,8 @@ export default {
 <style scoped>
 .resultStyle{
     margin-top: 1.1rem;
-    margin-left:.2rem;
-    margin-right:.2rem;
+    margin-left:.1rem;
+    margin-right:.1rem;
 }
 .resultStyle .likeTitle{
     margin-top:0;
@@ -195,7 +195,7 @@ export default {
     font-size: .2rem;
 }
 img{
-    height: 1.5rem;
+  width:100%;
 }
 ul, li{
     margin:0.1rem 0;
