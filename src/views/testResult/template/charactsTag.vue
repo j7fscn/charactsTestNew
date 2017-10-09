@@ -11,7 +11,7 @@
       <div class="result">
         <div class="rt">
           <span v-if="mes.finger==0">外向坦率</span>
-          <span v-else>内向含蓄</span>
+          <span v-else>内敛含蓄</span>
           <i></i>
         </div>
         <div class="rt">
