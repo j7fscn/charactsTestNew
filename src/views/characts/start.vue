@@ -18,14 +18,11 @@ export default {
     methods: {
         linkToPage() {
             var _self = this;
-    
             if(this.$route.params.userid=='undefined'){
                   _self.$router.push({ path:  '/start/' + this.getRadomId() });//没有ID生成随机ID
-              
             }
             var url = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
             this.$jsonp(url).then(function(json) {
-              
                 // 插入新用户
                 if (json.data.result == '数据库没有该userId的记录') {
                     _self.insertUserid();

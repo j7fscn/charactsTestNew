@@ -58,7 +58,7 @@
               <p v-if="dataJson.mustHave >=12 ">也重视⽣活<span :style="{color:textColor}" class="subject-color">仪式感</span>，</p>
               <p v-if="dataJson.mustHave >=12 ">把每件事都做成值得回味的。</p>
           </div>
-          <div class="subject">
+          <div class="subject last">
               <p>-设计IN</p>
           </div>
       </div>
@@ -72,7 +72,6 @@ export default {
             textColor:''
         }
     },
-
     beforeUpdate(){
         this.getColor()
 
@@ -106,11 +105,11 @@ export default {
 }
 .content{
     margin-left:.07rem;
-    -webkit-box-shadow: #666 1px 0px 5px;;
-    -moz-box-shadow: #666 1px 0px 5px;;
-    box-shadow: #666 1px 0px 5px;
-    
+    -webkit-box-shadow: #eee 1px 0px 5px;;
+    -moz-box-shadow: #eee 1px 0px 5px;;
+    box-shadow: #eee 1px 0px 5px;
     background: #fff;
+    padding-bottom:.35rem;
 }
 .titleLeft{
     margin-top:0;
@@ -122,6 +121,7 @@ export default {
 }
 .subject{
     margin-top:.35rem;
+    padding-top:.25rem;
 }
 .subject .subject-color{
     /* color:#9eb58d; */
@@ -133,6 +133,10 @@ export default {
     line-height: .3rem;
     font-size: .16rem;
     text-align: right;
+    color:#666;
+}
+.last {
+    padding-right:.15rem;
 }
 </style>
 

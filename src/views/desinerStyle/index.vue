@@ -359,11 +359,12 @@ export default {
 
                 }
 
-                str += i + '=' + strToJson[i] + '&'
+                str += i + '=' + strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1)
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
+            str = str.substring(0, str.length - 1);
+            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str;
             this.$jsonp(url).then(json => {
+                
 
             }).catch(err => {
                 console.log(err)

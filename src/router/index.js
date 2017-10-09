@@ -223,6 +223,11 @@ export default new Router({
       name: 'result',
       component: result
     },
+      {
+      path: '/charactsResult/:userid',
+      name: 'charactsResult',
+      component: charactsResult
+    },
     {
       path: '/result/:userid/shareResult',
       name: 'share',

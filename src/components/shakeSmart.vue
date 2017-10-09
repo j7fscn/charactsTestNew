@@ -35,7 +35,6 @@
 
 </style>
 <script>
-
 export default {
     props: ['mes'],
     data() {

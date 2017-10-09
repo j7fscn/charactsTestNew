@@ -1,7 +1,7 @@
 <template>
     <div class="resultStyle">
         <p class="likeTitle">你喜欢的风格</p>
-        <ul>
+        <ul class="list">
             <p class="titleLeft">{{likeStyle[0]}}</p>
             <li>
                 <div class="cont">
@@ -18,7 +18,7 @@
                 </div>
             </li>
         </ul>
-        <ul>
+        <ul class="list">
             <p class="titleLeft">{{likeStyle[1]}}</p>
             <li>
                 <div class="cont">
@@ -28,11 +28,9 @@
                 </div>
             </li>
             <li>
-                <div class="cont">
-                    <div class="imgWrap">
+               <div class="imgWrap">
                         <img v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1">
                     </div>
-                </div>
             </li>
         </ul>
 
@@ -127,6 +125,7 @@ export default {
         }
     },
     mounted() {
+        this.shareDuge();
         var _self = this;
         let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid);
         this.$jsonp(urlG).then(function(json) {
@@ -151,7 +150,7 @@ export default {
     },
 
     created() {
-        this.shareDuge();
+      
         if (!this.isShare){
             this.$bridge.callHandler('enterLastPage', { 'testResult': { result: 1 } }, function(data) {
 
@@ -216,17 +215,16 @@ export default {
 
 img {
     width: 100%;
+    display: block;
 }
 
-ul,
-li {
-    margin: 0.1rem 0;
+.list,
+.list li {
     padding: 0;
     list-style-type: none;
 }
-
-li {
-    height: 1.5rem;
+.list li {
+       margin: 0.1rem 0;
 }
 
 .cont {
