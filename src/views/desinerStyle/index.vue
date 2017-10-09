@@ -270,7 +270,7 @@ export default {
             this.imgOrder += 1;
             this.canClick = false;
             setTimeout(function() {
-                if (_self.imgOrder == 6) {
+                if (_self.imgOrder == 31) {
                     _self.maxScore();
 
                 }
