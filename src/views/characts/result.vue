@@ -9,7 +9,7 @@ export default {
     data() {
         return {
             mes: {
-                title: '不错我想我大概了解你的性格了,<br>接下来我们来看看这些图谈谈你的看法',
+                title: '不错<br>我想我大概了解你的性格了<br>接下来我们来看看这些图<br>谈谈你的看法',
                 nextPage:'/likeStyle',
             } 
         }

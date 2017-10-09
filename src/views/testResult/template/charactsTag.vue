@@ -11,7 +11,7 @@
       <div class="result">
         <div class="rt">
           <span v-if="mes.finger==0">外向坦率</span>
-          <span v-else>内向含蓄</span>
+          <span v-else>内敛含蓄</span>
           <i></i>
         </div>
         <div class="rt">
@@ -48,7 +48,7 @@
 
         <div class="rt" v-else>
           <i></i>
-          <span v-if="mes.skillStockings">优雅知性</span>
+          <span v-if="mes.shoes==0">优雅知性</span>
           <span v-else>随性</span>
         </div>
 

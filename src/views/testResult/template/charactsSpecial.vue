@@ -56,7 +56,7 @@
               <p v-if="dataJson.mustHave <12 ">也喜欢⽣活多⼀些<span :style="{color:textColor}" class="subject-color">仪式感</span>，</p>
               <p v-if="dataJson.mustHave <12 ">来增添⽣活的不经意的⼩确幸。</p>
               <p v-if="dataJson.mustHave >=12 ">也重视⽣活<span :style="{color:textColor}" class="subject-color">仪式感</span>，</p>
-              <p v-if="dataJson.mustHave >=12 ">把每件事都做成值得回味的。</p>
+              <p v-if="dataJson.mustHave >=12 ">把每件事都做成值得回味的纪念。</p>
           </div>
           <div class="subject last">
               <p>-设计IN</p>
