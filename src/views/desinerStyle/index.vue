@@ -8,13 +8,13 @@
 
         </div>
         <p class="tit">选择您喜欢的风格</p>
-        <div class="imgWrap" v-bind:class="[btnClick ? 'BtnBlock' : 'hideBtnNone']">
+        <div class="imgWrap">
             <transition name="fade">
                 <!-- <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30"> -->
                   <img v-bind:src="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
             </transition>
         </div>
-        <div v-bind:class="[btnClick ? 'BtnBlock' : 'hideBtnNone', 'opacity']">
+        <div v-bind:class="[btnClick ? 'hideBtnBlock' : 'hideBtnNone', 'opacity']">
             <div class="cont" >
                 <div class="ceil">
 
@@ -248,7 +248,7 @@ export default {
                     var oImg = new Image();     
                     oImg.src = 'http://owxa0vmjl.bkt.clouddn.com/f-'+i+'.png';
                     
-            }
+                }
                 this.btnClick=true;
         },
         likeChoice() {
@@ -432,7 +432,7 @@ export default {
 .hideBtnNone{
     display: none;
 }
-.BtnBlock{
+.hideBtnBlock{
     display: block;
 }
 @keyframes myfirst {
