@@ -48,7 +48,7 @@
 
         <div class="rt" v-else>
           <i></i>
-          <span v-if="mes.skillStockings">优雅知性</span>
+          <span v-if="mes.shoes==0">优雅知性</span>
           <span v-else>随性</span>
         </div>
 
