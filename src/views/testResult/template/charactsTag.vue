@@ -199,7 +199,6 @@ export default {
 
 .result .rt i {
   display: inline-block;
-  display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
 }
@@ -208,6 +207,7 @@ export default {
   height: .23rem;
   width: .23rem;
   background: #fff;
+box-shadow: 1px 1px 1px #f7f7f7;
 }
 
 .result .rt:nth-child(2) {
@@ -221,6 +221,7 @@ export default {
   height: .15rem;
   width: .15rem;
   background: #f7f7f7;
+   box-shadow: 1px 1px 1px #fff;
 }
 
 .result .rt:nth-child(3) {
@@ -359,6 +360,7 @@ export default {
   height: .4rem;
   width: .4rem;
   background: #fff;
+ box-shadow: .02rem .04rem .03rem #ccc;
 }
 
 .page-result {

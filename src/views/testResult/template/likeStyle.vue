@@ -33,7 +33,6 @@
                     </div>
             </li>
         </ul>
-
         <div class="mt40">
             <div class="btn">
                 <router-link to="/shareStart" v-if="isShare">  
