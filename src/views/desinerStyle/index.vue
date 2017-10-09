@@ -10,11 +10,12 @@
         <p class="tit">选择您喜欢的风格</p>
         <div class="imgWrap">
             <transition name="fade">
-                <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png?imageView/2/w/750'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
+                <!-- <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30"> -->
+                  <img v-bind:src="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
             </transition>
         </div>
-        <div class="opacity">
-            <div class="cont">
+        <div v-bind:class="[btnClick ? 'hideBtnBlock' : 'hideBtnNone', 'opacity']">
+            <div class="cont" >
                 <div class="ceil">
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/dislike.png" v-if="!dislike" @click="dislikeChoice">
@@ -43,6 +44,7 @@
 export default {
     data() {
         return {
+            btnClick:false,
             fadeOut: false,
             canClick: true,
             dislike: false,
@@ -236,11 +238,19 @@ export default {
         }
     },
     created() {
-      
+        this.imgPrev();
         this.getUserData();
     }
     ,
     methods: {
+        imgPrev(){
+            for (var i = 1; i < 31; i++) {
+                    var oImg = new Image();     
+                    oImg.src = 'http://owxa0vmjl.bkt.clouddn.com/f-'+i+'.png';
+                    
+                }
+                this.btnClick=true;
+        },
         likeChoice() {
             this.addScore(1);
             this.choiceOption('like');
@@ -278,10 +288,10 @@ export default {
                 _self.dislike = false;
                 _self.nofelling = false;
                 _self.canClick = true;
-            }, 10);
+            }, 50);
             setTimeout(() => {
                 this.fadeOut = true;
-            }, 30);
+            }, 100);
 
         },
         addScore(percent) {
@@ -418,7 +428,12 @@ export default {
     height: 100%;
     z-index: 9;
     opacity: 0;
-    ;
+}
+.hideBtnNone{
+    display: none;
+}
+.hideBtnBlock{
+    display: block;
 }
 @keyframes myfirst {
     from {

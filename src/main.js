@@ -6,10 +6,13 @@ import router from './router'
 import './common/css/base.css'
 import VueJsonp from 'vue-jsonp'
 import vueBridgeWebview from 'vue-bridge-webview'
+import fastclick from 'fastclick'
 Vue.use(VueJsonp)
 Vue.use(vueBridgeWebview)
+
 import { Lazyload } from 'mint-ui';
 import { DatetimePicker } from 'mint-ui';
+fastclick.attach(document.body)
 Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.use(Lazyload);
 Vue.config.productionTip = false

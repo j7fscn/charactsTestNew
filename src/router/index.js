@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 //进入测试判断
 import start from '@/views/characts/start'
+import shareStart from '@/views/testResult/shareStart'
 //抖机灵
 import shakeFirst from '@/views/shakeSmart/shakeFirst'
 import shakeSecond from '@/views/shakeSmart/shakeSecond'
@@ -52,6 +53,16 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/start',
+      name: 'start',
+      component: start
+    },
+    {
+      path: '/shareStart',
+      name: 'shareStart',
+      component: shareStart
+    },
     {
       path: '/start/:userid',
       name: 'start',
@@ -193,11 +204,6 @@ export default new Router({
       component: sportW
     },
     {
-      path: '/charactsResult/:userid',
-      name: 'charactsResult/:userid',
-      component: charactsResult
-    },
-    {
       path: '/choiceColor/:userid',
       name: 'choiceColor',
       component: choiceColor
@@ -215,6 +221,16 @@ export default new Router({
     {
       path: '/result/:userid',
       name: 'result',
+      component: result
+    },
+    {
+      path: '/result/:userid/shareResult',
+      name: 'share',
+      component: result
+    },
+    {
+      path: '/shareResult/:userid',
+      name: 'shareResult',
       component: result
     },
     {
