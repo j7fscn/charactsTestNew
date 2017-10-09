@@ -2,32 +2,32 @@
   <div class="resultStyle">
       <p class="likeTitle">我的性格特点 </p>
       <div class="content">
-          <div class="subject titEleven" v-if="dataJson.choiceDraw == 0">
+          <div class="subject titEleven" v-if="dataJson.sleep == 0">
             <p>你是个<span :style="{color:textColor}" class="subject-color">言行一致</span>的⼈，</p>
             <P>不念过去也不畏将来，</P>
             <P><span :style="{color:textColor}" class="subject-color">冷静</span>地⾯对处理⼈⽣中的变化</P>
           </div>
-          <div class="subject titEleven" v-if="dataJson.choiceDraw == 1">
+          <div class="subject titEleven" v-if="dataJson.sleep == 1">
             <p>你是个<span :style="{color:textColor}" class="subject-color">⼼细如发</span>的⼈，</p>
             <P>别⼈的看法很重要，</P>
             <P>也渴望得到真挚的认可和理解。</P>
           </div>
-          <div class="subject titEleven" v-if="dataJson.choiceDraw == 2">
+          <div class="subject titEleven" v-if="dataJson.sleep == 2">
             <p>你是个<span :style="{color:textColor}" class="subject-color">统领⼤局</span>的⼈，</p>
             <P>被动等待不是你的作⻛，</P>
             <P>总是能<span :style="{color:textColor}" class="subject-color">把握趋势</span>去制定计划。</P>
           </div>
-          <div class="subject titEleven" v-if="dataJson.choiceDraw == 3">
+          <div class="subject titEleven" v-if="dataJson.sleep == 3">
             <p>你是个<span :style="{color:textColor}" class="subject-color">性情豪爽</span>的⼈，</p>
             <P>身边的⼈喜欢你的<span :style="{color:textColor}" class="subject-color">开朗⼤⽅</span>，</P>
             <P>⼈群中的你都是<span :style="{color:textColor}" class="subject-color">焦点</span>。</P>
           </div>
-          <div class="subject titEleven" v-if="dataJson.choiceDraw == 4">
+          <div class="subject titEleven" v-if="dataJson.sleep == 4">
             <p>你是个<span :style="{color:textColor}" class="subject-color">严于律⼰</span>的⼈，</p>
             <P>快速地适应多变的环境，</P>
             <P>也很清楚⾃⼰想要什么。</P>
           </div>
-          <div class="subject titEleven" v-if="dataJson.choiceDraw == 5">
+          <div class="subject titEleven" v-if="dataJson.sleep == 5">
             <p>你是个<span :style="{color:textColor}" class="subject-color">追求⾃由</span>的⼈，</p>
             <P>抗拒着⼀成不变的⽣活，</P>
             <P>不可预知的未来是你的向往。</P>

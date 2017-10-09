@@ -56,62 +56,62 @@ export default {
             message: {
                 dataList: [
                     {
-                        name: '窗帘',
+                        name: '北欧',
                         src: 'l-1-1.png',
                         src1: 'l-1-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '日式',
                         src: 'l-2-1.png',
                         src1: 'l-2-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '地中海',
                         src: 'l-3-1.png',
                         src1: 'l-3-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '中式',
                         src: 'l-4-1.png',
                         src1: 'l-4-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '轻奢',
                         src: 'l-5-1.png',
                         src1: 'l-5-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '乡村美式',
                         src: 'l-6-1.png',
                         src1: 'l-6-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '现代美式',
                         src: 'l-7-1.png',
                         src1: 'l-7-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '现代简约',
                         src: 'l-8-1.png',
                         src1: 'l-8-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '法式',
                         src: 'l-9-1.png',
                         src1: 'l-9-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '工业风',
                         src: 'l-10-1.png',
                         src1: 'l-10-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '古典欧式',
                         src: 'l-11-1.png',
                         src1: 'l-11-2.png',
                     },
                     {
-                        name: '窗帘',
+                        name: '简欧',
                         src: 'l-12-1.png',
                         src1: 'l-12-2.png',
                     }
@@ -131,7 +131,7 @@ export default {
         _self.likeStyle[0] = decodeURIComponent(_self.strArr[0]);
         _self.strArr[1] = decodeURIComponent(_self.strArr[1]);
         _self.likeStyle[1] = decodeURIComponent(_self.strArr[1]);
-        var styleAll =['北欧','日式','地中海','中式','轻奢','乡村美式','现代美式','现代简约','法式','工业风','古典欧式','简欧'];
+        var styleAll =['北欧','日式','地中海','中式','轻奢','乡村美式','简美','现代','法式','工业风','古典欧式','简欧'];
         styleAll.forEach((item, index)=>{
             if(_self.strArr[0] == item){
                 _self.strArr[0] = index
@@ -190,7 +190,7 @@ export default {
     text-decoration: underline;
 }
 .titleLeft{
-    margin-top:0;
+    margin-top:.4rem;
     margin-bottom: .2rem;
     text-align: left;
     color:#222;
