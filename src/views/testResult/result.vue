@@ -52,7 +52,7 @@ export default {
 </script>
 <style >
 .page-result {
-  background: url(http://owxa0vmjl.bkt.clouddn.com/background.png) center center;
+  background: url(http://owxa0vmjl.bkt.clouddn.com/background.png) center 5rem;
 }
 </style>
 
