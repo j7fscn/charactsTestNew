@@ -9,7 +9,7 @@ export default {
     data() {
         return {
             mes: {
-                title: '准备好了吗<br>我们开始了',
+                title: '<br><br>准备好了吗<br>我们开始了',
                 nextPage:'/sex',
             } 
         }
