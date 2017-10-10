@@ -35,30 +35,37 @@ export default {
 }
 
 .shadow {
+    position: relative;
     width: 100%;
-    height: 1.6rem;
+    height: 2.4rem;
     background: url('http://owxa0vmjl.bkt.clouddn.com/background_under@3x.png');
     background-size: 100% 100%;
     color: #fff;
 }
 
 .tit {
+    position: absolute;
+    top:0; bottom: 0;
+    left:0; right:0;
+    margin: 0;
     padding-top: .4rem;
     padding-left: .2rem;
     padding-right: .2rem;
-    margin: 0;
     padding-bottom: 0;
-    line-height: 1.5em;
+    font-size: .16rem;
+    height: 1.6rem;
+    line-height: 1.6em;
 }
 
 .btn {
+    position: relative;
+    top:1.8rem;
     display: inline-block;
-    width: .3rem;
-    height: .3rem;
-    ;
+    width: .4rem;
+    height: .4rem;
     background: #fff;
     border-radius: 50%;
-    margin: .2rem auto 0 auto;
+    /* margin: .2rem auto 0 auto; */
 }
 </style>
 

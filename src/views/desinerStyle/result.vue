@@ -9,7 +9,7 @@ export default {
     data() {
         return {
             mes: {
-                title: '很棒<br>你的眼光很独特<br>查看测试报告',
+                title: '<br>很棒<br>你的眼光很独特<br>查看测试报告',
                 nextPage:'/result',
             } 
         }
