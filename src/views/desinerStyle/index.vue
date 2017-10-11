@@ -281,7 +281,7 @@ export default {
                 _self.nofelling = false;
                 _self.canClick = true;
                 
-            }, 100);
+            }, 500);
             setTimeout(() => {
                 this.fadeOut = true;
             }, 50);
