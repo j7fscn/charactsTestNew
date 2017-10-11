@@ -16,6 +16,7 @@ export default {
   components: { charactsTag, charactsSpecial, likeColor, likeStyle },
   data() {
     return {
+      domArry: [],
       dataJson: '',
       imgAnimate: [{ "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }]
     }
@@ -34,10 +35,11 @@ export default {
 
   },
   mounted() {
-      window.addEventListener('scroll', this.scrollEvent);
+    this.getStartOffset();
+    window.addEventListener('scroll', this.scrollEvent);
   },
   methods: {
-      getScrollTop() {
+    getScrollTop() {
       var scrollTop = 0;
       if (document.documentElement && document.documentElement.scrollTop) {
         scrollTop = document.documentElement.scrollTop;
@@ -46,26 +48,37 @@ export default {
       }
       return scrollTop;
     },
+    getStartOffset() {
+      setTimeout(() => {
+        for (var i = 0; i < 5; i++) {
+
+          var dom = document.getElementById('imgAnimate' + i);
+          if (!dom) {
+            return
+          }
+          this.domArry.push(dom.offsetTop);
+        }
+      }, 500)
+
+    },
     scrollEvent() {
       var _self = this;
+
+      // console.log(domArry,'test');
       this.imgAnimate.forEach(function(k, i) {
         if (!k.isFirst) {
           return
         }
-        var dom = document.getElementById('imgAnimate' + i); 
-        console.log(_self.getScrollTop(),dom.offsetTop);
-        if(i==0&&dom&&(_self.getScrollTop()-dom.offsetTop)>-1000){
-           k.isShow = true;
-            k.isFirst = false; 
-          return
-        }
-        if (dom&&(_self.getScrollTop()-dom.offsetTop)>-600) {
+
+        console.log(_self.getScrollTop(), _self.domArry[0]);
+
+        if ((_self.getScrollTop() - _self.domArry[i]) > 0) {
           k.isShow = true;
-          k.isFirst = false; 
+          k.isFirst = false;
         }
-    
+
       });
-    //  console.log( this.imgAnimate,'testtj')
+      //  console.log( this.imgAnimate,'testtj')
     },
     parseQueryString(url) {
       var obj = {};
@@ -80,7 +93,7 @@ export default {
       }
       return obj;
     }
-  
+
   },
 
 
