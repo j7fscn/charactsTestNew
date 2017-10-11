@@ -8,7 +8,7 @@
           <img src="http://owxa0vmjl.bkt.clouddn.com/man.png" v-else>
         </div>
       </div>
-      <div class="result">
+      <div  class="result">
         <div class="rt">
           <span v-if="mes.finger==0">外向坦率</span>
           <span v-else>内敛含蓄</span>
@@ -109,11 +109,12 @@ export default {
     return {
       sportTeam: '',
       sportPerson: '',
+      animateStart:true,
 
     }
   },
 
-  created() {
+  mounted() {
 
   },
   beforeUpdate() {
@@ -123,7 +124,6 @@ export default {
   methods: {
     getScore() {
       if (this.mes.sex == 0) {
-
         var arr = this.mes.sport.split(',');
         this.sportTeam = arr[0] >= 5 ? '喜欢团队协作' : '喜欢独处';//
         this.sportPerson = arr[1] >= 5 ? '生性好强' : '性情温和';
@@ -133,7 +133,8 @@ export default {
       var arr = this.mes.sportW.split(',');
       this.sportTeam = arr[0] >= 5 ? '喜欢团队协作' : '喜欢独处';//
       this.sportPerson = arr[1] >= 5 ? '生性好强' : '性情温和';
-    }
+    },
+   
   }
 }
 </script>
@@ -158,25 +159,31 @@ export default {
   margin: 0 auto;
   background: #fff;
   border-radius: 50%;
-      position: relative;
+  position: relative;
+
   z-index: 99;
 }
 
 .m-charatcs .head .shadow {
   width: 1rem;
   height: 1rem;
+  
 
 }
 
 .m-charatcs .head img {
+   animation:animateHead 3s;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   margin: .1rem;
-
-  ;
+    
 }
-
+@keyframes animateHead
+{
+from {opacity: 0;}
+to {opacity: 1;}
+}
 .m-charatcs .tag {
   position: relative;
 }
@@ -193,10 +200,18 @@ export default {
   position: absolute;
 }
 
+
 .result .rt span {
   display: inline-block;
   vertical-align: middle;
   font-size: .12rem;
+  animation:animateDescript 1s;
+}
+
+@keyframes animateDescript
+{
+from {opacity: 0;width:.5rem;height: 0;color:#333;margin-top:-1rem;margin-left:.5rem;}
+to {opacity: 1;font-size:12px;}
 }
 
 .result .rt:nth-child(1) {
@@ -204,9 +219,15 @@ export default {
   top: -.16rem;
   font-size: .14rem;
   color: #9eb58d;
+  
 }
-
+@keyframes animateCircle
+{
+from {opacity: 0;width:.0rem;height: 0;}
+to {opacity: 1;}
+}
 .result .rt i {
+  animation:animateCircle 1s;
   display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
@@ -322,8 +343,13 @@ export default {
   position: absolute;
   width: .01rem;
   background: #e4e4e4;
+  animation:animateLine 1s;
 }
-
+@keyframes animateLine
+{
+from {opacity: 0;height: 0}
+to {opacity: 1;}
+}
 .result .rt:nth-child(7) {
   top: 1.75rem;
   right: .2rem;
@@ -430,5 +456,6 @@ export default {
   max-width: 8rem;
   margin: 0 auto;
 }
+
 </style>
 
