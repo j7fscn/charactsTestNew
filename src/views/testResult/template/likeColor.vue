@@ -2,11 +2,12 @@
     <div class="resultStyle">
         <p class="likeTitle">我喜欢的颜色</p>
         <ul>
-            <!-- {{message.dataList[choiceColor].name}} -->
             <p class="titleLeft" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList">{{message.dataList[index].name}}</p>
             <li>
-                <div class="imgWrap">
-                    <img v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList" v-lazy="'http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
+                <div class="imgWrap ">
+                     <div id="imgAnimate0" v-bind:class="[imgAnimate[1].isShow ? 'isShow' : '', 'imgAnimate']" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
+                </div> 
+    
                 </div>
             </li>
         </ul>
@@ -23,7 +24,7 @@
 
 <script>
 export default {
-    props: ['dataJson'],
+    props: ['dataJson','imgAnimate'],
     data() {
         return {
             message: {
@@ -121,6 +122,7 @@ export default {
     margin-left: .1rem;
     margin-right: .1rem;
 }
+
 
 .resultStyle .likeTitle {
     margin-top: 0;
