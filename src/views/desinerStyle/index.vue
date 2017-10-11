@@ -291,7 +291,7 @@ export default {
             }, 50);
             setTimeout(() => {
                 this.fadeOut = true;
-            }, 100);
+            }, 50);
 
         },
         addScore(percent) {

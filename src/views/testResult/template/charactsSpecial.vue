@@ -2,6 +2,8 @@
   <div class="resultStyle">
       <p class="likeTitle">我的性格特点 </p>
       <div class="content">
+          <div class="outlineLeft" :style="{background:textColor}"></div>
+          <div class="outlineBottom" :style="{background:textColor}"></div>
           <div class="subject titEleven" v-if="dataJson.sleep == 0">
             <p>你是个<span :style="{color:textColor}" class="subject-color">言行一致</span>的⼈，</p>
             <P>不念过去也不畏将来，</P>
@@ -90,6 +92,7 @@ export default {
 </script>
 <style scoped>
 .resultStyle{
+    position: relative;
     margin-top: 1.1rem;
     margin-left :.2rem;
     margin-right:.2rem;
@@ -104,12 +107,31 @@ export default {
     text-decoration: underline;
 }
 .content{
+    position: relative;
     margin-left:.07rem;
-    -webkit-box-shadow: #eee 1px 0px 5px;;
-    -moz-box-shadow: #eee 1px 0px 5px;;
-    box-shadow: #eee 1px 0px 5px;
+    -webkit-box-shadow: #ccc 4px 3px 5px;;
+    -moz-box-shadow: #ccc 4px 3px 5px;;
+    box-shadow: #ccc 4px 3px 5px;
     background: #fff;
     padding-bottom:.35rem;
+}
+.outlineLeft{
+    position: absolute;
+    left:-.1rem;
+    bottom:-.1rem;
+    width:.04rem;
+    height:3.6rem;
+    /* background: #9eb58d; */
+    z-index: 999;
+}
+.outlineBottom{
+    position: absolute;
+    left:-.1rem;
+    bottom:-.1rem;
+    width:2rem;
+    height:.04rem;
+    /* background: #9eb58d; */
+    z-index: 989;
 }
 .titleLeft{
     margin-top:0;
