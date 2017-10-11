@@ -10,11 +10,11 @@
         <p class="tit">选择您喜欢的风格</p>
         <div class="imgWrap">
             <transition name="fade">
-                <!-- <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30"> -->
-                  <img v-bind:src="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
+                <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
+
             </transition>
         </div>
-        <div v-bind:class="[btnClick ? 'hideBtnBlock' : 'hideBtnNone', 'opacity']">
+        <div class="opacity">
             <div class="cont" >
                 <div class="ceil">
 
@@ -238,19 +238,11 @@ export default {
         }
     },
     created() {
-        this.imgPrev();
         this.getUserData();
     }
     ,
     methods: {
-        imgPrev(){
-            for (var i = 1; i < 31; i++) {
-                    var oImg = new Image();     
-                    oImg.src = 'http://owxa0vmjl.bkt.clouddn.com/f-'+i+'.png';
-                    
-                }
-                this.btnClick=true;
-        },
+
         likeChoice() {
             this.addScore(1);
             this.choiceOption('like');
@@ -288,7 +280,8 @@ export default {
                 _self.dislike = false;
                 _self.nofelling = false;
                 _self.canClick = true;
-            }, 50);
+                
+            }, 100);
             setTimeout(() => {
                 this.fadeOut = true;
             }, 50);
