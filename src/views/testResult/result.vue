@@ -35,8 +35,11 @@ export default {
 
   },
   mounted() {
-    this.getStartOffset();
-    window.addEventListener('scroll', this.scrollEvent);
+    this.$nextTick(function(){
+       this.getStartOffset();
+        window.addEventListener('scroll', this.scrollEvent);
+    });
+   
   },
   methods: {
     getScrollTop() {
@@ -63,22 +66,18 @@ export default {
     },
     scrollEvent() {
       var _self = this;
-
-      // console.log(domArry,'test');
       this.imgAnimate.forEach(function(k, i) {
         if (!k.isFirst) {
           return
         }
-
-        console.log(_self.getScrollTop(), _self.domArry[0]);
-
-        if ((_self.getScrollTop() - _self.domArry[i]) > 0) {
+        console.log(_self.getScrollTop(),_self.domArry[0]);
+   
+        if ((_self.getScrollTop() - _self.domArry[i]) > -442) {
           k.isShow = true;
           k.isFirst = false;
         }
 
       });
-      //  console.log( this.imgAnimate,'testtj')
     },
     parseQueryString(url) {
       var obj = {};

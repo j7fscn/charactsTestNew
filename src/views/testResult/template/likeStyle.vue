@@ -6,7 +6,7 @@
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <div id="imgAnimate1"  v-bind:class="[imgAnimate[1].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[0] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src"></div>
+                        <div id="imgAnimate1" v-bind:class="[imgAnimate[1].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[0] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src"></div>
 
                     </div>
                 </div>
@@ -14,7 +14,7 @@
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <div id="imgAnimate2"  v-bind:class="[imgAnimate[2].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[0] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1"></div>
+                        <div id="imgAnimate2" v-bind:class="[imgAnimate[2].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[0] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1"></div>
                     </div>
                 </div>
             </li>
@@ -24,14 +24,14 @@
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <div id="imgAnimate3"  v-bind:class="[imgAnimate[3].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src"></div>
+                        <div id="imgAnimate3" v-bind:class="[imgAnimate[3].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src"></div>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="cont">
                     <div class="imgWrap">
-                        <div id="imgAnimate4"  v-bind:class="[imgAnimate[4].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1"></div>
+                        <div id="imgAnimate4" v-bind:class="[imgAnimate[4].isShow ? 'isShow' : '', 'imgAnimate']" v-if="strArr[1] == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src1"></div>
                     </div>
                 </div>
             </li>
@@ -52,7 +52,7 @@
 export default {
     name: 'likeStyle',
     props: ['dataJson', 'imgAnimate'],
-    
+
     data() {
         return {
             isShare: false,
@@ -134,11 +134,9 @@ export default {
     },
 
     created() {
-        if (!this.isShare) {
-            this.$bridge.callHandler('enterLastPage', { 'testResult': { result: 1 } }, function(data) {
+        this.$bridge.callHandler('enterLastPage', { 'testResult': { result: 1 } }, function(data) {
 
-            });
-        }
+        });
     },
     methods: {
         allStyle() {

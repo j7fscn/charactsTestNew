@@ -204,7 +204,7 @@ body{
    }
    .imgWrap .imgAnimate.isShow{
     background-size: 100% 100%;
-    animation:imgAnimate 5s;
+    animation:imgAnimate 1s;
    }
 
    @keyframes imgAnimate
