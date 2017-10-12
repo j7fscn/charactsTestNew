@@ -5,7 +5,7 @@
             <p class="titleLeft" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList">{{message.dataList[index].name}}</p>
             <li>
                 <div class="imgWrap ">
-                     <div id="imgAnimate0" v-bind:class="[imgAnimate[1].isShow ? 'isShow' : '', 'imgAnimate']" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
+                     <div id="imgAnimate0" v-bind:class="[imgAnimate[0].isShow ? 'isShow' : '', 'imgAnimate']" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList" v-bind:style="'background-image:url(http://owxa0vmjl.bkt.clouddn.com/style'+message.dataList[index].src">
                 </div> 
     
                 </div>
