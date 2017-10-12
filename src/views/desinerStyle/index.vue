@@ -8,14 +8,17 @@
 
         </div>
         <p class="tit">选择您喜欢的风格</p>
-        <div class="imgWrap">
-            <transition name="fade">
-                <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
+        <div class="imgCont">
+            <div class="imgWrap">
+                <transition name="fade">
+                    <img v-lazy="'http://owxa0vmjl.bkt.clouddn.com/f-'+imgOrder+'.png'" :class="{imgAimate:fadeOut}" v-if="imgOrder<=30">
 
-            </transition>
+                </transition>
+            </div>
         </div>
+
         <div class="opacity">
-            <div class="cont" >
+            <div class="cont">
                 <div class="ceil">
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/dislike.png" v-if="!dislike" @click="dislikeChoice">
@@ -44,7 +47,7 @@
 export default {
     data() {
         return {
-            btnClick:false,
+            btnClick: false,
             fadeOut: false,
             canClick: true,
             dislike: false,
@@ -280,7 +283,7 @@ export default {
                 _self.dislike = false;
                 _self.nofelling = false;
                 _self.canClick = true;
-                
+
             }, 500);
             setTimeout(() => {
                 this.fadeOut = true;
@@ -320,7 +323,7 @@ export default {
             }
             this.secondStyle = secondStyle;
             this.setUserData();
-          
+
             setTimeout(function() {
                 _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
             }, 50)
@@ -337,12 +340,12 @@ export default {
             })
         },
         setUserData() {
-            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle+','+this.secondStyle+ '&' + 'nextKey'+ '=' + this.nextPage
+            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle + ',' + this.secondStyle + '&' + 'nextKey' + '=' + this.nextPage
             var strToJson = this.parseQueryString(data)
             var str = ''
             for (let i in strToJson) {
                 if (i == 'likeStyle') {
-                    strToJson[i] = this.fisrtStyle+','+this.secondStyle;
+                    strToJson[i] = this.fisrtStyle + ',' + this.secondStyle;
                 }
                 if (i == 'result') {
                     strToJson[i] = 1;
@@ -357,7 +360,7 @@ export default {
             str = str.substring(0, str.length - 1);
             var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str;
             this.$jsonp(url).then(json => {
-                
+
 
             }).catch(err => {
                 console.log(err)
@@ -383,39 +386,47 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .pageDesinerStyle {
     position: relative;
 }
+
 .pageDesinerStyle .opacity {
 
     bottom: .2rem;
     width: 100%;
     position: fixed;
 }
+
 .pageDesinerStyle .opacity .cont {
     display: flex;
     margin: 0 .45rem;
     flex-direction: row;
     justify-content: space-around;
 }
-.pageDesinerStyle .imgWrap {
-    margin: .18rem .2rem 0 .2rem;
+.pageDesinerStyle .imgCont {
+    margin:.18rem .2rem 0 .2rem;
 }
+
+
 .pageDesinerStyle .imgWrap img {
     width: 100%;
     transition-duration: 2s
 }
+
 .pageDesinerStyle .ceil {
     width: .75rem;
     position: relative;
 }
+
 .pageDesinerStyle .ceil img {
     width: 100%;
 }
+
 .imgAimate {
     animation: myfirst .5s;
 }
+
 .postApp {
     position: absolute;
     width: 100%;
@@ -423,12 +434,15 @@ export default {
     z-index: 9;
     opacity: 0;
 }
-.hideBtnNone{
+
+.hideBtnNone {
     display: none;
 }
-.hideBtnBlock{
+
+.hideBtnBlock {
     display: block;
 }
+
 @keyframes myfirst {
     from {
         margin-left: 100%;
