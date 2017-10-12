@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             message: {
-                tit: '您的睡觉姿势是',
+                tit: '你的睡觉姿势是',
 
                 dataList: [
                     {

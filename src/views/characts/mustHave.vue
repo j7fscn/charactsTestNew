@@ -49,7 +49,7 @@ export default {
                     },
                     {
                         key: 5,
-                        name: '定期洗照片清理相册',
+                        name: '定期洗照片整理相册',
                         src: '14-6.png',
                         choiced: false,
                         score:5
