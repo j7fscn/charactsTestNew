@@ -54,35 +54,35 @@ export default {
                     },
                     {
                         key: 1,
-                        score:[5, 5],
+                        score:[3, 5],
                         name: '羽毛球',
                         src: '17-2-1.png',
                         choiced: false
                     },
                     {
                         key: 2,
-                        score:[0, 1],
+                        score:[5, 5],
                         name: '篮球',
                         src: '17-3-1.png',
                         choiced: false
                     },
                     {
                         key: 3,
-                        score:[5, 5],
+                        score:[0, 1],
                         name: '跑步',
                         src: '17-4-1.png',
                         choiced: false
                     },
                     {
                         key: 4,
-                        score:[0, 1],
+                        score:[5, 5],
                         name: '足球',
                         src: '17-5-1.png',
                         choiced: false
                     },
                     {
                         key: 5,
-                        score:[3, 5],
+                        score:[0, 1],
                         name: '健身',
                         src: '17-6-1.png',
                         choiced: false
