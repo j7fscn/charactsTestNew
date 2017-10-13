@@ -65,7 +65,6 @@ export default {
             return obj;
         },
         setData() {
-
             if (this.sex == 0) {
                 this.message.tit = '二者只能选一你更希望拥有的是';
                 this.message.dataList[0].name = '高晓松的才华';

@@ -12,6 +12,11 @@ Vue.use(vueBridgeWebview)
 
 import { Lazyload } from 'mint-ui';
 import { DatetimePicker } from 'mint-ui';
+
+//npm添加 李发全添加
+import { Picker } from 'mint-ui';
+Vue.component(Picker.name, Picker);
+
 fastclick.attach(document.body)
 Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.use(Lazyload);

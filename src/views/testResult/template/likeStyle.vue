@@ -1,6 +1,6 @@
 <template>
     <div class="resultStyle">
-        <p class="likeTitle">你喜欢的风格</p>
+        <p class="likeTitle"我喜欢的风格</p>
         <ul class="list">
             <p class="titleLeft">{{likeStyle[0]}}</p>
             <li>

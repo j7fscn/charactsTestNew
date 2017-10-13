@@ -2,22 +2,30 @@
     <div class="bg">
         <div class="cont">
             <div class="shadow">
-                <p class="tit" v-html="mes.title"></p>
-                <span class="btn" @click="nextPage"></span>
+                <div class="contentPosition" 
+                ref="content" 
+                style="transition: -webkit-transform 5s ; transform: translate3d(0px, -110px, 0px);">
+                    <p>很棒</p>
+                    <p>你的眼光很独特</p>
+                    <p>查看测试报告</p>
+                </div>
+                <span class="btn">   
+                </span>
             </div>
         </div>
     </div>
 </template>
 <script>
 export default {
-    props: ['mes'],
-    // created:function(){
-        
-    // },
+    data() {
+    return {
+    };
+  },
+    beforeCreate(){
+    },
+    mounted(){
+    },
     methods: {
-        nextPage(){
-              this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
-        }
     }
 }
 </script>
@@ -45,8 +53,33 @@ export default {
     background-size: 100% 100%;
     color: #fff;
 }
+.contentPosition{
+    position: absolute;
+    top:1rem; bottom: 0;
+    left:0; right:0;
+    margin: 0;
+    padding-top: .6rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    padding-bottom: 0;
+    font-size: .16rem;
+    height: 1rem;
+    /* line-height: 1.6em; */
+    overflow: hidden;
+}
+.contentPosition ul, .contentPosition li{
+    margin:0;
+    padding-bottom: .06rem;
+    padding-left:0;
+    list-style-type: none;
+    text-align: center;;
+}
+.contentPosition p{
+    position: relative;
+    margin:0; padding:.08rem;
+}
 
-.tit {
+/* .tit {
     position: absolute;
     top:0; bottom: 0;
     left:0; right:0;
@@ -58,11 +91,11 @@ export default {
     font-size: .16rem;
     height: 1.6rem;
     line-height: 1.6em;
-}
+} */
 
 .btn {
     position: relative;
-    top:1.8rem;
+    top:1.6rem;;
     display: inline-block;
     width: .4rem;
     height: .4rem;
