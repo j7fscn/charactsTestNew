@@ -43,37 +43,34 @@ export default {
     background: url('http://owxa0vmjl.bkt.clouddn.com/background_under@3x.png');
     background-size: 100% 100%;
     color: #fff;
+    display: table;
+   
 }
 
 .tit {
-    position: absolute;
-    top:0; bottom: 0;
-    left:0; right:0;
+    display: table-cell;
+    vertical-align: middle;
     margin: 0;
-    padding-top: .4rem;
-    padding-left: .2rem;
-    padding-right: .2rem;
-    padding-bottom: 0;
     font-size: .16rem;
-    height: 1.6rem;
     line-height: 1.6em;
+    text-align: center;
 }
 
 .btn {
-    position: relative;
-    top:1.8rem;
+     position: absolute;
     display: inline-block;
     width: .4rem;
     height: .4rem;
+    bottom: .3rem;
+    left: 50%;
+    margin-left: -.2rem;
 }
 .circle {
-    width:.2rem;
-    height: .2rem;
+    width: 0.2rem;
+    height: 0.2rem;
     display: inline-block;
-  background: url(http://ovfllimsi.bkt.clouddn.com/circle@3x.png);
-  background-size:100% 100%;
-  margin:.1rem;
-
+    background: url(http://ovfllimsi.bkt.clouddn.com/circle@3x.png) 0% 0% / 100% 100%;
+    margin:.1rem 0 0 -.1rem;
 }
 </style>
 
