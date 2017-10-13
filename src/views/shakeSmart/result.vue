@@ -9,7 +9,7 @@ export default {
     data() {
         return {
             mes: {
-                title: '我猜你最后选的是<br>沙发<br>我还能知道你是怎样一个人呢<br>在这之前我们要做些准备',
+                title: '我猜你最后选的是沙发<br>我还能知道你是怎样一个人呢<br>在这之前我们要做些准备',
                 nextPage:'/datePick',
             } 
         }

@@ -3,7 +3,9 @@
         <div class="cont">
             <div class="shadow">
                 <p class="tit" v-html="mes.title"></p>
-                <span class="btn" @click="nextPage"></span>
+                <span class="btn" @click="nextPage">
+                    <span class="circle"></span>
+                </span>
             </div>
         </div>
     </div>
@@ -63,9 +65,15 @@ export default {
     display: inline-block;
     width: .4rem;
     height: .4rem;
-    background: #fff;
-    border-radius: 50%;
-    /* margin: .2rem auto 0 auto; */
+}
+.circle {
+    width:.2rem;
+    height: .2rem;
+    display: inline-block;
+  background: url(http://ovfllimsi.bkt.clouddn.com/circle@3x.png);
+  background-size:100% 100%;
+  margin:.1rem;
+
 }
 </style>
 
