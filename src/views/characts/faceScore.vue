@@ -35,19 +35,19 @@ export default {
 
         }
     },
-    mounted(){
-           this.getUserData();
+    mounted() {
+        this.getUserData();
     },
 
-     methods:{
+    methods: {
         getUserData() {
-            var _self=this;
-        
+            var _self = this;
+
             var urlG = 'http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid;
             this.$jsonp(urlG).then(function(json) {
                 _self.sex = _self.parseQueryString(json.data.result).sex;
-                 _self.setData();
-            }).catch(function(error){
+                _self.setData();
+            }).catch(function(error) {
 
             });
         },
@@ -69,14 +69,14 @@ export default {
                 this.message.tit = '二者只能选一你更希望拥有的是';
                 this.message.dataList[0].name = '高晓松的才华';
                 this.message.dataList[1].name = '吴彦祖的颜值';
-                this.message.nextPage = '/watch'
+                this.message.nextPage = '/watch';
+                return
 
-            } else {
-                this.message.tit = '二者只能选一你更希望嫁给';
-                this.message.dataList[0].name = '有才华的高晓松';
-                this.message.dataList[1].name = '有颜值吴彦祖';
-                this.message.nextPage = '/shoes'
             }
+            this.message.tit = '二者只能选一你更希望嫁给';
+            this.message.dataList[0].name = '有才华的高晓松';
+            this.message.dataList[1].name = '有颜值吴彦祖';
+            this.message.nextPage = '/shoes'
 
         }
     }

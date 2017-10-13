@@ -96,6 +96,7 @@ body{
 
 .sing .imgWrap img {
     width: 100%;
+    /* min-height: 100%; */
     border: #eee 1px solid;
     box-sizing: border-box;
     display: block;

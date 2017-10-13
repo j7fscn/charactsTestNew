@@ -7,7 +7,7 @@
             <span class="vl">24/24</span>
 
         </div>
-        <p class="tit">选择您喜欢的风格</p>
+        <p class="tit">谈谈你对这些风格的感受</p>
         <div class="imgCont">
             <div class="imgWrap">
                 <transition name="fade">
@@ -20,22 +20,23 @@
         <div class="opacity">
             <div class="cont">
                 <div class="ceil">
-
                     <img src="http://owxa0vmjl.bkt.clouddn.com/dislike.png" v-if="!dislike" @click="dislikeChoice">
-
                     <img src="http://owxa0vmjl.bkt.clouddn.com/dislike-push.png" v-else>
+                    <span class="tips"  v-bind:class="{ 'isActive': dislike }">不喜欢</span>
                 </div>
                 <div class="ceil">
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/no-feelings.png" v-if="!nofelling" @click="nofellingChoice">
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/no-feelings-push.png" v-else>
+                     <span class="tips"  v-bind:class="{ 'isActive': nofelling }">没感觉</span>
                 </div>
                 <div class="ceil">
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/like.png" v-if="!like" @click="likeChoice">
 
                     <img src="http://owxa0vmjl.bkt.clouddn.com/like-push.png" v-else>
+                    <span class="tips"  v-bind:class="{ 'isActive': like }">喜欢</span>
                 </div>
             </div>
         </div>
@@ -284,7 +285,7 @@ export default {
                 _self.nofelling = false;
                 _self.canClick = true;
 
-            }, 500);
+            }, 800);
             setTimeout(() => {
                 this.fadeOut = true;
             }, 50);
@@ -390,7 +391,10 @@ export default {
 .pageDesinerStyle {
     position: relative;
 }
-
+.pageDesinerStyle .tit {
+    text-align: left;
+    margin-left:.2rem;
+}
 .pageDesinerStyle .opacity {
 
     bottom: .2rem;
@@ -417,10 +421,15 @@ export default {
 .pageDesinerStyle .ceil {
     width: .75rem;
     position: relative;
+    text-align: center;
+}
+.pageDesinerStyle .isActive {
+    color:#43bb57;
 }
 
 .pageDesinerStyle .ceil img {
     width: 100%;
+    display: block;
 }
 
 .imgAimate {

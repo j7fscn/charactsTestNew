@@ -3,7 +3,9 @@
         <div class="cont">
             <div class="shadow">
                 <p class="tit" v-html="mes.title"></p>
-                <span class="btn" @click="nextPage"></span>
+                <span class="btn" @click="nextPage">
+                    <span class="circle"></span>
+                </span>
             </div>
         </div>
     </div>
@@ -44,31 +46,34 @@ export default {
     background: url('http://owxa0vmjl.bkt.clouddn.com/background_under@3x.png');
     background-size: 100% 100%;
     color: #fff;
+    display: table;
+   
 }
 
 .tit {
-    position: absolute;
-    top:0; bottom: 0;
-    left:0; right:0;
+    display: table-cell;
+    vertical-align: middle;
     margin: 0;
-    padding-top: .4rem;
-    padding-left: .2rem;
-    padding-right: .2rem;
-    padding-bottom: 0;
     font-size: .16rem;
-    height: 1.6rem;
     line-height: 1.6em;
+    text-align: center;
 }
 
 .btn {
-    position: relative;
-    top:1.8rem;
+     position: absolute;
     display: inline-block;
-    width: .4rem;
-    height: .4rem;
-    background: #fff;
-    border-radius: 50%;
-    /* margin: .2rem auto 0 auto; */
+    width: .6rem;
+    height: .6rem;
+    bottom: .1rem;
+    left: 50%;
+    margin-left: -.3rem;
+}
+.circle {
+    width: 0.3rem;
+    height: 0.3rem;
+    display: inline-block;
+    background: url(http://ovfllimsi.bkt.clouddn.com/NPCButton@3x.png) 0% 0% / 100% 100%;
+    margin:.1rem 0 0 0rem;
 }
 </style>
 
