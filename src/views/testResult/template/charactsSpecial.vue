@@ -114,6 +114,7 @@ export default {
     box-shadow: #ccc 4px 3px 5px;
     background: #fff;
     padding-bottom:.35rem;
+    border:#eee 1px solid;
 }
 .outlineLeft{
     position: absolute;

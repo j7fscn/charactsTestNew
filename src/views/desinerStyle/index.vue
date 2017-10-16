@@ -58,6 +58,7 @@ export default {
             fisrtStyle: '',
             secondStyle: '',
             styleScore: {
+                 japanese: { score: 0, alias: "日式" },
                 northernEurope: { score: 0, alias: "北欧" },
                 mediterraneanSea: { score: 0, alias: "地中海" },
                 french: { score: 0, alias: "法式" },
@@ -66,7 +67,6 @@ export default {
                 beautifulSimplicity: { score: 0, alias: "简美" },
                 janeEuropean: { score: 0, alias: "简欧" },
                 lightLuxury: { score: 0, alias: "轻奢" },
-                japanese: { score: 0, alias: "日式" },
                 modern: { score: 0, alias: "现代" },
                 countryStyle: { score: 0, alias: "乡村美式" },
                 chineseStyle: { score: 0, alias: "中式" },
@@ -231,7 +231,7 @@ export default {
                 },
                 {
                     classFily: [
-                        { name: 'japanese', score: 1 }
+                        { name: 'chineseStyle', score: 1 }
                     ]
                 },
 
