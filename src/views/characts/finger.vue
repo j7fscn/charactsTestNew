@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             message: {
-                tit: '您左手呈现什么样的姿势呢',
+                tit: '你看到另一手的姿势是怎样呢',
                 dataList: [
                     {
                         key: 0,
@@ -20,7 +20,7 @@ export default {
                     },
                     {
                         key: 1,
-                        name: '伸开',
+                        name: '伸直',
                         src: '2-2.png',
                         choiced: false
                     },

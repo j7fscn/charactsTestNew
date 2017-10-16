@@ -6,7 +6,7 @@
             </div>
             <span class="vl">5/24</span>
         </div>
-        <p class="tit">伸出您的左手，看看您的手指甲有多长</p>
+        <p class="tit">请伸出你的一只手，看下指甲有多长</p>
         
     </div>
 </template>
