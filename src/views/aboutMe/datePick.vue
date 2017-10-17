@@ -23,6 +23,8 @@
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: #fff;
+  z-index:99999;
 }
 
 .page-datePick .picker-toolbar {
@@ -37,19 +39,23 @@
 
 .picker-item.picker-selected {
   opacity: 1;
-}
 
+}
+.picker {
+    height: 2.2rem;
+}
 .page-datePick .mint-popup {
 
   position: fixed;
-  top: 1rem;
-  height: 1.7rem;
-  overflow: hidden;
+  top: .6rem;
+  height: 2.2rem;
+
 }
 
 .page-datePick .picker-items {
   background: #fff;
   margin: 0 .2rem;
+  
 }
 
 .page-datePick .tit {
@@ -72,9 +78,9 @@ export default {
       checkedValue: -1,
       pageName: 'datePick',
       nextPage: '/houseArea',
-      pickerVisible: '1990-6-15',
-      startDate: new Date('1960'),
-      endDate: new Date('2017'),
+      pickerVisible: '1985-6-6',
+      startDate: new Date('1968'),
+      endDate: new Date(),
       option: { format: 'YYYY-MM-DD' },
     }
   },
