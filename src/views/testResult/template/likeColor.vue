@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .resultStyle {
-    margin-top: 1.1rem;
+    margin-top: 1rem;
     margin-left: .1rem;
     margin-right: .1rem;
 }

@@ -146,11 +146,11 @@ export default {
 .m-charatcs .tit {
   color: #666;
   font-size: 19px;
-  padding-top: .5rem;
-  /* text-decoration: underline; */
+  padding-top: .3rem;
   padding-bottom: 1.75rem;
   text-align: left;
   padding-left: .2rem;
+  margin:0;
 }
 .likeSpan{
     padding-bottom:4px;

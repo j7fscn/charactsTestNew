@@ -92,11 +92,12 @@ body{
 
 .sing .imgWrap {
     position: relative;
-    animation:animateImgSing 1s;
+    height: 100%;
+
 }
 .double .imgWrap {
     position: relative;
-    animation:animateImgDouble 1s;
+   
 }
 .sing .imgWrap  img{
     width: 100%;
@@ -222,7 +223,7 @@ body{
    }
    .imgWrap .imgAnimate.isShow{
     background-size: 100% 100%;
-    animation:imgAnimate 1s;
+    animation:imgAnimate 2s;
    }
 
    @keyframes imgAnimate

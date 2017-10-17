@@ -93,7 +93,7 @@ export default {
 <style scoped>
 .resultStyle{
     position: relative;
-    margin-top: 1.1rem;
+    margin-top: -.4rem;
     margin-left :.2rem;
     margin-right:.2rem;
 }
