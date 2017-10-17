@@ -96,13 +96,15 @@ body{
 
 .sing .imgWrap img {
     width: 100%;
-    /* min-height: 100%; */
+    max-height: 2rem;
     border: #eee 1px solid;
     box-sizing: border-box;
     display: block;
     border-radius: .04rem;
 }
-
+.double .imgWrap img  {
+    max-height: 1.5rem;
+}
 .sing .tit {
     font-size: .17rem;
     margin: .15rem 0 .2rem .2rem;
