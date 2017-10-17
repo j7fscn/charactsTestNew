@@ -1,6 +1,6 @@
 <template>
   <div class="resultStyle">
-      <p class="likeTitle">我的性格特点 </p>
+      <p class="likeTitle"><span class="likeSpan">我的性格特点</span> </p>
       <div class="content">
           <div class="outlineLeft" :style="{background:textColor}"></div>
           <div class="outlineBottom" :style="{background:textColor}"></div>
@@ -104,7 +104,11 @@ export default {
     color:#666;
     line-height: .2rem;
     font-size: .2rem;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+}
+.likeSpan{
+    padding-bottom:4px;
+    border-bottom: 2px solid #666;
 }
 .content{
     position: relative;

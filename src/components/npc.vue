@@ -45,7 +45,7 @@ export default {
     height: 2.4rem;
     background: url('http://owxa0vmjl.bkt.clouddn.com/background_under@3x.png');
     background-size: 100% 100%;
-    color: #fff;
+    color: #6C9258;
     display: table;
    
 }

@@ -1,6 +1,7 @@
 <template>
     <div class="resultStyle">
-        <p class="likeTitle">我喜欢的颜色</p>
+        <p class="likeTitle"><span class="likeSpan">我喜欢的颜色</span></p>
+        
         <ul>
             <p class="titleLeft" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList">{{message.dataList[index].name}}</p>
             <li>
@@ -131,7 +132,10 @@ export default {
     color: #666;
     line-height: .2rem;
     font-size: .2rem;
-    text-decoration: underline;
+}
+.likeSpan{
+    padding-bottom:4px;
+    border-bottom: 2px solid #666;
 }
 
 .titleLeft {

@@ -1,6 +1,6 @@
 <template>
     <div class="resultStyle">
-        <p class="likeTitle"我喜欢的风格</p>
+        <p class="likeTitle"><span class="likeSpan">我喜欢的风格</span></p>
         <ul class="list">
             <p class="titleLeft">{{likeStyle[0]}}</p>
             <li>
@@ -197,9 +197,12 @@ export default {
     color: #666;
     line-height: .2rem;
     font-size: .2rem;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
-
+.likeSpan{
+    padding-bottom:4px;
+    border-bottom: 2px solid #666;
+}
 .titleLeft {
     margin-top: .4rem;
     margin-bottom: .2rem;

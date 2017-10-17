@@ -1,6 +1,6 @@
 <template>
   <div class="m-charatcs">
-    <p class="tit">我的性格标签</p>
+    <p class="tit"><span class="likeSpan">我的性格标签</span></p>
     <div class="tag">
       <div class="head">
         <div class="shadow">
@@ -147,12 +147,15 @@ export default {
   color: #666;
   font-size: 19px;
   padding-top: .5rem;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   padding-bottom: 1.75rem;
   text-align: left;
   padding-left: .2rem;
 }
-
+.likeSpan{
+    padding-bottom:4px;
+    border-bottom: 2px solid #666;
+}
 .m-charatcs .head {
   width: 1.2rem;
   height: 1.2rem;

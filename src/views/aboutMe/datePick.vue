@@ -9,7 +9,9 @@
       </div>
       <p class="tit">您的出生日期</p>
     </div>
-    <mt-datetime-picker ref="picker" v-model="pickerVisible" option="option" :startDate="startDate" format='YYYY-MM-DD HH:mm' :endDate="endDate" type="date" year-format="{value} 年" month-format="{value} 月" date-format="{value} 日">
+    <mt-datetime-picker ref="picker" v-model="pickerVisible" option="option" 
+      :startDate="startDate" format='YYYY-MM-DD HH:mm' :endDate="endDate" 
+      type="date" year-format="{value} 年" month-format="{value} 月" date-format="{value} 日">
     </mt-datetime-picker>
     <div class="bottom" @click="submit">
       <div class="cont checked">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -41,12 +43,12 @@
 
   position: fixed;
   top: 1rem;
-  height: 3rem;
+  height: 1.7rem;
   overflow: hidden;
 }
 
 .page-datePick .picker-items {
-  background: #999999;
+  background: #fff;
   margin: 0 .2rem;
 }
 
@@ -54,7 +56,7 @@
   font-size: .17rem;
   margin: .15rem 0 .2rem .2rem;
   padding: 0;
-  color: #222;
+  color: #000;
   text-align: left;
 }
 </style>
