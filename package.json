@@ -13,10 +13,12 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^0.28.7",
     "fastclick": "^1.0.6",
     "jsonp": "^0.2.1",
     "mint-ui": "^2.2.9",
+    "promise": "^8.0.1",
     "vue": "^2.4.2",
     "vue-bridge-webview": "^1.0.0",
     "vue-jsonp": "^0.1.6",

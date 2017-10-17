@@ -162,6 +162,7 @@ export default {
         },
 
         postResult() {
+            console.log({ likeStyle: _likeStyle, houseArea: decodeURIComponent(this.dataJson.houseArea), result: 1 });
             var _likeStyle = decodeURIComponent(this.dataJson.likeStyle).split(',');
             this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.dataJson.houseArea), result: 1 } }, function(data) {
             });
