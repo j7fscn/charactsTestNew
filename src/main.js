@@ -7,6 +7,7 @@ import './common/css/base.css'
 import VueJsonp from 'vue-jsonp'
 import vueBridgeWebview from 'vue-bridge-webview'
 import fastclick from 'fastclick'
+
 Vue.use(VueJsonp)
 Vue.use(vueBridgeWebview)
 
