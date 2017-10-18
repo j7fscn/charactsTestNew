@@ -392,6 +392,7 @@ export default {
 }
 .pageDesinerStyle .tit {
     text-align: left;
+    font-size:.17rem;
     margin-left:.2rem;
 }
 .pageDesinerStyle .opacity {
