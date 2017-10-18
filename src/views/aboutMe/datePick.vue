@@ -3,7 +3,7 @@
     <div class="head">
       <div class="progress">
         <div class="bar">
-          <div class="complete" style="width: 2%;"></div>
+          <div class="complete" style="width: 50%;"></div>
         </div>
         <span class="vl">2/24</span>
       </div>

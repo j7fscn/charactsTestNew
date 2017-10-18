@@ -2,7 +2,7 @@
     <div class="pageDesinerStyle">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+24/24*100+'%'"></div>
+                <div class="complete" :style="'width:'+imgOrder/30*100+'%'"></div>
             </div>
             <span class="vl">24/24</span>
 

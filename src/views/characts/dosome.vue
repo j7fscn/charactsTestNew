@@ -58,6 +58,7 @@ export default {
                     }
                 ],
                 page: 19,
+                pageProgress:16,
                 imgPackage: 'characts',
                 pageName: 'dosome',
                 nextPage: '',

@@ -93,6 +93,7 @@ export default {
                    
                 ],
                 page: 16,
+                pageProgress:13,
                 imgPackage: 'characts',
                 pageName:'knowMan',
                 nextPage:'/mustHave'

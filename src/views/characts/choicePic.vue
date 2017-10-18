@@ -42,6 +42,7 @@ export default {
                     }
                 ],
                 page: 23,
+                pageProgress:20,
                 imgPackage: 'characts',
                 pageName:'choicePic',
                 nextPage:'/charactsResult',

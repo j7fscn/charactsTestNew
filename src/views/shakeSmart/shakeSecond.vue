@@ -50,7 +50,8 @@ export default {
 
                    
                 ],
-                page: 1,
+                page: 2,
+                pageProgress:2,
                 pageName:'shakeSmart',
                 nextPage:'/shakeThird'
             }

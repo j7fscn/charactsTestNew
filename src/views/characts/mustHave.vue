@@ -56,6 +56,7 @@ export default {
                     }
                 ],
                 page: 17,
+                pageProgress:14,
                 imgPackage: 'characts',
                 pageName:'mustHave',
                 nextPage:'/try',

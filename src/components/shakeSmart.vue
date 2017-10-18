@@ -2,7 +2,7 @@
     <div class="double sing">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+mes.page/24*100+'%'"></div>
+                <div class="complete" :style="'width:'+mes.pageProgress/3*100+'%'"></div>
             </div>
             <span class="vl">{{mes.page}}/24</span>
 

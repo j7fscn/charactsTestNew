@@ -27,6 +27,7 @@ export default {
                    
                 ],
                 page: 5,
+                pageProgress:2,
                 imgPackage: 'characts',
                 pageName:'finger',
                 nextPage:'/clock'

@@ -27,6 +27,7 @@ export default {
                    
                 ],
                 page: 12,
+                pageProgress:9,
                 imgPackage: 'characts',
                 pageName:'shoes',
                 nextPage:'/skillStockings'

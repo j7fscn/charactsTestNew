@@ -92,6 +92,7 @@ export default {
                     }
                 ],
                 page: 18,
+                pageProgress:15,
                 imgPackage: 'characts',
                 pageName:'try',
                 nextPage:'/dosome'
