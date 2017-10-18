@@ -1,5 +1,5 @@
 <template>
-    <div class="mulSelect">
+    <div class="mulSelect sing">
         <div class="progress">
             <div class="bar">
                 <div class="complete" :style="'width:'+message.page/24*100+'%'"></div>

@@ -124,7 +124,6 @@ export default {
     margin-right: .1rem;
 }
 
-
 .resultStyle .likeTitle {
     margin-top: 0;
     margin-bottom: .4rem;
