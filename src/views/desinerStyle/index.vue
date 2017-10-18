@@ -325,9 +325,7 @@ export default {
             this.secondStyle = secondStyle;
             this.setUserData();
 
-            setTimeout(function() {
-                _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
-            }, 50)
+           
 
             console.log(this.fisrtStyle, this.secondStyle);
         },
@@ -341,6 +339,7 @@ export default {
             })
         },
         setUserData() {
+            var _self=this;
             var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle + ',' + this.secondStyle + '&' + 'nextKey' + '=' + this.nextPage
             var strToJson = this.parseQueryString(data)
             var str = ''
@@ -348,7 +347,7 @@ export default {
                 if (i == 'likeStyle') {
                     strToJson[i] = this.fisrtStyle + ',' + this.secondStyle;
                 }
-                if (i == 'result') {
+                if (strToJson.result=="0"||!strToJson.result) {
                     strToJson[i] = 1;
                 }
                 if (i == 'houseArea') {
@@ -360,8 +359,8 @@ export default {
             }
             str = str.substring(0, str.length - 1);
             var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str;
-            this.$jsonp(url).then(json => {
-
+            this.$jsonp(url).then(json => { 
+                _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
 
             }).catch(err => {
                 console.log(err)
