@@ -347,7 +347,7 @@ export default {
                 if (i == 'likeStyle') {
                     strToJson[i] = this.fisrtStyle + ',' + this.secondStyle;
                 }
-                if (i == 'result') {
+                if (strToJson.result=="0"||!strToJson.result) {
                     strToJson[i] = 1;
                 }
                 if (i == 'houseArea') {
