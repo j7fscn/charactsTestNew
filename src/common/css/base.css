@@ -97,16 +97,16 @@ body{
 
 }
 .sing .imgWrap >img  {
-    animation:animateImgSing .5s;
+    animation:animateImgSing 1s;
 }
 .sing ul li .memo {
-    animation:animateImgSing .5s;
+    animation:animateImgSing 1s;
 }
 
  @keyframes animateImgSing
  {
- from {height:0;opacity: 0;width:0;color:#fff;font-size:0;}
- to {opacity: 1;height: auto;width:100%;color:#fff;font-size:14px; }
+ from {opacity: 0;color:#fff;}
+ to {opacity: 1;width:100%;color:#666; }
  }
 .sing .imgWrap  img{
     width: 100%;
