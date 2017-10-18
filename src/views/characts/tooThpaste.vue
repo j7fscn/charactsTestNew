@@ -39,6 +39,7 @@ export default {
                    
                 ],
                 page: 7,
+                pageProgress:4,
                 imgPackage: 'characts',
                 pageName:'tooThpaste',
                 nextPage:'/orderFood'

@@ -1,12 +1,12 @@
 <template>
     <div>
-        <singleOneLine :mes="message"></singleOneLine>
+        <specialSingle :mes="message"></specialSingle>
     </div>
 </template>
 <script>
-import singleOneLine from '../../components/singleOneLine'
+import specialSingle from '../../components/specialSingle'
 export default {
-    components: { singleOneLine },
+    components: { specialSingle },
     data() {
         return {
             message: {
@@ -33,6 +33,7 @@ export default {
                    
                 ],
                 page: 3,
+                pageProgress:2,
                 imgPackage: 'characts',
                 pageName:'houseArea',
                 nextPage:'/readyGo'

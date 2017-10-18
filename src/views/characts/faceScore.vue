@@ -28,6 +28,7 @@ export default {
 
                 ],
                 page: 11,
+                pageProgress:8,
                 imgPackage: 'characts',
                 pageName: 'faceScore',
                 nextPage: ''

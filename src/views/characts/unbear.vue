@@ -57,6 +57,7 @@ export default {
                    
                 ],
                 page: 15,
+                pageProgress:12,
                 imgPackage: 'characts',
                 pageName:'unbear',
                 nextPage:'/knowMan'

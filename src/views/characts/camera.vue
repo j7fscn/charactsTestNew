@@ -27,6 +27,7 @@ export default {
                    
                 ],
                 page: 9,
+                pageProgress:6,
                 imgPackage: 'characts',
                 pageName:'camera',
                 nextPage:'/travel'

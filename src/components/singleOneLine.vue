@@ -2,7 +2,7 @@
     <div :class="mes.dataList.length>=4?'double sing':'one sing'">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+mes.page/24*100+'%'"></div>
+                <div class="complete" :style="'width:'+mes.pageProgress/20*100+'%'"></div>
             </div>
             <span class="vl">{{mes.page}}/24</span>
 

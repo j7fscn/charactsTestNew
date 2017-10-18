@@ -2,7 +2,7 @@
     <div class="mulSelect sing">
         <div class="progress">
             <div class="bar">
-                <div class="complete" :style="'width:'+message.page/24*100+'%'"></div>
+                <div class="complete" :style="'width:'+message.pageProgress/20*100+'%'"></div>
             </div>
             <span class="vl">{{message.page}}/24</span>
 
@@ -90,6 +90,7 @@ export default {
                    
                 ],
                 page: 20,
+                pageProgress:17,
                 imgPackage: 'characts',
                 pageName:'sport',
                 nextPage:'/choiceColor'

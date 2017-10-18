@@ -2,7 +2,7 @@
     <div class="fingerTips">
         <div class="progress">
             <div class="bar">
-                <div class="complete" style="width:20.8%"></div>
+                <div class="complete" style="width:10%"></div>
             </div>
             <span class="vl">5/24</span>
         </div>

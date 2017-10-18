@@ -51,6 +51,7 @@ export default {
                     }
                 ],
                 page: 14,
+                pageProgress:11,
                 imgPackage: 'characts',
                 pageName:'sleep',
                 nextPage:'/unbear'

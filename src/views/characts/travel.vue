@@ -27,6 +27,7 @@ export default {
                    
                 ],
                 page: 10,
+                pageProgress:7,
                 imgPackage: 'characts',
                 pageName:'travel',
                 nextPage:'/faceScore'
