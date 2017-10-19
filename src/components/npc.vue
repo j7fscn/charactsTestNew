@@ -28,7 +28,7 @@ export default {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url('http://owxa0vmjl.bkt.clouddn.com/npc_bg@3x.png');
+    background: url('http://ovfllimsi.bkt.clouddn.com/npc_bg_new@3x.png');
     background-size: 100% 100%;
 }
 
