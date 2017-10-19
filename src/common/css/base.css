@@ -231,3 +231,8 @@ body{
    from { background-size: 200% 200%;}
    to { background-size: 100% 100%;}
    }
+
+   /* 禁止常按 */
+ img{
+    -webkit-touch-callout:none;
+ } 
