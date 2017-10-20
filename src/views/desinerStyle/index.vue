@@ -347,7 +347,7 @@ export default {
                 if (strToJson.result=="0"||!strToJson.result) {
                     strToJson.result = 1;
                 }
-                strToJson.houseName=decodeURIComponent(strToJson.houseName);
+                strToJson.houseArea=decodeURIComponent(strToJson.houseArea);
               
             for (let i in strToJson) {
                 str += i + '=' + strToJson[i] + '&';
