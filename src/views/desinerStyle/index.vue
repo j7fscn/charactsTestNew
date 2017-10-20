@@ -340,21 +340,16 @@ export default {
         },
         setUserData() {
             var _self=this;
-            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle + ',' + this.secondStyle + '&' + 'nextKey' + '=' + this.nextPage
-            var strToJson = this.parseQueryString(data)
-            var str = ''
-            for (let i in strToJson) {
-                if (i == 'likeStyle') {
-                    strToJson[i] = this.fisrtStyle + ',' + this.secondStyle;
-                }
+            var data = this.dataJson + '&' + this.currentKey + '=' + this.fisrtStyle + ',' + this.secondStyle + '&' + 'nextKey' + '=' + this.nextPage;
+            var strToJson = this.parseQueryString(data);
+            var str = '';
+               strToJson.likeStyle = this.fisrtStyle + ',' + this.secondStyle;
                 if (strToJson.result=="0"||!strToJson.result) {
-                    strToJson[i] = 1;
+                    strToJson.result = 1;
                 }
-                if (i == 'houseArea') {
-                    this.houseName = decodeURIComponent(strToJson[i]);
-
-                }
-
+                strToJson.houseName=decodeURIComponent(strToJson.houseName);
+              
+            for (let i in strToJson) {
                 str += i + '=' + strToJson[i] + '&';
             }
             str = str.substring(0, str.length - 1);
