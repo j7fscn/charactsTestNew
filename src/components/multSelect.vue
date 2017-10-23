@@ -194,7 +194,7 @@ export default {
 
 .mulSelect .memo {
     margin: .06rem 0 .15rem 0;
-    /* height: 16px; */
+    height: 16px;
     color: #666;
 }
 
