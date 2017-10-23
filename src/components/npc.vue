@@ -72,7 +72,8 @@ export default {
     width: 0.3rem;
     height: 0.3rem;
     display: inline-block;
-    background: url(http://ovfllimsi.bkt.clouddn.com/NPCButton@3x.png) 0% 0% / 100% 100%;
+    /* background: url(http://ovfllimsi.bkt.clouddn.com/NPCButton@3x.png) 0% 0% / 100% 100%; */
+    background: url(http://ovfllimsi.bkt.clouddn.com/breat%20@2x.gif) 0% 0% / 100% 100%;
     margin:.1rem 0 0 0rem;
 }
 </style>

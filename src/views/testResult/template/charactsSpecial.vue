@@ -1,6 +1,6 @@
 <template>
   <div class="resultStyle">
-      <p class="likeTitle"><span class="likeSpan">我的性格特点</span> </p>
+      <p class="likeTitle"><span class="likeSpan">我的性格特质</span> </p>
       <div class="content">
           <div class="outlineLeft" :style="{background:textColor}"></div>
           <div class="outlineBottom" :style="{background:textColor}"></div>
