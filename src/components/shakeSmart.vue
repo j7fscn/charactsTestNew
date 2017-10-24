@@ -65,26 +65,28 @@ export default {
                 console.log(err);
             })
         },
-        setUserData() {
-            var _self =this
-            var data =''
+        getStr(){
+            var data ='';
             data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  ;
             var strToJson = this.parseQueryString(data);
             if(strToJson.nextKey == '/shakeResult'){
                 this.doShakeSmart = 1;
             }
             var str ='';
+            strToJson.shakeSmart = this.doShakeSmart;
             for(let i in strToJson){
-                if(i == this.currentKey){
-                    strToJson[i] = this.doShakeSmart;
-                }
                 str += i + '=' +strToJson[i] + '&';
             }
-            str = str.substring(0, str.length - 1);
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+ str;
-            this.$jsonp(url).then(json => {
+            return str
+        },
+        setUserData() {
+            var _self =this;
+            var str=this.getStr();
+            str ='http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+  str.substring(0, str.length - 1);
+            var url = str;
+            this.$jsonp(url).then(function(json){
                 _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
-            }).catch(err => {
+            }).catch(function(err){
                 console.log(err);
             })
         },

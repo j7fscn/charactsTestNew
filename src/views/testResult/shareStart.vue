@@ -10,7 +10,7 @@ export default {
         return {
             mes: {
                 title: '我会读心术,<br>怎么？不相信？<br>我们可以试试',
-                nextPage:'/start',
+                nextPage:'/start?fromShare=1',
             } 
         }
     }
