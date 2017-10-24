@@ -1,6 +1,5 @@
 <template>
     <div class="resultStyle">
-        <!-- <div class="shareIcon"></div> -->
         <p class="likeTitle"><span class="likeSpan">可能喜欢的⻛格</span></p>
         <ul class="list">
             <p class="titleLeft">{{likeStyle[0]}}</p>
@@ -42,7 +41,7 @@
                 <router-link to="/shareStart" v-if="isShare">
                     <a class="cont">我&nbsp;要&nbsp;测&nbsp;试</a>
                 </router-link>
-                <div class="cont" @click="showGuide" v-if="isshareResult">通&nbsp;知&nbsp;好&nbsp;友&nbsp;来&nbsp;测</div>
+                <!-- <div class="cont" @click="showGuide" v-if="isshareResult">通&nbsp;知&nbsp;好&nbsp;友&nbsp;来&nbsp;测</div> -->
                 <div class="cont" @click="postResult" v-else>进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
             </div>
         </div>
