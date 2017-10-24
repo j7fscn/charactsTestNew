@@ -22,7 +22,7 @@ export default {
             if(!this.$route.params.userid||this.$route.params.userid=="undefined"){
                   _self.$router.push({ path:  '/start/' + this.getRadomId()+'?fromShare='+this.fromShare });//没有ID生成随机ID
             }
-            var url = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' );
+            var url = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid );
             this.$jsonp(url).then(function(json) {
                 
                 // 插入新用户
@@ -32,7 +32,7 @@ export default {
                 }
         
                 var json = _self.parseQueryString(json.data.result);
-              
+                    debugger
             
                 if (json.shakeSmart == '0') {
                     _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid +'?fromShare='+_self.$route.query.fromShare });

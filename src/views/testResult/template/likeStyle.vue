@@ -48,7 +48,7 @@
                </div>
             </div>
         </div>
-        <div class="layerShare" v-if="isLayer" @click="shareLayer">
+        <div class="layerShare" v-if="isLayer" @click="shareLayer" id="layerShare">
           <div class="shareImg">
             <img src="http://ovfllimsi.bkt.clouddn.com/Guideshare.png" >
           </div>
@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       isShare: false,//APP分享页面判断
-       isFromShare: this.dataJson.fromShare,//判断是来源APP还是分享的 
+       isFromShare: false,//判断是来源APP还是分享的 
       isLayer:false,
       strArr: [],
       likeStyle: [],
@@ -137,10 +137,12 @@ export default {
     this.shareDuge();
     setTimeout(() => {
       this.allStyle();
+      this.isFromShare=this.dataJson.fromShare-0;
     }, 500);
   },
 
   created() {
+ 
     this.$bridge.callHandler(
       "enterLastPage",
       { testResult: { result: 1 } },
@@ -223,7 +225,12 @@ export default {
 
     },
     shareLayer(){
+      
+      var height= window.screen.height;    
+    
       this.isLayer=! this.isLayer;
+        document.getElementById('layerShare').style.height=   height+'px';
+
     }
   }
 };
@@ -236,8 +243,9 @@ export default {
 }
 .layerShare {
      position: fixed;
+     left:0;
     width: 100%;
-    height: 100%;
+    height:100%;
     background: #000;
     opacity: .7;
     z-index: 9999;
