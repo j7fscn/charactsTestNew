@@ -299,7 +299,7 @@ to {opacity: 1;}
 }
 .result .rt:nth-child(4):after {
   height: 1.3rem;
-  transform: rotate(27deg);
+  transform: rotate(37deg);
   top: 0;
   left: -.2rem;
 }
@@ -323,8 +323,8 @@ to {opacity: 1;}
 }
 
 .result .rt:nth-child(5):after {
-  height: .3rem;
-  transform: rotate(65deg);
+  height: .5rem;
+  transform: rotate(64deg);
   top: .1rem;
   left: -.2rem;
 }
@@ -439,8 +439,8 @@ to {opacity: 1;}
   color: #74a5be;
 }
 .result .rt:nth-child(10):after {
-  height: .8rem;
-  transform: rotate(40deg);
+  height: 1rem;
+  transform: rotate(50deg);
   top: -67px;
   left: 1.1rem;
 }

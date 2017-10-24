@@ -1,6 +1,5 @@
 <template>
     <div class="resultStyle">
-        <!-- <div class="shareIcon"></div> -->
         <p class="likeTitle"><span class="likeSpan">可能喜欢的⻛格</span></p>
         <ul class="list">
             <p class="titleLeft">{{likeStyle[0]}}</p>
