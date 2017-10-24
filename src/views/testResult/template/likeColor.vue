@@ -1,6 +1,6 @@
 <template>
     <div class="resultStyle">
-        <p class="likeTitle"><span class="likeSpan">我喜欢的颜色</span></p>
+        <p class="likeTitle"><span class="likeSpan">我的专属⾊彩</span></p>
         
         <ul>
             <p class="titleLeft" v-if="dataJson.choiceColor == index" v-for="(item, index) in message.dataList">{{message.dataList[index].name}}</p>
@@ -32,37 +32,37 @@ export default {
                 dataList: [
                     {
                         key: 0,
-                        name: '你喜欢淡山茱萸粉',
+                        name: '淡山茱萸粉',
                         src: 'y-1.png',
                         choiced: false
                     },
                     {
                         key: 1,
-                        name: '你喜欢樱草黄',
+                        name: '樱草黄',
                         src: 'y-2.png',
                         choiced: false
                     },
                     {
                         key: 2,
-                        name: '你喜欢尼加拉蓝',
+                        name: '尼加拉蓝',
                         src: 'y-3.png',
                         choiced: false
                     },
                     {
                         key: 3,
-                        name: '你喜欢羽衣甘蓝绿',
+                        name: '羽衣甘蓝绿',
                         src: 'y-4.png',
                         choiced: false
                     },
                     {
                         key: 4,
-                        name: '你喜欢奥罗拉红',
+                        name: '奥罗拉红',
                         src: 'y-5.png',
                         choiced: false
                     },
                     {
                         key: 5,
-                        name: '你喜欢海岛天堂蓝',
+                        name: '海岛天堂蓝',
                         src: 'y-6.png',
                         choiced: false
                     }

@@ -46,7 +46,6 @@ import likeMiddle from '@/views/desinerStyle/result'
 
 import result from '@/views/testResult/result'
 
-import npcTest from '@/views/npcTest'
 
 
 
@@ -54,11 +53,6 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/npcTest',
-      name: 'npcTest',
-      component: npcTest
-    },
     {
       path: '/start',
       name: 'start',

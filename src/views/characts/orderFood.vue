@@ -15,7 +15,7 @@ export default {
                     {
                         key: 0,
                         name: '看点评或者朋友推荐',
-                        src: '5-1.png',
+                        src: '5-1new.png',
                         choiced: false
                     },
                     {

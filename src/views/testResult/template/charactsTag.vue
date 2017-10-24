@@ -4,8 +4,8 @@
     <div class="tag">
       <div class="head">
         <div class="shadow">
-          <img src="http://owxa0vmjl.bkt.clouddn.com/girl.png" v-if="mes.sex==1">
-          <img src="http://owxa0vmjl.bkt.clouddn.com/man.png" v-else>
+          <img src="http://owxa0vmjl.bkt.clouddn.com/girlNew.png" v-if="mes.sex==1">
+          <img src="http://owxa0vmjl.bkt.clouddn.com/boy.png" v-else>
         </div>
       </div>
       <div  class="result">
@@ -259,7 +259,12 @@ to {opacity: 1;}
   font-size: .14rem;
   color: #dcad9c;
 }
-
+.result .rt:nth-child(2):after {
+  height: 1.3rem;
+  transform: rotate(320deg);
+  top: -6px;
+  left: .8rem;
+}
 .result .rt:nth-child(2) i {
   height: .15rem;
   width: .15rem;
@@ -292,7 +297,12 @@ to {opacity: 1;}
   font-size: .14rem;
   color: #e79e92;
 }
-
+.result .rt:nth-child(4):after {
+  height: 1.3rem;
+  transform: rotate(27deg);
+  top: 0;
+  left: -.2rem;
+}
 .result .rt:nth-child(4) i {
   height: .3rem;
   width: .3rem;
@@ -367,7 +377,7 @@ to {opacity: 1;}
 }
 
 .result .rt:nth-child(7):after {
- height: 1.1rem;
+ height: 1.0rem;
     transform: rotate(-36deg);
     top: -.8rem;
     right: 1.1rem;
@@ -405,7 +415,12 @@ to {opacity: 1;}
   font-size: .14rem;
   color: #e68caa;
 }
-
+.result .rt:nth-child(9):after {
+  height: 1.4rem;
+  transform: rotate(36deg);
+  top: -1.46rem;
+  left: 1.2rem;
+}
 .result .rt:nth-child(9) i {
   position: absolute;
   top: -.2rem;
@@ -423,7 +438,12 @@ to {opacity: 1;}
   font-size: .14rem;
   color: #74a5be;
 }
-
+.result .rt:nth-child(10):after {
+  height: .8rem;
+  transform: rotate(40deg);
+  top: -67px;
+  left: 1.1rem;
+}
 .result .rt:nth-child(10) i {
   height: .15rem;
   width: .15rem;

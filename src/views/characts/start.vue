@@ -18,7 +18,6 @@ export default {
     methods: {
         linkToPage() {
             var _self = this;
-    
             if(!this.$route.params.userid||this.$route.params.userid=="undefined"){
                   _self.$router.push({ path:  '/start/' + this.getRadomId() });//没有ID生成随机ID
             }

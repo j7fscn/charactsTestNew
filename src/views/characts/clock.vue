@@ -16,13 +16,13 @@ export default {
                     {
                         key: 0,
                         name: '连续多个闹钟',
-                        src: '3-2.png',
+                        src: '3-1new.png',
                         choiced: false
                     },
                      {
                         key: 1,
                         name: '一个闹钟',
-                        src: '3-1.png',
+                        src: '3-2new.png',
                         choiced: false
                     },
                    

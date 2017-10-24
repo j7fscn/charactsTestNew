@@ -1,6 +1,7 @@
 <template>
     <div class="resultStyle">
-        <p class="likeTitle"><span class="likeSpan">我喜欢的风格</span></p>
+        <!-- <div class="shareIcon"></div> -->
+        <p class="likeTitle"><span class="likeSpan">可能喜欢的⻛格</span></p>
         <ul class="list">
             <p class="titleLeft">{{likeStyle[0]}}</p>
             <li>
@@ -41,7 +42,7 @@
                 <router-link to="/shareStart" v-if="isShare">
                     <a class="cont">我&nbsp;要&nbsp;测&nbsp;试</a>
                 </router-link>
-
+                <div class="cont" @click="showGuide" v-if="isshareResult">通&nbsp;知&nbsp;好&nbsp;友&nbsp;来&nbsp;测</div>
                 <div class="cont" @click="postResult" v-else>进&nbsp;入&nbsp;设&nbsp;计&nbsp;IN</div>
             </div>
         </div>
@@ -56,6 +57,7 @@ export default {
     data() {
         return {
             isShare: false,
+            isshareResult:false,
             strArr: [],
             likeStyle: [],
             message: {
@@ -160,11 +162,13 @@ export default {
                 this.isShare = true;
             }
         },
+        //点击分享模态导航
+        showGuide(){
 
+        },
         postResult() {
             var _likeStyle = decodeURIComponent(this.dataJson.likeStyle).split(',');
              console.log({ likeStyle: _likeStyle, houseArea: decodeURIComponent(this.dataJson.houseArea), result: 1 });
-             debugger
             this.$bridge.callHandler('callWithDict', { 'testResult': { likeStyle: _likeStyle, houseArea: decodeURIComponent(this.dataJson.houseArea), result: 1 } }, function(data) {
             });
 
@@ -191,7 +195,12 @@ export default {
     margin-left: .1rem;
     margin-right: .1rem;
 }
-
+.shareIcon{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url(http://ovfllimsi.bkt.clouddn.com/Guide%20share@2x.png);
+}
 .resultStyle .likeTitle {
     margin-top: 0;
     margin-bottom: .4rem;
