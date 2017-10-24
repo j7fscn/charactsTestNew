@@ -30,10 +30,10 @@ export default {
                 }
                 var json = _self.parseQueryString(json.data.result);
                 if (json.shakeSmart == '0') {
-                    _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
+                    _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid });
                     return
                 }
-                _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid })
+                _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid });
 
             }).catch(err => {
 
@@ -44,7 +44,7 @@ export default {
             var urlNew = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?user_id=' + this.$route.params.userid + '&shakeSmart=0&result=0';
             this.$jsonp(urlNew).then(function(json) {
 
-                _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid })
+                _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid });ß
                 return
             }).catch(err => {
              
