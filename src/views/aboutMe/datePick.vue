@@ -49,6 +49,7 @@
   position: fixed;
   top: .6rem;
   height: 2.2rem;
+  animation:datePicker 2s;
 
 }
 
@@ -57,6 +58,12 @@
   margin: 0 .2rem;
   
 }
+
+   @keyframes datePicker
+   {
+   from { opacity: 0;}
+   to { opacity: 1}
+   }
 
 .page-datePick .tit {
   font-size: .17rem;
