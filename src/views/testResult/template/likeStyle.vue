@@ -56,15 +56,16 @@
     </div>
 </template>
 <script>
+import wx from 'weixin-js-sdk'
 export default {
   name: "likeStyle",
   props: ["dataJson", "imgAnimate"],
 
   data() {
     return {
-      isShare: false,//APP分享页面判断
-       isFromShare: false,//判断是来源APP还是分享的 
-      isLayer:false,
+      isShare: false, //APP分享页面判断
+      isFromShare: false, //判断是来源APP还是分享的
+      isLayer: false,
       strArr: [],
       likeStyle: [],
       message: {
@@ -137,12 +138,13 @@ export default {
     this.shareDuge();
     setTimeout(() => {
       this.allStyle();
-      this.isFromShare=this.dataJson.fromShare-0;
+      this.isFromShare = this.dataJson.fromShare - 0;
+      this.shareWx();
+   
     }, 500);
   },
 
   created() {
- 
     this.$bridge.callHandler(
       "enterLastPage",
       { testResult: { result: 1 } },
@@ -221,16 +223,83 @@ export default {
       }
       return obj;
     },
-    shareLayer(){
 
+    shareLayer() {
+      var height = window.screen.height;
+
+      this.isLayer = !this.isLayer;
     },
-    shareLayer(){
-      
-      var height= window.screen.height;    
-    
-      this.isLayer=! this.isLayer;
-        document.getElementById('layerShare').style.height=   height+'px';
+    shareWx() {
+      this.getWxAppid();
+      this.shareReady();
+    },
+    getWxAppid() {
+      var url = "http://bos.foreverlynn.com/weixin/getWXUrl";
+      this.$jsonp(url)
+        .then(json => {
+          if (res.code != "200") {
+          }
+          wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: res.data.result.appId, // 必填，公众号的唯一标识
+            timestamp: res.data.result.timestamp, // 必填，生成签名的时间戳
+            nonceStr: res.data.result.nonceStr, // 必填，生成签名的随机串
+            signature: res.data.result.signature, // 必填，签名
+            jsApiList: [
+              "onMenuShareTimeline",
+              "onMenuShareAppMessage",
+              "startRecord",
+              "stopRecord",
+              "onVoiceRecordEnd",
+              "playVoice",
+              "pauseVoice",
+              "stopVoice",
+              "onVoicePlayEnd",
+              "uploadVoice",
+              "downloadVoice",
+              "chooseImage",
+              "previewImage",
+              "uploadImage",
+              "downloadImage"
+            ] // 必填，需要使用的JS接口列表
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    shareReady() {
+      wx.ready(function() {
+        // 在这里调用 API
+        wx.onMenuShareAppMessage({
+          link:"http://wesetup.cn/chatactsTest/index.html#/shareStart",
+          title: "测试你的性格~", // 分享标题
+          desc: "我知道你在想什么，不信进来看看！", // 分享描述
+          imgUrl: "http://ovfllimsi.bkt.clouddn.com/logo.png", // 分享图标
+          success: function() {
+            // 用户确认分享后执行的回调函数
+          },
+          cancel: function() {
+            // 用户取消分享后执行的回调函数
+          }
+        });
 
+        wx.onMenuShareTimeline({
+         link:"http://wesetup.cn/chatactsTest/index.html#/shareStart",
+          title: "测试你的性格", // 分享标题
+          desc: "我知道你在想什么，不信进来看看！", // 分享描述
+          imgUrl: "http://ovfllimsi.bkt.clouddn.com/logo.png", // 分享图标
+          success: function() {
+            // 用户确认分享后执行的回调函数
+          },
+          cancel: function() {
+            // 用户取消分享后执行的回调函数
+          }
+        });
+        wx.error(function(res) {
+          console.log(res);
+        });
+      });
     }
   }
 };
@@ -242,25 +311,24 @@ export default {
   margin-right: 0.1rem;
 }
 .layerShare {
-     position: fixed;
-     left:0;
-    width: 100%;
-    height:100%;
-    background: #000;
-    opacity: .7;
-    z-index: 9999;
-    top: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.7;
+  z-index: 9999;
+  top: 0;
 }
 .shareImg {
   position: absolute;
-  top:0%;
-  width:2rem;
-  right:.2rem;
-  z-index:9999999;
-  
+  top: 0%;
+  width: 2rem;
+  right: 0.2rem;
+  z-index: 9999999;
 }
 .shareImg img {
-  width:100%;
+  width: 100%;
 }
 .shareIcon {
   position: absolute;
