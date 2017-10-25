@@ -2,72 +2,44 @@ import Vue from 'vue'
 import Router from 'vue-router'
 //进入测试判断
 const start = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/characts/start')
-
 const shareStart = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/testResult/shareStart')
-
 //抖机灵
 const shakeFirst = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/shakeFirst')
-
 const shakeSecond = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/shakeSecond')
-
 const shakeThird = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/shakeThird')
-
 const shakeResult = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/result')
-
 //关于我
 const datePick = () => import(/* webpackChunkName: "group-characts" */ '@/views/aboutMe/datePick')
-
 const houseArea = () => import(/* webpackChunkName: "group-characts" */'@/views/aboutMe/houseArea')
-
 const readyGo = () => import(/* webpackChunkName: "group-characts" */'@/views/aboutMe/readyGo')
-
 // 性格测试
 const sex = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sex')
-
 const fingerTips = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/fingerTips')
-
 const finger = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/finger')
-
 const clock = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/clock')
-
 const travel = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/travel')
 const faceScore = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/faceScore')
 const watch = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/watch')
 const shoes = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/shoes')
 const skillStockings = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/skillStockings')
 const sleep = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sleep')
-
 const toothpaste = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/toothpaste')
 const orderFood = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/orderFood')
 const camera = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/camera')
-
 const hairStyle = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/hairStyle')
-
 const unbear = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/unbear')
-
-
 const knowMan = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/knowMan')
-
 const mustHave = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/mustHave')
-
 const trydo = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/try')
 const dosome = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/dosome')
-
 const sport = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sport')
-
 const sportW = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sportW')
-
 const choiceColor = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/choiceColor')
-
 const choiceDraw = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/choiceDraw')
-
 const choicePic = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/choicePic')
-
 const charactsResult = () => import(/* webpackChunkName: "group-result" */'@/views/characts/result')
-
 const likeStyle = () => import(/* webpackChunkName: "group-result" */'@/views/desinerStyle/index')
 const likeMiddle = () => import(/* webpackChunkName: "group-result" */'@/views/desinerStyle/result')
-
 const result = () => import(/* webpackChunkName: "group-result" */'@/views/testResult/result')
 
 
@@ -253,7 +225,7 @@ export default new Router({
       name: 'result',
       component: result
     },
-      {
+    {
       path: '/charactsResult/:userid',
       name: 'charactsResult',
       component: charactsResult
@@ -283,6 +255,6 @@ export default new Router({
       name: 'likeStyle',
       component: likeStyle
     }
-       
+
   ]
 })
