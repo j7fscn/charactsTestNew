@@ -42,7 +42,7 @@ export default {
                       {
                         name: '领结',
                         // src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-7.png',
-                        src: 'http://ovfllimsi.bkt.clouddn.com/1-7_%E9%A2%86%E7%BB%93.png',
+                        src: 'http://ovfllimsi.bkt.clouddn.com/1-7new.png',
                      },
                       {
                         name: '衬衫',

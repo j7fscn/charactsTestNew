@@ -15,13 +15,13 @@ export default {
                     {
                         key: 0,
                         name: '男',
-                        src: '1-1new.png',
+                        src: '1-1new1.png',
                         choiced: false
                     },
                     {
                         key: 1,
                         name: '女',
-                        src: '1-2new.png',
+                        src: '1-2new1.png',
                         choiced: false
                     },
                    
