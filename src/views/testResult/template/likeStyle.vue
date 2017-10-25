@@ -145,11 +145,14 @@ export default {
   },
 
   created() {
-    this.$bridge.callHandler(
+    if(this.$bridge){
+       this.$bridge.callHandler(
       "enterLastPage",
       { testResult: { result: 1 } },
       function(data) {}
     );
+    }
+   
   },
   methods: {
     allStyle() {
@@ -235,9 +238,10 @@ export default {
     },
     getWxAppid() {
       var url = "http://bos.foreverlynn.com/weixin/getWXUrl";
-      this.$jsonp(url)
-        .then(json => {
+      this.$jsonp(url,{url: location.href.replace(location.hash, "")})
+        .then(res => {
           if (res.code != "200") {
+            return
           }
           wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -272,11 +276,12 @@ export default {
       wx.ready(function() {
         // 在这里调用 API
         wx.onMenuShareAppMessage({
-          link:"http://wesetup.cn/chatactsTest/index.html#/shareStart",
-          title: "测试你的性格~", // 分享标题
-          desc: "我知道你在想什么，不信进来看看！", // 分享描述
+            link:'http://wesetup.cn/chatactsTest/index.html#/shareStart',
+          title: "测试你的性格", // 分享标题
+          desc: "怎么不信？我们可以试试", // 分享描述
           imgUrl: "http://ovfllimsi.bkt.clouddn.com/logo.png", // 分享图标
-          success: function() {
+          success: function(success) {
+              console.log(success);
             // 用户确认分享后执行的回调函数
           },
           cancel: function() {
@@ -285,11 +290,12 @@ export default {
         });
 
         wx.onMenuShareTimeline({
-         link:"http://wesetup.cn/chatactsTest/index.html#/shareStart",
+         link:'http://wesetup.cn/chatactsTest/index.html#/shareStart',
           title: "测试你的性格", // 分享标题
-          desc: "我知道你在想什么，不信进来看看！", // 分享描述
+          desc: "怎么不信？我们可以试试", // 分享描述
           imgUrl: "http://ovfllimsi.bkt.clouddn.com/logo.png", // 分享图标
-          success: function() {
+          success: function(success) {
+             console.log(success);
             // 用户确认分享后执行的回调函数
           },
           cancel: function() {

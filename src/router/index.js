@@ -1,50 +1,75 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 //进入测试判断
-import start from '@/views/characts/start'
-import shareStart from '@/views/testResult/shareStart'
+const start = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/characts/start')
+
+const shareStart = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/testResult/shareStart')
+
 //抖机灵
-import shakeFirst from '@/views/shakeSmart/shakeFirst'
-import shakeSecond from '@/views/shakeSmart/shakeSecond'
-import shakeThird from '@/views/shakeSmart/shakeThird'
+const shakeFirst = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/shakeFirst')
 
-import shakeResult from '@/views/shakeSmart/result' //抖机过渡页面
+const shakeSecond = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/shakeSecond')
+
+const shakeThird = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/shakeThird')
+
+const shakeResult = () => import(/* webpackChunkName: "group-shakeSmart" */ '@/views/shakeSmart/result')
+
 //关于我
-import datePick from '@/views/aboutMe/datePick' //出生
-import houseArea from '@/views/aboutMe/houseArea' //户型图
-import readyGo from '@/views/aboutMe/readyGo' //转场
+const datePick = () => import(/* webpackChunkName: "group-characts" */ '@/views/aboutMe/datePick')
+
+const houseArea = () => import(/* webpackChunkName: "group-characts" */'@/views/aboutMe/houseArea')
+
+const readyGo = () => import(/* webpackChunkName: "group-characts" */'@/views/aboutMe/readyGo')
+
 // 性格测试
-import sex from '@/views/characts/sex'
-import fingerTips from '@/views/characts/fingerTips'
-import finger from '@/views/characts/finger'
-import clock from '@/views/characts/clock'
-import travel from '@/views/characts/travel'
-import faceScore from '@/views/characts/faceScore'
-import watch from '@/views/characts/watch'
-import shoes from '@/views/characts/shoes'
-import skillStockings from '@/views/characts/skillStockings'
-import sleep from '@/views/characts/sleep'
-import toothpaste from '@/views/characts/toothpaste'
-import orderFood from '@/views/characts/orderFood'
-import camera from '@/views/characts/camera'
-import hairStyle from '@/views/characts/hairStyle'
-import unbear from '@/views/characts/unbear'
-import knowMan from '@/views/characts/knowMan'
-import mustHave from '@/views/characts/mustHave'
-import trydo from '@/views/characts/try'
-import dosome from '@/views/characts/dosome'
-import sport from '@/views/characts/sport'
-import sportW from '@/views/characts/sportW'
-import choiceColor from '@/views/characts/choiceColor'
-import choiceDraw from '@/views/characts/choiceDraw'
-import choicePic from '@/views/characts/choicePic'
+const sex = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sex')
 
-import charactsResult from '@/views/characts/result' //性格过渡页面
-//风格测试
-import likeStyle from '@/views/desinerStyle/index' //喜欢的风格
-import likeMiddle from '@/views/desinerStyle/result'
+const fingerTips = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/fingerTips')
 
-import result from '@/views/testResult/result'
+const finger = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/finger')
+
+const clock = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/clock')
+
+const travel = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/travel')
+const faceScore = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/faceScore')
+const watch = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/watch')
+const shoes = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/shoes')
+const skillStockings = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/skillStockings')
+const sleep = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sleep')
+
+const toothpaste = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/toothpaste')
+const orderFood = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/orderFood')
+const camera = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/camera')
+
+const hairStyle = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/hairStyle')
+
+const unbear = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/unbear')
+
+
+const knowMan = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/knowMan')
+
+const mustHave = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/mustHave')
+
+const trydo = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/try')
+const dosome = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/dosome')
+
+const sport = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sport')
+
+const sportW = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/sportW')
+
+const choiceColor = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/choiceColor')
+
+const choiceDraw = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/choiceDraw')
+
+const choicePic = () => import(/* webpackChunkName: "group-characts" */'@/views/characts/choicePic')
+
+const charactsResult = () => import(/* webpackChunkName: "group-result" */'@/views/characts/result')
+
+const likeStyle = () => import(/* webpackChunkName: "group-result" */'@/views/desinerStyle/index')
+const likeMiddle = () => import(/* webpackChunkName: "group-result" */'@/views/desinerStyle/result')
+
+const result = () => import(/* webpackChunkName: "group-result" */'@/views/testResult/result')
+
 
 
 
@@ -54,12 +79,17 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'start',
+      component: start
+    },
+    {
       path: '/start',
       name: 'start',
       component: start
     },
     {
-      path: '/shareStart',
+      path: '/shareStart', //微信分享初始页面
       name: 'shareStart',
       component: shareStart
     },
