@@ -4,7 +4,6 @@ import { getusrMes,setUsrMes } from '@/api/getUsr';
     var keyvalue=[];
     var key="",value=""; 
     var paraString=str.substring(str.indexOf("?")+1,str.length).split("&");
-    debugger
     for(var i in paraString)
     {
         keyvalue=paraString[i].split("=");
@@ -14,6 +13,7 @@ import { getusrMes,setUsrMes } from '@/api/getUsr';
     } 
     return obj;
 }
+
 const user = {
   state: {
     userData: {},
@@ -43,6 +43,7 @@ const user = {
           
           }else {
             data=parseQueryString(response.data.result);
+       
             commit('CHANGE_ISNEW',true);
   
           }

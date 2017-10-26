@@ -35,176 +35,141 @@
 </template>
 
 <script>
-
 export default {
-    props: ['mes'],
-    data() {
-        return {
-            score: 0,
-            dataJson: '',
-            currentKey: '',
-            nextKey:'nextKey',
-        }
-    },
-    created() {
-        this.getUserData();
-    },
-    mounted() {
-        this.currentKey = this.mes.pageName;
-    },
-    methods: {
-        choice(e, index) {
-            if (this.mes.dataList[index].choiced) {
-                this.mes.dataList[index].choiced = false;
-                this.score-=this.mes.dataList[index].score;
-              
-                return
-            }
-            this.checkedValue = this.mes.dataList[index].key;
-            this.mes.dataList[index].choiced = true;
-            this.score+=this.mes.dataList[index].score;
+  props: ["mes"],
+  data() {
+    return {
+      score: 0,
+      dataJson: "",
+      currentKey: "",
+      nextKey: "nextKey"
+    };
+  },
+  created() {
 
-        },
-        setValue() {
-            this.setUserData()
-            
-        },
-        getUserData() {
-            // ?user_id='+this.$route.params.userid
-            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid);
-            this.$jsonp(urlG).then(json => {
-                this.dataJson=json.data.result;
-                this.dataJson;
-            }).catch(err => {
-                console.log(err);
-            })
-        },
+  },
+  mounted() {
+    this.currentKey = this.mes.pageName;
+  },
+  methods: {
+    choice(e, index) {
+      if (this.mes.dataList[index].choiced) {
+        this.mes.dataList[index].choiced = false;
+        this.score -= this.mes.dataList[index].score;
 
-        setUserData() {
-            var _self =this
-            var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.mes.nextPage;
-            var strToJson = this.parseQueryString(data);
-            var str ='';
-            for(let i in strToJson){
-                if(i == this.currentKey){
-                    strToJson[i] = this.score;
-                }
-                str += i + '=' +strToJson[i] + '&';
-            }
-            str = str.substring(0, str.length - 1);
-            
-            console.log(strToJson)
-            var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str;
-            this.$jsonp(url).then(json => {
-                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
-            }).catch(err => {
-                console.log(err);
-            })
-        },
-        //字符串转JSON
-        parseQueryString(url) {
-            var obj={};
-            var keyvalue=[];
-            var key="",value=""; 
-            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
-            for(var i in paraString)
-            {
-                keyvalue=paraString[i].split("=");
-                key=keyvalue[0];
-                value=keyvalue[1];
-                obj[key]=value; 
-            } 
-            return obj;
-        }
+        return;
+      }
+      this.checkedValue = this.mes.dataList[index].key;
+      this.mes.dataList[index].choiced = true;
+      this.score += this.mes.dataList[index].score;
+    },
+    setValue() {
+      this.getUserData();
+    },
+    getUserData() {
+        var _slef=this;
+      this.$store
+        .dispatch("GetusrMes", this.$route.params.userid)
+        .then(() => {
+          var json = _self.$store.getters.userMes;
+          this.dataJson = json;
+          _slef.setUserData();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
+    setUserData() {
+      var _self = this;
+      this.dataJson.currentKey=this.score;
+      this.nextKey= this.mes.nextPage;
+      this.$store.dispatch("SetUsrMes",_self.dataJson)
+        .then(() => {
+          _self.$router.push({
+            path: _self.mes.nextPage + "/" + _self.$route.params.userid
+          });
+        })
+        .cath(err => {
+             console.log(err);
+        });
     }
-
-}
+  }
+};
 </script>
 
 <style>
-
-
-
 /*mask*/
 
 .mulSelect .mask {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 22;
-    top: 0;
-    border-radius: .04rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 22;
+  top: 0;
+  border-radius: 0.04rem;
 }
 
 .mulSelect .mask .shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: .14;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.14;
 }
 
 .mulSelect .mask .checked {
-    position: absolute;
-    right: 0.15rem;
-    bottom: .1rem;
-    width: .2rem;
-    z-index: 99;
-    opacity: 1;
+  position: absolute;
+  right: 0.15rem;
+  bottom: 0.1rem;
+  width: 0.2rem;
+  z-index: 99;
+  opacity: 1;
 }
 
 .mulSelect .mask .checked img {
-    width: 100%;
-    border: none;
+  width: 100%;
+  border: none;
 }
 
-
-
 /*mask*/
-
 
 /*double*/
 
 .sing.double li {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 .mulSelect ul {
-    margin: 0 .1rem;
+  margin: 0 0.1rem;
 }
 
 .mulSelect ul li .cont {
-    margin: 0 .1rem;
+  margin: 0 0.1rem;
 }
 
-
-
-
 /*double*/
-
 
 /*progress*/
 
 .progress {
-    margin: .26rem .2rem 0 .2rem;
-    overflow: hidden;
-    text-align: right;
+  margin: 0.26rem 0.2rem 0 0.2rem;
+  overflow: hidden;
+  text-align: right;
 }
 
 .mulSelect .memo {
-    margin: .06rem 0 .15rem 0;
-    height: 16px;
-    color: #666;
+  margin: 0.06rem 0 0.15rem 0;
+  height: 16px;
+  color: #666;
 }
-
 
 .mulSelect .bottom {
-    position: fixed;
-    bottom: .08rem;
-    width: 100%;
+  position: fixed;
+  bottom: 0.08rem;
+  width: 100%;
 }
-
 </style>
 
 

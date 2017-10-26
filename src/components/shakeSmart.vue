@@ -30,83 +30,56 @@
 </template>
 <style>
 
-
-
-
 </style>
 <script>
 export default {
-    props: ['mes'],
-    data() {
-        return {
-            dataJson: '',
-            currentKey: '',
-            user_id:'',
-            nextKey:'nextKey',
-            doShakeSmart:0
-        }
+  props: ["mes"],
+  data() {
+    return {
+      dataJson: "",
+      user_id: "",
+      nextKey: "nextKey",
+      doShakeSmart: 0
+    };
+  },
+  created() {
+
+  },
+  mounted() {
+    this.currentKey = this.mes.pageName;
+  },
+  methods: {
+    nextPage() {
+      this.getUserData();
       
     },
-    created(){
-        this.getUserData();
+    getUserData() {
+        var _self=this;
+      this.$store
+        .dispatch("GetusrMes", this.$route.params.userid)
+        .then(() => {
+          var json = _self.$store.getters.userMes;
+          _self.dataJson = json;
+          _self.setUserData();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    mounted(){
-       this.currentKey = this.mes.pageName; 
-    },
-    methods: {
-      nextPage() {
-            this.setUserData();
-        },
-        getUserData() {
-            let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid);
-            this.$jsonp(urlG).then(json => {
-                this.dataJson=json.data.result;
-            }).catch(err => {
-                console.log(err);
-            })
-        },
-        getStr(){
-            var data ='';
-            data= this.dataJson + '&' + this.currentKey + '=' + this.doShakeSmart + '&' + this.nextKey + '=' + this.mes.nextPage  ;
-            var strToJson = this.parseQueryString(data);
-            if(strToJson.nextKey == '/shakeResult'){
-                this.doShakeSmart = 1;
-            }
-            var str ='';
-            strToJson.shakeSmart = this.doShakeSmart;
-            for(let i in strToJson){
-                str += i + '=' +strToJson[i] + '&';
-            }
-            return str
-        },
-        setUserData() {
-            var _self =this;
-            var str=this.getStr();
-            str ='http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?'+  str.substring(0, str.length - 1);
-            var url = str;
-            this.$jsonp(url).then(function(json){
-                _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
-            }).catch(function(err){
-                console.log(err);
-            })
-        },
-        parseQueryString(url) {
-            var obj={};
-            var keyvalue=[];
-            var key="",value=""; 
-            var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
-            for(var i in paraString)
-            {
-                keyvalue=paraString[i].split("=");
-                key=keyvalue[0];
-                value=keyvalue[1];
-                obj[key]=value; 
-            } 
-            return obj;
-        },
-    }
 
-}
+    setUserData() {
+      var _self = this;
+      this.shakeSmart =this.dataJson.nextKey == "/shakeResult"?1:0;
+      this.nextKey = this.mes.nextPage;
+      this.$store.dispatch("SetUsrMes", this.dataJson).then(() => {
+          _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
+      })
+        .cath(err => {
+          console.log(err);
+        });
+    }
+  }
+};
 </script>
 
 

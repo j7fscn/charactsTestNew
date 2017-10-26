@@ -56,8 +56,7 @@ export default {
       var _self = this;
       var userId = this.$route.params.userid;
       var fromShare = this.$route.query.fromShare;
-      this.$store
-        .dispatch("SetUsrMes", {
+      this.$store.dispatch("SetUsrMes", {
           user_id: userId,
           shakeSmart: 0,
           fromShare: fromShare
@@ -65,7 +64,9 @@ export default {
         .then(() => {
           _self.$router.push({ path: "/shakeFirst/" + userId });
         })
-        .cath(err => {});
+        .cath(err => {
+          
+        });
     },
     getRadomId() {
             let idStr = Date.now().toString(36)
