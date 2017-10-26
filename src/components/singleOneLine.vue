@@ -72,9 +72,10 @@ export default {
       });
     },
     setValue() {
-      this.setUserData();
+      this.getUserData();
     },
     getUserData() {
+        var _self=this;
       this.$store
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
@@ -89,10 +90,10 @@ export default {
 
     setUserData() {
       var _self = this;
-      this.dataJson.currentKey = this.checkedValue;
+      this.dataJson[this.currentKey] = this.checkedValue;
       this.nextKey = this.mes.nextPage;
-      if(typeof(strToJson.houseArea)==number){
-             this.houseArea = this.swithHouseName(strToJson.houseArea);
+      if(typeof(this.dataJson.houseArea)=="number"){
+             this.dataJson.houseArea = this.swithHouseName(this.dataJson.houseArea);
       }
 
       this.$store

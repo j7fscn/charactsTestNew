@@ -56,7 +56,6 @@ export default {
       if (this.mes.dataList[index].choiced) {
         this.mes.dataList[index].choiced = false;
         this.score -= this.mes.dataList[index].score;
-
         return;
       }
       this.checkedValue = this.mes.dataList[index].key;
@@ -82,7 +81,7 @@ export default {
 
     setUserData() {
       var _self = this;
-      this.dataJson.currentKey=this.score;
+      this.dataJson[this.currentKey]=this.score;
       this.nextKey= this.mes.nextPage;
       this.$store.dispatch("SetUsrMes",_self.dataJson)
         .then(() => {

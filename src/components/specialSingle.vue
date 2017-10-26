@@ -89,7 +89,7 @@ export default {
 
     setUserData() {
       var _self = this;
-      this.dataJson.currentKey = this.checkedValue;
+      this.dataJson[this.currentKey] = this.checkedValue;
       this.nextKey = this.mes.nextPage;
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
