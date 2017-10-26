@@ -49,7 +49,6 @@ export default {
     };
   },
   created() {
-    this.getUserData();
     if (this.mes.nextPage == "/sex") {
       this.doShakeSmart = 1;
     }
@@ -80,7 +79,8 @@ export default {
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
           var json = _self.$store.getters.userMes;
-          this.dataJson = json.data.result;
+          _self.dataJson = json;
+          _self.setUserData();
         })
         .catch(err => {
           console.log(err);
@@ -91,11 +91,16 @@ export default {
       var _self = this;
       this.dataJson.currentKey = this.checkedValue;
       this.nextKey = this.mes.nextPage;
-      this.houseArea= this.swithHouseName(strToJson.houseArea);
+      if(typeof(strToJson.houseArea)==number){
+             this.houseArea = this.swithHouseName(strToJson.houseArea);
+      }
+
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {
-           _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
+          _self.$router.push({
+            path: _self.mes.nextPage + "/" + _self.$route.params.userid
+          });
         })
         .cath(err => {
           console.log(err);

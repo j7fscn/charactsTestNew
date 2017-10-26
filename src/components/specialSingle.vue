@@ -48,12 +48,7 @@ export default {
       doShakeSmart: 0
     };
   },
-  created() {
-    this.getUserData();
-    if (this.mes.nextPage == "/sex") {
-      this.doShakeSmart = 1;
-    }
-  },
+  created() {},
   mounted() {
     this.currentKey = this.mes.pageName;
   },
@@ -73,14 +68,19 @@ export default {
       });
     },
     setValue() {
-      this.setUserData();
+      this.getUserData();
+      if (this.mes.nextPage == "/sex") {
+        this.doShakeSmart = 1;
+      }
     },
     getUserData() {
+        var _self=this;
       this.$store
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
           var json = _self.$store.getters.userMes;
-          this.dataJson = json.data.result;
+          _self.dataJson = json;
+          _self.setUserData();
         })
         .catch(err => {
           console.log(err);
@@ -91,15 +91,17 @@ export default {
       var _self = this;
       this.dataJson.currentKey = this.checkedValue;
       this.nextKey = this.mes.nextPage;
-      this.$store.dispatch("SetUsrMes", _self.dataJson)
+      this.$store
+        .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {
-           _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid });
+          _self.$router.push({
+            path: _self.mes.nextPage + "/" + _self.$route.params.userid
+          });
         })
         .cath(err => {
           console.log(err);
         });
     }
-
   }
 };
 </script>
