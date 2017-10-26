@@ -4,10 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '@/common/css/base.css'
-import getApi from 'common/js/getApi'
+
 import VueJsonp from 'vue-jsonp'
 import vueBridgeWebview from 'vue-bridge-webview'
+import store from './store'
 import fastclick from 'fastclick'
+
+
 
 Vue.use(VueJsonp)
 Vue.use(vueBridgeWebview)
@@ -29,6 +32,7 @@ import 'mint-ui/lib/style.css';
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

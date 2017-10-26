@@ -4,77 +4,75 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-             from :0,
-        }
+  data() {
+    return {
+      from: 0
+    };
+  },
+  computed: {},
+  beforeCreate() {},
+  created() {
+    this.linkToPage();
+  },
+  methods: {
+    linkToPage() {
+      var _self = this;
+      var userId = this.$route.params.userid;
+      var fromShare = this.$route.query.fromShare;
+      this.fromShare = this.$route.query.fromShare ? 1 : 0;
+
+     this.$store.commit('CHANGE_ISNEW',false);
+      if ( !this.$route.params.userid || this.$route.params.userid == "undefined") {
+        this.$router.push({ path:"/start/" +_self.getRadomId() + "?fromShare=" +this.fromShare}); //没有ID生成随机ID
+      }
+
+      _self.getUsr();
     },
-    computed: {},
-    beforeCreate() { },
-    created() {
-        this.linkToPage();
-    
+    getUsr() {
+      var _self = this;
+      var userId = this.$route.params.userid;
+      var fromShare = this.$route.query.fromShare;
+      this.$store
+        .dispatch("GetusrMes", userId)
+        .then(() => {
+          var json = _self.$store.getters.userMes;
+          if (!_self.$store.getters.isNewUsr) {
+            _self.insertUsr(); // 插入新用户
+            return;
+          }
+          if (json.data.shakeSmart == "0") {
+            _self.$router.push({ path: "/shakeFirst/" + userId + "?fromShare=" + fromShare});
+            return;
+          }
+          _self.$router.push({
+            path: json.nextKey + "/" + userId + "?fromShare=" + fromShare
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    methods: {
-        linkToPage() {
-            var _self = this;
-            this.fromShare= this.$route.query.fromShare?1:0;
-            if(!this.$route.params.userid||this.$route.params.userid=="undefined"){
-                  _self.$router.push({ path:  '/start/' + this.getRadomId()+'?fromShare='+this.fromShare });//没有ID生成随机ID
-            }
-            var url = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid );
-            this.$jsonp(url).then(function(json) {
-                
-                // 插入新用户
-                if (json.data.result == '数据库没有该userId的记录') {
-                    _self.insertUserid();
-                    return
-                }
-        
-                var json = _self.parseQueryString(json.data.result);
-                    debugger
-            
-                if (json.shakeSmart == '0') {
-                    _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid +'?fromShare='+_self.$route.query.fromShare });
-                    return
-                }
-                _self.$router.push({ path: json.nextKey + '/' + _self.$route.params.userid+'?fromShare='+_self.$route.query.fromShare  });
-
-            }).catch(err => {
-
-            })
-        },
-        insertUserid() {
-              var _self = this;
-            var urlNew = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?user_id=' + this.$route.params.userid + '&shakeSmart=0&result=0'+'&fromShare='+this.$route.query.fromShare;
-            this.$jsonp(urlNew).then(function(json) {
-
-                _self.$router.push({ path: '/shakeFirst/' + _self.$route.params.userid });
-                return
-            }).catch(err => {
-             
-                console.log('err')
-            })
-        },
-        parseQueryString(url) {
-            var obj = {}
-            var keyvalue = []
-            var key = "", value = "";
-            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&")
-            for (var i in paraString) {
-                keyvalue = paraString[i].split("=")
-                key = keyvalue[0]
-                value = keyvalue[1]
-                obj[key] = value
-            }
-            return obj
-        },
-        getRadomId() {
+    insertUsr() {
+      var _self = this;
+      var userId = this.$route.params.userid;
+      var fromShare = this.$route.query.fromShare;
+      this.$store
+        .dispatch("SetUsrMes", {
+          user_id: userId,
+          shakeSmart: 0,
+          fromShare: fromShare
+        })
+        .then(() => {
+          _self.$router.push({ path: "/shakeFirst/" + userId });
+        })
+        .cath(err => {});
+    },
+    getRadomId() {
             let idStr = Date.now().toString(36)
             idStr += Math.random().toString(36).substr(3)
             return idStr
         }
-    }
 
-}
+  }
+};
 </script>
