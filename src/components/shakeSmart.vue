@@ -22,9 +22,7 @@
             </li>
         </ul>
         <div class="bottom">
-        
             <div  class="cont checked" @click="nextPage">记&nbsp;&nbsp;住&nbsp;&nbsp;了</div>
-
         </div>
     </div>
 </template>
@@ -41,16 +39,9 @@ export default {
       doShakeSmart: 0
     };
   },
-  created() {
-
-  },
-  mounted() {
-
-  },
   methods: {
     nextPage() {
       this.getUserData();
-      
     },
     getUserData() {
       var _self=this;
@@ -72,9 +63,9 @@ export default {
       this.$store.dispatch("SetUsrMes", this.dataJson).then(() => {
           _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
       })
-        .cath(err => {
-          console.log(err);
-        });
+    .cath(err => {
+        console.log(err);
+    });
     }
   }
 };

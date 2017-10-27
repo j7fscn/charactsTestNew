@@ -48,7 +48,6 @@ export default {
       doShakeSmart: 0
     };
   },
-  created() {},
   mounted() {
     this.currentKey = this.mes.pageName;
   },
@@ -74,7 +73,7 @@ export default {
       }
     },
     getUserData() {
-        var _self=this;
+      var _self = this;
       this.$store
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {

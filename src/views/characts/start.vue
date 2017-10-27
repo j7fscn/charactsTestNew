@@ -10,10 +10,8 @@ export default {
 
     };
   },
-
   beforeCreate() {},
   created() {
-
     this.linkToPage();
   },
   methods: {

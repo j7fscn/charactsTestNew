@@ -41,7 +41,6 @@ export default {
                      },
                       {
                         name: '领结',
-                        // src: 'http://owxa0vmjl.bkt.clouddn.com/sm1-7.png',
                         src: 'http://ovfllimsi.bkt.clouddn.com/1-7new.png',
                      },
                       {

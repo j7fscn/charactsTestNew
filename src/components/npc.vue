@@ -14,9 +14,6 @@
 
 export default {
     props: ['mes'],
-    // created:function(){
-        
-    // },
     data(){
         return {
             dataJonp:{},

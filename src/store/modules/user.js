@@ -36,9 +36,6 @@ const user = {
     },
     INSERT_USR: (state, data) => {
     },
-    // CHANGE_ISNEW:(state,isTrue)=>{
-    //     state.isNewUsr=isTrue;
-    // }
   },
   actions: {
     // 获取
@@ -56,8 +53,6 @@ const user = {
             if(typeof(data.houseArea=="number")){
               data.houseArea=swithHouseName(data.houseArea);
             }
-        
-          
   
           }
           commit('GET_USR',data);
@@ -71,8 +66,6 @@ const user = {
       var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult';
       return new Promise((resolve, reject) => {
         setUsrMes(url, params).then(response => {
-          const data = response.data;
-          commit('INSERT_USR', data);
           resolve(response);
         }).catch(error => {
           reject(error);
