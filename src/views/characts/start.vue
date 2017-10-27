@@ -43,6 +43,7 @@ export default {
         
             _self.$router.push({ path: "/shakeFirst/" + _self.userId });
             return;
+            debugger
           }
           _self.$router.push({path: json.nextKey + "/" + _self.userId });
         })

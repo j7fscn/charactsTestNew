@@ -97,7 +97,7 @@ export default {
     },
 
     getUserData() {
-      var _self=this;
+      var _self = this;
       this.$store
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
@@ -112,19 +112,22 @@ export default {
     setUserData() {
       var _self = this;
       this.dataJson.datePick = this.checkedValue;
-      this.dataJson.nextKey = 'houseArea';
-      this.$store.dispatch("SetUsrMes", this.dataJson).then(() => {
-        _self.$router.push({  path: '/houseArea' + "/" + _self.$route.params.userid});
-      })
+      this.dataJson.nextKey = "/houseArea";
+      this.$store
+        .dispatch("SetUsrMes", this.dataJson)
+        .then(() => {
+          _self.$router.push({
+            path: "/houseArea" + "/" + _self.$route.params.userid
+          });
+        })
         .cath(err => {
           console.log(err);
         });
     },
-  submit() {
-        this.checkedValue = this.$refs.picker.currentValue;
-        this.getUserData();
-      }
-   
+    submit() {
+      this.checkedValue = this.$refs.picker.currentValue;
+      this.getUserData();
+    }
   }
 };
 </script>

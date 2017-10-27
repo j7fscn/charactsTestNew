@@ -42,7 +42,6 @@ export default {
       currentKey: "",
       user_id: "",
       sex: "",
-      nextKey: "nextKey",
       checkedValue: -1,
       checkedImgKey: "",
       doShakeSmart: 0
@@ -87,18 +86,16 @@ export default {
           console.log(err);
         });
     },
-
     setUserData() {
       var _self = this;
       this.dataJson[this.currentKey] = this.checkedValue;
-      this.nextKey = this.mes.nextPage;
+      this.dataJson.nextKey = this.mes.nextPage;
 
 
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {
-          _self.$router.push({
-            path: _self.mes.nextPage + "/" + _self.$route.params.userid
+          _self.$router.push({ path: _self.mes.nextPage + "/" + _self.$route.params.userid
           });
         })
         .cath(err => {
