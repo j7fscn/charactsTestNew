@@ -35,13 +35,13 @@ export default {
             return;
           }
           if (json.shakeSmart == "0") {
-            _self.$router.push({ path: "/shakeFirst/" + this.userId});
+            _self.$router.push({ path: "/shakeFirst/" + _self.userId});
             return;
           }
-          _self.$router.push({path: json.nextKey.replace("%2F","/") + "/" + this.userId});
+          _self.$router.push({path: json.nextKey.replace("%2F","/") + "/" + _self.userId});
         })
         .catch(err => {
-          console.log(err);
+       
         });
     },
     insertUsr() {
@@ -56,7 +56,7 @@ export default {
           _self.$router.push({ path: "/shakeFirst/" + _self.userId });
         })
         .cath(err => {
-          
+              console.log(err);
         });
     },
     getRadomId() {

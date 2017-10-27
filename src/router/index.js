@@ -52,12 +52,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'start',
+      name: 'default',
       component: start
     },
     {
       path: '/start',
-      name: 'start',
+      name: 'begin',
       component: start
     },
     {

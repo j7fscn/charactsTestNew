@@ -83,7 +83,7 @@ export default {
           _self.setUserData();
         })
         .catch(err => {
-          console.log(err);
+       
         });
     },
     setUserData() {
@@ -97,7 +97,7 @@ export default {
           });
         })
         .cath(err => {
-          console.log(err);
+            console.log(err);
         });
     },
 
