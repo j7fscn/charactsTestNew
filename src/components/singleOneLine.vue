@@ -92,9 +92,7 @@ export default {
       var _self = this;
       this.dataJson[this.currentKey] = this.checkedValue;
       this.nextKey = this.mes.nextPage;
-      if(typeof(this.dataJson.houseArea)=="number"){
-             this.dataJson.houseArea = this.swithHouseName(this.dataJson.houseArea);
-      }
+
 
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
@@ -108,18 +106,7 @@ export default {
         });
     },
 
-    swithHouseName(n) {
-      switch (n) {
-        case 0:
-          return "小户型";
-          break;
-        case 1:
-          return "大户型";
-          break;
-        default:
-          return "超大户型";
-      }
-    }
+
   }
 };
 </script>

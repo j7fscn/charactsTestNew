@@ -24,7 +24,7 @@
   top: 0;
   width: 100%;
   background-color: #fff;
-  z-index:99999;
+  z-index: 99999;
 }
 
 .page-datePick .picker-toolbar {
@@ -35,39 +35,39 @@
   display: none;
 }
 
-.picker-item .picker-item {}
+.picker-item .picker-item {
+}
 
 .picker-item.picker-selected {
   opacity: 1;
-
 }
 .picker {
-    height: 2.2rem;
+  height: 2.2rem;
 }
 .page-datePick .mint-popup {
-
   position: fixed;
-  top: .6rem;
+  top: 0.6rem;
   height: 2.2rem;
-  animation:datePicker 2s;
-
+  animation: datePicker 2s;
 }
 
 .page-datePick .picker-items {
   background: #fff;
-  margin: 0 .2rem;
-  
+  margin: 0 0.2rem;
 }
 
-   @keyframes datePicker
-   {
-   from { opacity: 0;}
-   to { opacity: 1}
-   }
+@keyframes datePicker {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .page-datePick .tit {
-  font-size: .17rem;
-  margin: .15rem 0 .2rem .2rem;
+  font-size: 0.17rem;
+  margin: 0.15rem 0 0.2rem 0.2rem;
   padding: 0;
   color: #000;
   text-align: left;
@@ -78,93 +78,53 @@
 export default {
   data() {
     return {
-      dataJson: '',
-      currentKey: '',
-      user_id: '',
-      nextKey: 'nextKey',
+      dataJson: "",
+      user_id: "",
       checkedValue: -1,
-      pageName: 'datePick',
-      nextPage: '/houseArea',
-      pickerVisible: '1985-6-6',
-      startDate: new Date('1968'),
+      pickerVisible: "1985-6-6",
+      startDate: new Date("1968"),
       endDate: new Date(),
-      option: { format: 'YYYY-MM-DD' },
-    }
+      option: { format: "YYYY-MM-DD" }
+    };
   },
-  created() {
-    this.getUserData();
 
-  },
   mounted() {
-    this.currentKey = this.pageName;
     this.openPicker();
-
   },
   methods: {
-
     openPicker() {
-
       this.checkedValue = this.$refs.picker.open();
+    },
 
-    },
-    setValue() {
-      this.setUserData();
-     
-    },
     getUserData() {
-      var _self = this;
-      let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid)
-      this.$jsonp(urlG).then(json => {
-        this.dataJson = json.data.result
-      }).catch(err => {
-        console.log(err)
-      })
+      var _self=this;
+      this.$store
+        .dispatch("GetusrMes", this.$route.params.userid)
+        .then(() => {
+          var json = _self.$store.getters.userMes;
+          _self.dataJson = json;
+          _self.setUserData();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     setUserData() {
       var _self = this;
-      var data = '';
-      if (!this.dataJson ) {
-        data = 'user_id=' + this.$route.params.userid + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage;
-
-      } else {
-        data = this.dataJson + '&' + this.currentKey + '=' + this.checkedValue + '&' + this.nextKey + '=' + this.nextPage
-      }
-      var strToJson = this.parseQueryString(data)
-      var str = ''
-      for (let i in strToJson) {
-        if (i == this.currentKey) {
-          strToJson[i] = this.checkedValue
-        }
-        str += i + '=' + strToJson[i] + '&'
-      }
-      str = str.substring(0, str.length - 1)
-      var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
-      this.$jsonp(url).then(json => {
-        _self.$router.push({ path: _self.nextPage + '/' + _self.$route.params.userid });
-      }).catch(err => {
-        console.log(err)
+      this.dataJson.datePick = this.checkedValue;
+      this.dataJson.nextKey = 'houseArea';
+      this.$store.dispatch("SetUsrMes", this.dataJson).then(() => {
+        _self.$router.push({  path: '/houseArea' + "/" + _self.$route.params.userid});
       })
+        .cath(err => {
+          console.log(err);
+        });
     },
-    parseQueryString(url) {
-      var obj = {};
-      var keyvalue = [];
-      var key = "", value = "";
-      var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-      for (var i in paraString) {
-        keyvalue = paraString[i].split("=");
-        key = keyvalue[0];
-        value = keyvalue[1];
-        obj[key] = value;
+  submit() {
+        this.checkedValue = this.$refs.picker.currentValue;
+        this.getUserData();
       }
-      return obj;
-    },
-    submit() {
-      this.checkedValue = this.$refs.picker.currentValue;
-      this.setUserData();
-
-
-    }
-  },
-
+   
+  }
 };
 </script>

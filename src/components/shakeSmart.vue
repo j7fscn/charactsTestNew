@@ -38,7 +38,6 @@ export default {
     return {
       dataJson: "",
       user_id: "",
-      nextKey: "nextKey",
       doShakeSmart: 0
     };
   },
@@ -46,7 +45,7 @@ export default {
 
   },
   mounted() {
-    this.currentKey = this.mes.pageName;
+
   },
   methods: {
     nextPage() {
@@ -54,7 +53,7 @@ export default {
       
     },
     getUserData() {
-        var _self=this;
+      var _self=this;
       this.$store
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
@@ -66,11 +65,10 @@ export default {
           console.log(err);
         });
     },
-
     setUserData() {
       var _self = this;
-      this.shakeSmart =this.dataJson.nextKey == "/shakeResult"?1:0;
-      this.nextKey = this.mes.nextPage;
+      this.dataJson.shakeSmart =this.mes.nextPage== "/shakeResult"?1:0;
+      this.dataJson.nextKey = this.mes.nextPage;
       this.$store.dispatch("SetUsrMes", this.dataJson).then(() => {
           _self.$router.push({ path: _self.mes.nextPage+'/'+_self.$route.params.userid});
       })

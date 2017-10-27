@@ -6,47 +6,45 @@
 export default {
   data() {
     return {
-      from: 0
+
+         userId :0,
+
     };
   },
-  computed: {},
+
   beforeCreate() {},
   created() {
+    this.userId=this.$route.params.userid;
     this.linkToPage();
   },
   methods: {
     linkToPage() {
       var _self = this;
-      var userId = this.$route.params.userid;
-      var fromShare = this.$route.query.fromShare;
-      this.fromShare = this.$route.query.fromShare ? 1 : 0;
-
-     this.$store.commit('CHANGE_ISNEW',false);
-      if ( !this.$route.params.userid || this.$route.params.userid == "undefined") {
-        this.$router.push({ path:"/start/" +_self.getRadomId() + "?fromShare=" +this.fromShare}); //没有ID生成随机ID
+      
+      if ( !this.userId || this.userId == "undefined") {
+     
+      
+        this.$router.push({ path:"/start/" +_self.getRadomId() }); //没有ID生成随机ID
+        this.userId=this.$route.params.userid;
       }
-
       _self.getUsr();
     },
     getUsr() {
       var _self = this;
-      var userId = this.$route.params.userid;
-      var fromShare = this.$route.query.fromShare;
       this.$store
-        .dispatch("GetusrMes", userId)
+        .dispatch("GetusrMes", this.userId)
         .then(() => {
           var json = _self.$store.getters.userMes;
-          if (!_self.$store.getters.isNewUsr) {
+          if (_self.$store.getters.userMes=="数据库没有该userId的记录") {
             _self.insertUsr(); // 插入新用户
             return;
           }
-          if (json.data.shakeSmart == "0") {
-            _self.$router.push({ path: "/shakeFirst/" + userId + "?fromShare=" + fromShare});
+          if (json.shakeSmart == "0") {
+        
+            _self.$router.push({ path: "/shakeFirst/" + _self.userId });
             return;
           }
-          _self.$router.push({
-            path: json.nextKey + "/" + userId + "?fromShare=" + fromShare
-          });
+          _self.$router.push({path: json.nextKey + "/" + _self.userId });
         })
         .catch(err => {
           console.log(err);
@@ -54,15 +52,13 @@ export default {
     },
     insertUsr() {
       var _self = this;
-      var userId = this.$route.params.userid;
-      var fromShare = this.$route.query.fromShare;
       this.$store.dispatch("SetUsrMes", {
-          user_id: userId,
+          user_id: _self.userId,
           shakeSmart: 0,
-          fromShare: fromShare
+          fromShare: _self.fromShare
         })
         .then(() => {
-          _self.$router.push({ path: "/shakeFirst/" + userId });
+          _self.$router.push({ path: "/shakeFirst/" + _self.userId });
         })
         .cath(err => {
           

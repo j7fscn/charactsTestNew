@@ -13,11 +13,22 @@ import { getusrMes,setUsrMes } from '@/api/getUsr';
     } 
     return obj;
 }
-
+function swithHouseName(n) {
+  switch (n) {
+    case 0:
+      return "小户型";
+      break;
+    case 1:
+      return "大户型";
+      break;
+    default:
+      return "超大户型";
+  }
+}
 const user = {
   state: {
     userData: {},
-    isNewUsr:true,
+    isNewUsr:false,
   },
   mutations: {
     GET_USR: (state, data) => {
@@ -25,9 +36,9 @@ const user = {
     },
     INSERT_USR: (state, data) => {
     },
-    CHANGE_ISNEW:(state,isTrue)=>{
-
-    }
+    // CHANGE_ISNEW:(state,isTrue)=>{
+    //     state.isNewUsr=isTrue;
+    // }
   },
   actions: {
     // 获取
@@ -38,13 +49,15 @@ const user = {
           var result=response.data.result;
           var data='';
           if(result=="数据库没有该userId的记录"){
-            data=response;
-            commit('CHANGE_ISNEW',false);
+            data=response.data.result;
           
           }else {
             data=parseQueryString(response.data.result);
-       
-            commit('CHANGE_ISNEW',true);
+            if(typeof(data.houseArea=="number")){
+              data.houseArea=swithHouseName(data.houseArea);
+            }
+        
+          
   
           }
           commit('GET_USR',data);
