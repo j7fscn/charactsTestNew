@@ -30,8 +30,7 @@ export default {
                 return
                
             }
-            debugger
-              this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
+            this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
         },
     }
 }

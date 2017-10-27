@@ -90,8 +90,6 @@ export default {
       var _self = this;
       this.dataJson[this.currentKey] = this.checkedValue;
       this.dataJson.nextKey = this.mes.nextPage;
-
-
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {

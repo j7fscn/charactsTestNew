@@ -66,13 +66,13 @@ export default {
       this.getUserData();
     },
     getUserData() {
-        var _slef=this;
-      this.$store
-        .dispatch("GetusrMes", this.$route.params.userid)
+        var _self=this;
+      this.$store.dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
+          debugger
           var json = _self.$store.getters.userMes;
-          this.dataJson = json;
-          _slef.setUserData();
+          _self.dataJson = json;
+          _self.setUserData();
         })
         .catch(err => {
           console.log(err);

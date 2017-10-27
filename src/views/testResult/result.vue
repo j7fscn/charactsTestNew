@@ -21,19 +21,10 @@ export default {
       imgAnimate: [{ "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }, { "isFirst": true, "isShow": false }]
     }
   },
-  beforeCreate() {
-    var _self = this;
-    var urlG = 'http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id=' + this.$route.params.userid;
-    this.$jsonp(urlG).then(function(json) {
-      _self.dataJson = _self.parseQueryString(json.data.result);
-
-    }).catch(err => {
-      console.log(err)
-    });
-  },
   created() {
-
+     this.getUserData();
   },
+
   mounted() {
     this.$nextTick(function(){
        this.getStartOffset();
@@ -79,19 +70,19 @@ export default {
 
       });
     },
-    parseQueryString(url) {
-      var obj = {};
-      var keyvalue = [];
-      var key = "", value = "";
-      var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-      for (var i in paraString) {
-        keyvalue = paraString[i].split("=");
-        key = keyvalue[0];
-        value = keyvalue[1];
-        obj[key] = value;
-      }
-      return obj;
-    }
+     getUserData() {
+        var _self=this;
+       this.$store
+        .dispatch("GetusrMes", this.$route.params.userid)
+        .then(() => {
+          var json = _self.$store.getters.userMes;
+          _self.dataJson = json;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
 
   },
 
