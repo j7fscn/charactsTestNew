@@ -111,7 +111,8 @@ export default {
     },
     setUserData() {
       var _self = this;
-      this.dataJson.datePick = this.checkedValue;
+      var d = new Date(this.checkedValue);
+      this.dataJson.datePick = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
       this.dataJson.nextKey = "/houseArea";
       this.$store
         .dispatch("SetUsrMes", this.dataJson)
