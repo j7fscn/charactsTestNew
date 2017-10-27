@@ -93,6 +93,7 @@ export default {
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {
+          debugger
           _self.$router.push({ path: _self.mes.nextPage + "/" + _self.$route.params.userid
           });
         })

@@ -20,10 +20,7 @@ export default {
   methods: {
     linkToPage() {
       var _self = this;
-      
       if ( !this.userId || this.userId == "undefined") {
-     
-      
         this.$router.push({ path:"/start/" +_self.getRadomId() }); //没有ID生成随机ID
         this.userId=this.$route.params.userid;
       }
@@ -40,12 +37,10 @@ export default {
             return;
           }
           if (json.shakeSmart == "0") {
-        
             _self.$router.push({ path: "/shakeFirst/" + _self.userId });
             return;
-            debugger
           }
-          _self.$router.push({path: json.nextKey + "/" + _self.userId });
+          _self.$router.push({path: json.nextKey.replace("%2F","/") + "/" + _self.userId });
         })
         .catch(err => {
           console.log(err);
