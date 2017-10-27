@@ -24,14 +24,13 @@ export default {
     },
     methods: {
         nextPage(){
-        
             if(this.$route.fullPath=="/shareStart"){
                 this.$router.push({ path: this.mes.nextPage});
                 return
-               
             }
             this.$router.push({ path: this.mes.nextPage+'/'+this.$route.params.userid});
         },
+    
     }
 }
 </script>

@@ -45,9 +45,6 @@ export default {
       nextKey: "nextKey"
     };
   },
-  created() {
-
-  },
   mounted() {
     this.currentKey = this.mes.pageName;
   },
@@ -66,10 +63,10 @@ export default {
       this.getUserData();
     },
     getUserData() {
-        var _self=this;
-      this.$store.dispatch("GetusrMes", this.$route.params.userid)
+      var _self = this;
+      this.$store
+        .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
-          debugger
           var json = _self.$store.getters.userMes;
           _self.dataJson = json;
           _self.setUserData();
@@ -81,16 +78,17 @@ export default {
 
     setUserData() {
       var _self = this;
-      this.dataJson[this.currentKey]=this.score;
-      this.nextKey= this.mes.nextPage;
-      this.$store.dispatch("SetUsrMes",_self.dataJson)
+      this.dataJson[this.currentKey] = this.score;
+      this.nextKey = this.mes.nextPage;
+      this.$store
+        .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {
           _self.$router.push({
             path: _self.mes.nextPage + "/" + _self.$route.params.userid
           });
         })
         .cath(err => {
-             console.log(err);
+          console.log(err);
         });
     }
   }
