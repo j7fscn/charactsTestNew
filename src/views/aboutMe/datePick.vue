@@ -106,7 +106,7 @@ export default {
           _self.setUserData();
         })
         .catch(err => {
-          console.log(err);
+       
         });
     },
     setUserData() {
