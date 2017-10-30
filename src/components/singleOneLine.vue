@@ -83,7 +83,7 @@ export default {
           _self.setUserData();
         })
         .catch(err => {
-       
+           console.log(err);
         });
     },
     setUserData() {
@@ -96,7 +96,7 @@ export default {
           _self.$router.push({ path: _self.mes.nextPage + "/" + _self.$route.params.userid
           });
         })
-        .cath(err => {
+        .catch(err => {
             console.log(err);
         });
     },

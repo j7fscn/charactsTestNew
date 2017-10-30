@@ -224,7 +224,7 @@ export default {
       this.imgOrder += 1;
       this.canClick = false;
       setTimeout(function() {
-        if (_self.imgOrder == 31) {
+        if (_self.imgOrder == 3) {
           _self.maxScore();
         }
         _self.like = false;

@@ -47,7 +47,6 @@ const result = () => import(/* webpackChunkName: "group-result" */'@/views/testR
 
 
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {

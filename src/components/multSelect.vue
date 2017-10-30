@@ -87,9 +87,9 @@ export default {
             path: _self.mes.nextPage + "/" + _self.$route.params.userid
           });
         })
-        .cath(err => {
+        .catch(err => {
           console.log(err);
-        });
+       });
     }
   }
 };
