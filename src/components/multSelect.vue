@@ -46,6 +46,8 @@ export default {
     };
   },
   mounted() {
+    this.wxShareApi.getId(this);
+    this.wxShareApi.shareReady();
     this.currentKey = this.mes.pageName;
   },
   methods: {

@@ -39,6 +39,10 @@ export default {
       doShakeSmart: 0
     };
   },
+    mounted() {
+    this.wxShareApi.getId(this);
+    this.wxShareApi.shareReady();
+  },
   methods: {
     nextPage() {
       this.getUserData();

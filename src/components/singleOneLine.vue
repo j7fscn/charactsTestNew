@@ -53,8 +53,11 @@ export default {
     }
   },
   mounted() {
+    this.wxShareApi.getId(this);
+    this.wxShareApi.shareReady();
     this.currentKey = this.mes.pageName;
   },
+
   methods: {
     choice(e, index) {
       if (this.mes.dataList[index].choiced) {
@@ -74,7 +77,7 @@ export default {
       this.getUserData();
     },
     getUserData() {
-        var _self=this;
+      var _self = this;
       this.$store
         .dispatch("GetusrMes", this.$route.params.userid)
         .then(() => {
@@ -83,7 +86,7 @@ export default {
           _self.setUserData();
         })
         .catch(err => {
-           console.log(err);
+          console.log(err);
         });
     },
     setUserData() {
@@ -93,15 +96,14 @@ export default {
       this.$store
         .dispatch("SetUsrMes", _self.dataJson)
         .then(() => {
-          _self.$router.push({ path: _self.mes.nextPage + "/" + _self.$route.params.userid
+          _self.$router.push({
+            path: _self.mes.nextPage + "/" + _self.$route.params.userid
           });
         })
         .catch(err => {
-            console.log(err);
+          console.log(err);
         });
-    },
-
-
+    }
   }
 };
 </script>

@@ -49,6 +49,8 @@ export default {
     };
   },
   mounted() {
+    this.wxShareApi.getId(this);
+    this.wxShareApi.shareReady();
     this.currentKey = this.mes.pageName;
   },
   methods: {
@@ -81,9 +83,7 @@ export default {
           _self.dataJson = json;
           _self.setUserData();
         })
-        .catch(err => {
-       
-        });
+        .catch(err => {});
     },
 
     setUserData() {

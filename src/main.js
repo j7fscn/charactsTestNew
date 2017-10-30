@@ -4,16 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '@/common/css/base.css'
-
 import VueJsonp from 'vue-jsonp'
 import vueBridgeWebview from 'vue-bridge-webview'
 import store from './store'
 import fastclick from 'fastclick'
+import wxShare from 'common/js/share'
 
-
+Vue.prototype.wxShareApi=wxShare;
 
 Vue.use(VueJsonp)
 Vue.use(vueBridgeWebview)
+
+
 
 import { Lazyload } from 'mint-ui';
 import { DatetimePicker } from 'mint-ui';

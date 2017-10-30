@@ -39,7 +39,7 @@
         </ul>
         <div class="mt40">
             <div class="btn">
-                     <div class="cont" @click="shareLayer" v-if="isFromShare">通&nbsp;知&nbsp;好&nbsp;友</div>
+                     <div class="cont" @click="shareLayer" v-if="isFromShare">通&nbsp;知&nbsp;好&nbsp;友&nbsp;来&nbsp;测</div>
                <div v-else>
                     <router-link to="/shareStart" v-if="isShare">
                     <a class="cont">我&nbsp;要&nbsp;测&nbsp;试</a>
@@ -56,7 +56,7 @@
     </div>
 </template>
 <script>
-import wx from 'weixin-js-sdk'
+// import wx from 'weixin-js-sdk'
 export default {
   name: "likeStyle",
   props: ["dataJson", "imgAnimate"],
@@ -139,20 +139,24 @@ export default {
     setTimeout(() => {
       this.allStyle();
       this.isFromShare = this.dataJson.fromShare - 0;
-      this.shareWx();
-   
+      this.wxShareApi.getId(this, window.location.href);
+      this.wxShareApi.shareReady(
+        "测试你的性格",
+        '怎么不信？我们可以试试"',
+        "http://wesetup.cn/chatactsTest/index.html#/shareStart",
+        "http://ovfllimsi.bkt.clouddn.com/logo.png"
+      );
     }, 500);
   },
 
   created() {
-    if(this.$bridge){
-       this.$bridge.callHandler(
-      "enterLastPage",
-      { testResult: { result: 1 } },
-      function(data) {}
-    );
+    if (this.$bridge) {
+      this.$bridge.callHandler(
+        "enterLastPage",
+        { testResult: { result: 1 } },
+        function(data) {}
+      );
     }
-   
   },
   methods: {
     allStyle() {
@@ -189,8 +193,6 @@ export default {
         this.isShare = true;
       }
     },
-    //点击分享模态导航
-    showGuide() {},
     postResult() {
       var _likeStyle = decodeURIComponent(this.dataJson.likeStyle).split(",");
       console.log({
@@ -210,102 +212,9 @@ export default {
         function(data) {}
       );
     },
-    parseQueryString(url) {
-      var obj = {};
-      var keyvalue = [];
-      var key = "",
-        value = "";
-      var paraString = url
-        .substring(url.indexOf("?") + 1, url.length)
-        .split("&");
-      for (var i in paraString) {
-        keyvalue = paraString[i].split("=");
-        key = keyvalue[0];
-        value = keyvalue[1];
-        obj[key] = value;
-      }
-      return obj;
-    },
-
     shareLayer() {
       var height = window.screen.height;
-
       this.isLayer = !this.isLayer;
-    },
-    shareWx() {
-      this.getWxAppid();
-      this.shareReady();
-    },
-    getWxAppid() {
-      var url = "http://bos.foreverlynn.com/weixin/getWXUrl";
-      this.$jsonp(url,{url: location.href.replace(location.hash, "")})
-        .then(res => {
-          if (res.code != "200") {
-            return
-          }
-          wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: res.data.result.appId, // 必填，公众号的唯一标识
-            timestamp: res.data.result.timestamp, // 必填，生成签名的时间戳
-            nonceStr: res.data.result.nonceStr, // 必填，生成签名的随机串
-            signature: res.data.result.signature, // 必填，签名
-            jsApiList: [
-              "onMenuShareTimeline",
-              "onMenuShareAppMessage",
-              "startRecord",
-              "stopRecord",
-              "onVoiceRecordEnd",
-              "playVoice",
-              "pauseVoice",
-              "stopVoice",
-              "onVoicePlayEnd",
-              "uploadVoice",
-              "downloadVoice",
-              "chooseImage",
-              "previewImage",
-              "uploadImage",
-              "downloadImage"
-            ] // 必填，需要使用的JS接口列表
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-    shareReady() {
-      wx.ready(function() {
-        // 在这里调用 API
-        wx.onMenuShareAppMessage({
-            link:'http://wesetup.cn/chatactsTest/index.html#/shareStart',
-          title: "测试你的性格", // 分享标题
-          desc: "怎么不信？我们可以试试", // 分享描述
-          imgUrl: "http://ovfllimsi.bkt.clouddn.com/logo.png", // 分享图标
-          success: function(success) {
-              console.log(success);
-            // 用户确认分享后执行的回调函数
-          },
-          cancel: function() {
-            // 用户取消分享后执行的回调函数
-          }
-        });
-
-        wx.onMenuShareTimeline({
-         link:'http://wesetup.cn/chatactsTest/index.html#/shareStart',
-          title: "测试你的性格", // 分享标题
-          desc: "怎么不信？我们可以试试", // 分享描述
-          imgUrl: "http://ovfllimsi.bkt.clouddn.com/logo.png", // 分享图标
-          success: function(success) {
-             console.log(success);
-            // 用户确认分享后执行的回调函数
-          },
-          cancel: function() {
-            // 用户取消分享后执行的回调函数
-          }
-        });
-        wx.error(function(res) {
-          console.log(res);
-        });
-      });
     }
   }
 };

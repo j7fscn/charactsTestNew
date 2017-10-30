@@ -26,6 +26,8 @@ export default {
   },
 
   mounted() {
+    this.wxShareApi.getId(this);
+    this.wxShareApi.shareReady();
     this.$nextTick(function(){
        this.getStartOffset();
         window.addEventListener('scroll', this.scrollEvent);
