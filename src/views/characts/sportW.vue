@@ -101,6 +101,8 @@ export default {
     //     this.getUserData();
     // },
     mounted() {
+        this.wxShareApi.getId(this);
+        this.wxShareApi.shareReady();
         this.currentKey = this.message.pageName;
     },
     methods: {

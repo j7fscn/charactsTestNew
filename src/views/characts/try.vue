@@ -103,6 +103,8 @@ export default {
     //     this.getUserData();
     // },
     mounted() {
+        this.wxShareApi.getId(this);
+        this.wxShareApi.shareReady();
         this.currentKey = this.message.pageName;
     },
     methods: {
@@ -168,49 +170,7 @@ export default {
             });
         }
 
-        // getUserData() {
-        //     let urlG = ('http://120.27.215.62:8999/personalityTest/getPersonalityTestResult?user_id='+this.$route.params.userid)
-        //     this.$jsonp(urlG).then(json => {
-        //         this.dataJson=json.data.result
-        //     }).catch(err => {
-        //         console.log(err)
-        //     })
-        // },
-        // setUserData() {
-        //     var data= this.dataJson + '&' + this.currentKey + '=' + this.score + '&' + this.nextKey + '=' + this.message.nextPage   
-        //     console.log(data)
-        //     var strToJson = this.parseQueryString(data)
-        //     var str =''
-        //     for(let i in strToJson){
-        //         if(i == this.currentKey){
-        //             strToJson[i] = this.score
-        //         }
-        //         str += i + '=' +strToJson[i] + '&'
-        //     }
-        //     str = str.substring(0, str.length - 1)
-        //     var _self =this
-        //     var url = 'http://120.27.215.62:8999/personalityTest/insertPersonalityTestResult?' + str
-        //     this.$jsonp(url).then(json => {
-        //         _self.$router.push({ path: _self.message.nextPage+'/'+_self.$route.params.userid });
-        //     }).catch(err => {
-        //         console.log(err)
-        //     })
-        // },
-        // //字符串转JSON
-        // parseQueryString(url) {
-        //     var obj={};
-        //     var keyvalue=[];
-        //     var key="",value=""; 
-        //     var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
-        //     for(var i in paraString)
-        //     {
-        //         keyvalue=paraString[i].split("=");
-        //         key=keyvalue[0];
-        //         value=keyvalue[1];
-        //         obj[key]=value; 
-        //     } 
-        //     return obj;
-        // }
+        
     }
 
 }

@@ -89,6 +89,8 @@ export default {
   },
 
   mounted() {
+    this.wxShareApi.getId(this);
+    this.wxShareApi.shareReady();
     this.openPicker();
   },
   methods: {
